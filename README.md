@@ -6,7 +6,7 @@
 
 In this new exciting multiplayer version of a game we all are familiar with - tetris - [...]
 
-This project was developed by *Francisco Campos* (*up08735*@up.pt), *João Figueiredo* (*up202108829*@up.pt) and *João Longras* (*up202108780*@up.pt) for LDTS 2022⁄23.
+This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João Figueiredo* (*up202108829*@up.pt) and *João Longras* (*up202108780*@up.pt) for LDTS 2022⁄23.
 
 ### IMPLEMENTED FEATURES
 
