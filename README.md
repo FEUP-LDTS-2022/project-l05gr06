@@ -2,9 +2,15 @@
 
 > Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
 
-**Example**:
+In this new exciting multiplayer version of a game we all are familiar with - tetris - there's a vast sea of fun ways to play it.
+The game is basically the tetris everyone knows, but there's a little man down there, where the pieces fall, trying to avoid them. 
 
-In this new exciting multiplayer version of a game we all are familiar with - tetris - [...]
+This makes it so there's a lot of options for the users - let's call the user controlling the pieces player1 and the other one
+player2 - to choose:
+
+- **"Classic"** - While player1 is playing normal tetris, player2 is just avoiding the falling pieces;
+- **Co-op** - Player1 is trying to get player2 up top as fast as possible;
+- **1v1** - Player1 is purposefully trying to make player2 loose.
 
 This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João Figueiredo* (*up202108829*@up.pt) and *João Longras* (*up202108780*@up.pt) for LDTS 2022⁄23.
 
@@ -12,10 +18,17 @@ This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João F
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
 
-**Examples**:
+**Player1**:
 
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
+- **Moving the piece** - The piece will move, sideways, when the user presses 'A' or 'D' (left or right, respectively).
+- **Rotating the piece** - The piece will rotate, when the user presses 'W' or 'S' (clockwise or anti-clockwise, respectively).
+
+**Player2**:
+
+- **Jumping** - The game character will jump when the arrow-up key is pressed.
+- **Moving** - The player will move, sideways, when the user presses arrow-left or arrow-right.
+
+
 
 ### PLANNED FEATURES
 
