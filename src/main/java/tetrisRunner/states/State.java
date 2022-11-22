@@ -1,8 +1,12 @@
 package tetrisRunner.states;
 
 
+import tetrisRunner.Game;
 import tetrisRunner.controller.Controller;
+import tetrisRunner.gui.GUI;
 import tetrisRunner.viewer.Viewer;
+
+import java.io.IOException;
 
 public abstract class State<T> {
     private final T model;
@@ -23,5 +27,9 @@ public abstract class State<T> {
         return model;
     }
 
-
+    public void step(Game game, GUI gui, long time) throws IOException {
+        GUI.ACTION action = gui.getNextAction();
+        controller.step(game, action, time);
+        viewer.draw(gui);
+    }
 }
