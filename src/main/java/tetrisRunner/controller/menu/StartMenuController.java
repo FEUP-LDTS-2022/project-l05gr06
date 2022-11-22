@@ -4,13 +4,16 @@ package tetrisRunner.controller.menu;
 import tetrisRunner.Game;
 import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
+import tetrisRunner.model.menu.Instruction;
 import tetrisRunner.model.menu.Menu;
+import tetrisRunner.model.menu.StartMenu;
+import tetrisRunner.states.InstructionState;
 
 
 import java.io.IOException;
 
-public class MenuController extends Controller<Menu> {
-    public MenuController(Menu menu) {
+public class StartMenuController extends Controller<StartMenu> {
+    public StartMenuController(StartMenu menu) {
         super(menu);
     }
 
@@ -25,6 +28,7 @@ public class MenuController extends Controller<Menu> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
+                if (getModel().isSelectedInstructions()) game.setState(new InstructionState(new Instruction()));
         }
     }
 }
