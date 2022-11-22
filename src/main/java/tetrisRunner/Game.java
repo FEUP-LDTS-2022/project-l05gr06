@@ -19,6 +19,7 @@ public class Game {
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
+        Music.RunMusic(".\\src\\main\\resources\\music\\theme.wav");
         new Game().start();
     }
 
