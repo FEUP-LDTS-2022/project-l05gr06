@@ -46,7 +46,7 @@ public class Music {
     }
     public static void volumeDown(){
         currentVolume -= 5.0f;
-        if (currentVolume<-80.0f) currentVolume = 80.0f;
+        if (currentVolume<-80.0f) currentVolume = -80.0f;
         fc.setValue(currentVolume);
     }
 
