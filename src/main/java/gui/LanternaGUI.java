@@ -1,29 +1,39 @@
 package gui;
 
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import model.Position;
 
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
 
-    public LanternaGUI(Screen screen) {
-        this.screen = screen;
+    public LanternaGUI(int width, int height) throws IOException {
+        this.screen = createScreen(createTerminal(width,height));
+    }
+    private Screen createScreen(Terminal terminal) throws IOException {
+        Screen screen = new TerminalScreen(terminal);
+        screen.setCursorPosition(null); // we don't need a cursor
+        screen.startScreen(); // screens must be started
+        screen.doResizeIfNecessary(); // resize screen if necessary
+        return screen;
     }
 
+    private Terminal createTerminal(int width, int height) throws IOException {
+        TerminalSize terminalSize = new TerminalSize(width, height);
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+        Terminal terminal = terminalFactory.createTerminal();
+        return terminal;
+    }
+
+    @Override
+    public void drawText(Position position, String text, String color) {
+
+    }
 
     @Override
     public void clear() {

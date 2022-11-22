@@ -1,14 +1,20 @@
 import gui.LanternaGUI;
-import states.MenuState;
-import states.State;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class Game {
+    private final LanternaGUI gui;
 
-    public static void main(String[] args) {
-        System.out.println("Hello world2!");
+    public Game() throws IOException {
+        this.gui = new LanternaGUI(40,20);
+    }
+
+    public static void main(String[] args) throws IOException {
+        Game game = new Game();
+        game.start();
+    }
+
+    private void start() throws IOException {
+
     }
 }
