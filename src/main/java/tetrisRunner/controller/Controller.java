@@ -1,4 +1,4 @@
-package controller;
+package tetrisRunner.controller;
 
 public abstract class Controller<T> {
 }

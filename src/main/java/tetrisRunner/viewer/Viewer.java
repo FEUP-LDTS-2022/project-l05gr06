@@ -1,6 +1,6 @@
-package viewer;
+package tetrisRunner.viewer;
 
-import gui.GUI;
+import tetrisRunner.gui.GUI;
 
 public abstract class Viewer<T> {
 

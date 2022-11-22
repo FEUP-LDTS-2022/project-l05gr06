@@ -1,8 +1,7 @@
-package viewer.menu;
+package tetrisRunner.viewer.menu;
 
-import gui.GUI;
-import model.Position;
-import viewer.Viewer;
+import tetrisRunner.gui.GUI;
+import tetrisRunner.viewer.Viewer;
 
 import java.awt.*;
 

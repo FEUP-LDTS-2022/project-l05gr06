@@ -1,8 +1,8 @@
-package states;
+package tetrisRunner.states;
 
-import controller.Controller;
-import model.menu.Menu;
-import viewer.Viewer;
+import tetrisRunner.controller.Controller;
+import tetrisRunner.model.menu.Menu;
+import tetrisRunner.viewer.Viewer;
 
 public class MenuState extends State<Menu> {
 

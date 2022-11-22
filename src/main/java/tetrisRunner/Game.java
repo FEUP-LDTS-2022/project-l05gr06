@@ -1,4 +1,6 @@
-import gui.LanternaGUI;
+package tetrisRunner;
+
+import tetrisRunner.gui.LanternaGUI;
 
 import java.io.IOException;
 

@@ -1,11 +1,8 @@
-package states;
+package tetrisRunner.states;
 
 
-import controller.Controller;
-import gui.GUI;
-import viewer.Viewer;
-
-import java.io.IOException;
+import tetrisRunner.controller.Controller;
+import tetrisRunner.viewer.Viewer;
 
 public abstract class State<T> {
     private final T model;

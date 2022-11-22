@@ -1,6 +1,6 @@
-package gui;
+package tetrisRunner.gui;
 
-import model.Position;
+import tetrisRunner.model.Position;
 
 import java.io.IOException;
 

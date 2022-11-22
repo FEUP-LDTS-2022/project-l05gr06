@@ -1,6 +1,4 @@
-package model;
-
-import java.util.Objects;
+package tetrisRunner.model;
 
 public class Position {
     private final int x;
