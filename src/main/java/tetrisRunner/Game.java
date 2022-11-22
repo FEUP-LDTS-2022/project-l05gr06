@@ -2,10 +2,14 @@ package tetrisRunner;
 
 import tetrisRunner.gui.LanternaGUI;
 import tetrisRunner.model.menu.StartMenu;
+import tetrisRunner.music.Music;
 import tetrisRunner.states.StartMenuState;
 import tetrisRunner.states.State;
-import tetrisRunner.model.menu.Menu;
+
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -13,15 +17,26 @@ public class Game {
     private final LanternaGUI gui;
     private State state;
 
+
+
     public Game() throws FontFormatException, IOException, URISyntaxException {
+
+        //window
         this.gui = new LanternaGUI(20, 20);
         this.state = new StartMenuState(new StartMenu());
+
+        //Music
+        Music.RunMusic("./src/main/resources/music/theme.wav");
+
+
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
-        Music.RunMusic("./src/main/resources/music/theme.wav");
+
         new Game().start();
+
     }
+
 
     public void setState(State state) {
         this.state = state;

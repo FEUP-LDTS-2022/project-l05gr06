@@ -4,12 +4,10 @@ package tetrisRunner.controller.menu;
 import tetrisRunner.Game;
 import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
-import tetrisRunner.model.menu.Instruction;
-import tetrisRunner.model.menu.Menu;
-import tetrisRunner.model.menu.SelectMode;
-import tetrisRunner.model.menu.StartMenu;
+import tetrisRunner.model.menu.*;
 import tetrisRunner.states.InstructionState;
 import tetrisRunner.states.SelectModeState;
+import tetrisRunner.states.SettingsState;
 
 
 import java.io.IOException;
@@ -32,6 +30,7 @@ public class StartMenuController extends Controller<StartMenu> {
                 if(getModel().isSelectedGameMode()) game.setState(new SelectModeState(new SelectMode()));
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionState(new Instruction()));
+                if (getModel().isSelectedSettings()) game.setState(new SettingsState(new Settings()));
         }
     }
 }
