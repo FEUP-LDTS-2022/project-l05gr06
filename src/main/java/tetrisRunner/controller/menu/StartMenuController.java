@@ -5,12 +5,13 @@ import tetrisRunner.Game;
 import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.menu.Menu;
+import tetrisRunner.model.menu.StartMenu;
 
 
 import java.io.IOException;
 
-public class MenuController extends Controller<Menu> {
-    public MenuController(Menu menu) {
+public class StartMenuController extends Controller<StartMenu> {
+    public StartMenuController(StartMenu menu) {
         super(menu);
     }
 

@@ -1,9 +1,9 @@
 package tetrisRunner;
 
 import tetrisRunner.gui.LanternaGUI;
-import tetrisRunner.states.MenuState;
+import tetrisRunner.model.menu.StartMenu;
+import tetrisRunner.states.StartMenuState;
 import tetrisRunner.states.State;
-import tetrisRunner.model.menu.Menu;
 
 import java.awt.*;
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class Game {
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(20, 20);
-        this.state = new MenuState(new Menu());
+        this.state = new StartMenuState(new StartMenu());
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

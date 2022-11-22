@@ -3,12 +3,11 @@ package tetrisRunner.viewer.menu;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.menu.Menu;
+import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.viewer.Viewer;
 
-import java.awt.*;
-
-public class MenuViewer extends Viewer<Menu> {
-    public MenuViewer(Menu menu) {
+public class StartMenuViewer extends Viewer<StartMenu> {
+    public StartMenuViewer(StartMenu menu) {
         super(menu);
     }
 
