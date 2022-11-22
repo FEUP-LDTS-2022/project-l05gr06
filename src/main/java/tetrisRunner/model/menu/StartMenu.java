@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class StartMenu extends Menu{
     public StartMenu() {
-        super.entries = Arrays.asList("Game Mode", "Instructions", "Exit");
+        super.entries = Arrays.asList("Game Mode", "Instructions", "Settings","Exit");
     }
 
     public boolean isSelectedGameMode() {
@@ -16,7 +16,10 @@ public class StartMenu extends Menu{
         return isSelected(1);
     }
 
-    public boolean isSelectedExit() {
+    public boolean isSelectedSettings() {
         return isSelected(2);
+    }
+    public boolean isSelectedExit() {
+        return isSelected(3);
     }
 }

@@ -2,12 +2,12 @@ package tetrisRunner.viewer.menu;
 
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.menu.SelectMode;
+import tetrisRunner.model.menu.Settings;
 import tetrisRunner.viewer.Viewer;
 
-public class SelectGameModeViewer extends Viewer<SelectMode> {
-    public SelectGameModeViewer(SelectMode mode) {
-        super(mode);
+public class SettingsViewer extends Viewer<Settings> {
+    public SettingsViewer(Settings setting) {
+        super(setting);
     }
     @Override
     public void drawElements(GUI gui) {
@@ -20,4 +20,3 @@ public class SelectGameModeViewer extends Viewer<SelectMode> {
                     getModel().isSelected(i) ? "#FF0000" : "#FFFFFF");
     }
 }
-

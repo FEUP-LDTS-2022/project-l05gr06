@@ -2,7 +2,6 @@ package tetrisRunner.viewer.menu;
 
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.menu.Menu;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.viewer.Viewer;
 
