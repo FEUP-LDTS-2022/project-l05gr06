@@ -1,4 +1,5 @@
 package states;
 
-public class MenuState extends State <>{
+public class MenuState extends State<Menu> {
+
 }
