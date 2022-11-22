@@ -13,10 +13,19 @@ public class SettingsViewer extends Viewer<Settings> {
     public void drawElements(GUI gui) {
         gui.drawText(new Position(5, 5), "Settings", "#FFFFFF");
 
-        for (int i = 0; i < getModel().getNumberEntries(); i++)
+        String color;
+        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+
+            if (getModel().getEntry(i) == "Unmute") {
+                color = "#00FF00";
+            } else if (getModel().getEntry(i) == "Mute") {
+                color = "#FF0000";
+            } else color = "#00FFFF";
+
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FF0000" : "#FFFFFF");
+                    getModel().isSelected(i) ? color : "#FFFFFF");
+        }
     }
 }
