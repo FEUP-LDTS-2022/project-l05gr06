@@ -4,12 +4,13 @@ import java.util.Arrays;
 
 public class StartMenu extends Menu{
     public StartMenu() {
-        super.entries = Arrays.asList("Start", "Instructions", "Exit");
+        super.entries = Arrays.asList("Game Mode", "Instructions", "Exit");
     }
 
-    public boolean isSelectedStart() {
+    public boolean isSelectedGameMode() {
         return isSelected(0);
     }
+
 
     public boolean isSelectedInstructions() {
         return isSelected(1);
