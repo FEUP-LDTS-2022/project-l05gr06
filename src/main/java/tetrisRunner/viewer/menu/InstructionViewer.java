@@ -19,6 +19,6 @@ public class InstructionViewer extends Viewer<Instruction> {
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+                    getModel().isSelected(i) ? "#00FFFF" : "#FFFFFF");
     }
 }

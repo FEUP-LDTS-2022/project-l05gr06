@@ -17,7 +17,7 @@ public class SelectGameModeViewer extends Viewer<SelectMode> {
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FF0000" : "#FFFFFF");
+                    getModel().isSelected(i) ? "#00FFFF" : "#FFFFFF");
     }
 }
 
