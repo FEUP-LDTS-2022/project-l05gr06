@@ -11,7 +11,7 @@ public class SettingsViewer extends Viewer<Settings> {
     }
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Select Mode", "#FFFFFF");
+        gui.drawText(new Position(5, 5), "Settings", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
