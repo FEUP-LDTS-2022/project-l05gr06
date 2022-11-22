@@ -26,7 +26,10 @@ public class SettingsController extends Controller<Settings> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedMute()) Music.volumeMute();
+                if (getModel().isSelectedMute()){
+                    getModel().switchMute();
+                    Music.volumeMute();
+                }
                 if (getModel().isSelectedUp()) Music.volumeUp();
                 if (getModel().isSelectedDown()) Music.volumeDown();
                 if (getModel().isSelectedReturn()) game.setState(new StartMenuState(new StartMenu()));
