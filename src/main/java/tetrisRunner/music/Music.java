@@ -10,7 +10,12 @@ public class Music {
     static float currentVolume = 0;
     static float previousVolume = 0;
     static FloatControl fc;
-    static boolean mute = false;
+    static boolean muted = false;
+
+    public static boolean isMuted() {
+        return muted;
+    }
+
     public static void RunMusic(String path) {
         try {
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
@@ -51,16 +56,16 @@ public class Music {
     }
 
     public static void volumeMute(){
-        if (!mute) {
+        if (!muted) {
             previousVolume = currentVolume;
             currentVolume = -80.0f;
             fc.setValue(currentVolume);
-            mute = true;
+            muted = true;
         }
-        else if (mute) {
+        else if (muted) {
             currentVolume = previousVolume;
             fc.setValue(currentVolume);
-            mute = false;
+            muted = false;
         }
 
     }
