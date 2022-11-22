@@ -14,13 +14,16 @@ public class SettingsViewer extends Viewer<Settings> {
         gui.drawText(new Position(5, 5), "Settings", "#FFFFFF");
 
         String color;
-        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+        for (int i = 0; i < getModel().getNumberEntries() ; i++) {
 
-            if (getModel().getEntry(i) == "Unmute") {
-                color = "#00FF00";
-            } else if (getModel().getEntry(i) == "Mute") {
-                color = "#FF0000";
-            } else color = "#00FFFF";
+            switch (getModel().getEntry(i)) {
+                case "Mute":
+                    color = "#FF0000"; break;
+                case "Unmute":
+                    color = "#00FF00"; break;
+                default:
+                    color = "#00FFFF";
+            }
 
             gui.drawText(
                     new Position(5, 7 + i),
