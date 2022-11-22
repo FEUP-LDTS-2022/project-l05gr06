@@ -2,7 +2,6 @@ package tetrisRunner.states;
 
 import tetrisRunner.controller.Controller;
 import tetrisRunner.controller.menu.StartMenuController;
-import tetrisRunner.model.menu.Menu;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.viewer.Viewer;
 import tetrisRunner.viewer.menu.StartMenuViewer;
