@@ -1,4 +1,10 @@
 package model.game.layout;
 
-public class LayoutBuilder {
+public abstract class LayoutBuilder {
+    /*
+    public Layout createLayout(){
+        Layout layout;
+
+        return layout;
+    }*/
 }
