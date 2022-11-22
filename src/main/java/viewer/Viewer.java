@@ -1,4 +1,8 @@
 package viewer;
 
-public abstract class Viewer {
+import gui.GUI;
+
+public abstract class Viewer<T> {
+
+    public abstract void draw(GUI gui);
 }

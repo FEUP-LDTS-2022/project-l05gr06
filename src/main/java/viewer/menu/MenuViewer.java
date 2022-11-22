@@ -9,4 +9,8 @@ import java.awt.*;
 public class MenuViewer extends Viewer<Menu> {
 
 
+    @Override
+    public void draw(GUI gui) {
+
+    }
 }

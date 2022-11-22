@@ -1,5 +1,7 @@
 package gui;
 
+import model.Position;
+
 import java.io.IOException;
 
 public interface GUI {
@@ -7,6 +9,7 @@ public interface GUI {
 
 
 
+    void drawText(Position position, String text, String color);
 
     void clear();
 
