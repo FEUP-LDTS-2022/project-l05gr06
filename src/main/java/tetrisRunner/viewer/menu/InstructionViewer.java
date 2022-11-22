@@ -2,19 +2,18 @@ package tetrisRunner.viewer.menu;
 
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.menu.Menu;
+import tetrisRunner.model.menu.Instruction;
+import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.viewer.Viewer;
 
-import java.awt.*;
-
-public class MenuViewer extends Viewer<Menu> {
-    public MenuViewer(Menu menu) {
-        super(menu);
+public class InstructionViewer extends Viewer<Instruction> {
+    public InstructionViewer(Instruction inst) {
+        super(inst);
     }
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Menu", "#FFFFFF");
+        gui.drawText(new Position(5, 5), "Instructions", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
