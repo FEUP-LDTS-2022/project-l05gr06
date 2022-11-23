@@ -18,6 +18,10 @@ This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João F
 
 > This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
 
+**Menu**: Working menu with multiple options, such as 'Game Mode', to select the intended variant of the game and 'Instructions', to read the instructions of each
+mode. We also implemented the tetris theme song running on the background, therefore there's an additional option 'Settings' in which you can mute and change the music's volume.
+
+
 **Player1**:
 
 - **Moving the piece** - The piece will move, sideways, when the user presses 'A' or 'D' (left or right, respectively).
@@ -104,5 +108,6 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 
 **Example**:
 
-- John Doe: 40%
-- Jane Doe: 60%
+- Francisco Campos: 
+- João Figueiredo:
+- João Longras:
