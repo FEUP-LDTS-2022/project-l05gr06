@@ -12,12 +12,20 @@ public class SelectGameModeViewer extends Viewer<SelectMode> {
     @Override
     public void drawElements(GUI gui) {
         gui.drawText(new Position(5, 5), "Select Mode", "#FFFFFF");
-
-        for (int i = 0; i < getModel().getNumberEntries(); i++)
+        String color;
+        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+            switch (getModel().getEntry(i)) {
+                case "Return":
+                    color = "#E47200";
+                    break;
+                default:
+                    color = "#00FFFF";
+            }
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#00FFFF" : "#FFFFFF");
+                    getModel().isSelected(i) ? color : "#FFFFFF");
+        }
     }
 }
 
