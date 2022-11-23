@@ -11,7 +11,7 @@ public class SelectMode extends Menu{
         return isSelected(0);
     }
 
-    public boolean isSelectedCo_Op() {
+    public boolean isSelectedCoOp() {
         return isSelected(1);
     }
 
