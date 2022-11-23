@@ -16,7 +16,7 @@ public class Music {
         return muted;
     }
 
-    public static void RunMusic(String path) {
+    public static void runMusic(String path) {
         try {
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
             clip = AudioSystem.getClip();
@@ -24,6 +24,7 @@ public class Music {
             fc = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             Music.play();
             Music.loop();
+
 
 
 
@@ -74,5 +75,16 @@ public class Music {
 
     }
 
+    public static boolean getMuted() {
+        return muted;
+    }
+
+    public static FloatControl getFc() {
+        return fc;
+    }
+
+    public static Clip getClip() {
+        return clip;
+    }
 }
 
