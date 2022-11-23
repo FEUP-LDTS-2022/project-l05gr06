@@ -21,6 +21,8 @@ public class SettingsViewer extends Viewer<Settings> {
                     color = "#FF0000"; break;
                 case "Unmute":
                     color = "#00FF00"; break;
+                case "Return":
+                    color = "#E47200"; break;
                 default:
                     color = "#00FFFF";
             }
