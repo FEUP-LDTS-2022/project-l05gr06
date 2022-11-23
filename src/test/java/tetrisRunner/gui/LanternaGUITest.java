@@ -2,8 +2,6 @@ package tetrisRunner.gui;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.terminal.Terminal;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,7 +11,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class LanernaGUITest {
+public class LanternaGUITest {
     private LanternaGUI gui;
     private Screen screen;
     private TextGraphics tg;
