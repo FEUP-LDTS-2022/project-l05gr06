@@ -9,22 +9,34 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class MusicTest {
     String path;
-    Music music;
 
 
     @BeforeEach
     public void helper(){
         path = "./src/main/resources/music/theme.wav";
-        music = Mockito.mock(Music.class);
+        Music.runMusic(path);
     }
 
     @Test
     public void runMusicTest(){
-        music.runMusic(path);
-        Assertions.assertNotEquals(music.getFc(),null);
-        Assertions.assertNotEquals(music.getClip(),null);
+        Assertions.assertNotEquals(Music.getFc(),null);
+        Assertions.assertNotEquals(Music.getClip(),null);
+    }
+
+    @Test
+    public void volumeMuteTest(){
+        if (Music.isMuted()){
+            Music.volumeMute();
+            Assertions.assertEquals(Music.isMuted(),false);
+        }
+        else{
+            Music.volumeMute();
+            Assertions.assertEquals(Music.isMuted(),true);
+            Assertions.assertEquals(Music.getFc().getValue(), -80.0f);
+        }
     }
 }

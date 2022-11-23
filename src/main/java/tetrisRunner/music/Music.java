@@ -24,10 +24,6 @@ public class Music {
             fc = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             Music.play();
             Music.loop();
-
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,10 +35,6 @@ public class Music {
 
     public static void loop(){
         clip.loop(Clip.LOOP_CONTINUOUSLY);
-    }
-
-    public void stop(){
-        clip.stop();
     }
 
     public static void volumeUp(){
@@ -73,10 +65,6 @@ public class Music {
             muted = false;
         }
 
-    }
-
-    public static boolean getMuted() {
-        return muted;
     }
 
     public static FloatControl getFc() {
