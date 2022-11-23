@@ -3,9 +3,11 @@ package tetrisRunner.controller.menu;
 import tetrisRunner.Game;
 import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
+import tetrisRunner.model.menu.Pause;
 import tetrisRunner.model.menu.Settings;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.music.Music;
+import tetrisRunner.states.PauseState;
 import tetrisRunner.states.StartMenuState;
 
 import java.io.IOException;
@@ -32,7 +34,13 @@ public class SettingsController extends Controller<Settings> {
                 }
                 if (getModel().isSelectedUp()) Music.volumeUp();
                 if (getModel().isSelectedDown()) Music.volumeDown();
-                if (getModel().isSelectedReturn()) game.setState(new StartMenuState(new StartMenu()));
+                if (getModel().isSelectedReturn()) {
+                    if(Settings.wasPlaying){
+                        Settings.wasPlaying = false;
+                        game.setState(new PauseState(new Pause()));
+                    }
+                    else game.setState(new StartMenuState(new StartMenu()));
+                }
         }
     }
 }
