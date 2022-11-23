@@ -45,14 +45,18 @@ public class Music {
     }
 
     public static void volumeUp(){
-        currentVolume += 5.0f;
-        if (currentVolume>6.0f) currentVolume = 6.0f;
-        fc.setValue(currentVolume);
+        if (!muted) {
+            currentVolume += 5.0f;
+            if (currentVolume>6.0f) currentVolume = 6.0f;
+            fc.setValue(currentVolume);
+        }
     }
     public static void volumeDown(){
-        currentVolume -= 5.0f;
-        if (currentVolume<-80.0f) currentVolume = -80.0f;
-        fc.setValue(currentVolume);
+        if (!muted) {
+            currentVolume -= 5.0f;
+            if (currentVolume < -80.0f) currentVolume = -80.0f;
+            fc.setValue(currentVolume);
+        }
     }
 
     public static void volumeMute(){
