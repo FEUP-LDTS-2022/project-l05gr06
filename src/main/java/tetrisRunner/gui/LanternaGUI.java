@@ -88,6 +88,10 @@ public class LanternaGUI implements GUI {
     public void drawJacob(Position position){
         drawCharacter(position.getX(), position.getY(), 'J', "#FFFFFF");
     }
+    @Override
+    public void drawWall(Position position){
+        drawCharacter(position.getX(), position.getY(), 'X',"#00FFFF");
+    }
     void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
