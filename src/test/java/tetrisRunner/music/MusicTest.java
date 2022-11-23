@@ -18,6 +18,7 @@ public class MusicTest {
     @BeforeEach
     public void helper(){
         path = "./src/main/resources/music/theme.wav";
+        music = Mockito.mock(Music.class);
     }
 
     @Test
