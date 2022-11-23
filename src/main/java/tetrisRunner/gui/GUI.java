@@ -9,6 +9,8 @@ public interface GUI {
 
     ACTION getNextAction() throws IOException;
     void drawText(Position position, String text, String color);
+    void drawJacob(Position position);
+
 
     void clear();
 
