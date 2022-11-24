@@ -1,5 +1,7 @@
 package tetrisRunner.viewer.game;
 
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.elements.Element;
 import tetrisRunner.model.game.layout.Layout;
@@ -16,6 +18,7 @@ public class GameViewer extends Viewer<Layout> {
     }
     @Override
     protected void drawElements(GUI gui) {
+        gui.paintBackground(TextColor.Factory.fromString("#95C8D8"), getModel().getWidth(), getModel().getHeight());
         drawElement(gui,getModel().getJacob(), new JacobViewer());
     }
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

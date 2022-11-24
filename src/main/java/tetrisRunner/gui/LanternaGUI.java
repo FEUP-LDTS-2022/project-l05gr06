@@ -1,5 +1,6 @@
 package tetrisRunner.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -83,6 +84,13 @@ public class LanternaGUI implements GUI {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.getX(), position.getY(), text);
+    }
+
+    @Override
+    public void paintBackground(TextColor color, int width, int height){
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(color);
+        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
     @Override
     public void drawJacob(Position position){

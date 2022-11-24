@@ -17,4 +17,12 @@ public class Layout {
     public void setJacob(Jacob jacob) {
         this.jacob = jacob;
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 }
