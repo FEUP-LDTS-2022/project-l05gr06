@@ -7,4 +7,5 @@ public abstract class GameController extends Controller<Layout> {
     public GameController(Layout model) {
         super(model);
     }
+
 }
