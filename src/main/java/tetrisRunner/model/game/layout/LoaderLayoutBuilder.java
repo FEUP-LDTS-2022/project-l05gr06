@@ -18,14 +18,13 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     }
     @Override
     protected Jacob createJacob(){
-        return new Jacob(10,16);
+        return new Jacob(10,17);
     }
 
     @Override
     protected List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
         for (int c = 0; c < getWidth(); c++) {
-            walls.add(new Wall(c, -1));
             walls.add(new Wall(c, getHeight()-2));
         }
         for (int r = 0; r < getHeight() - 1 ; r++) {
