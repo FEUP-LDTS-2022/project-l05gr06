@@ -27,28 +27,28 @@ public class SettingsTest {
 
     @Test
     public void isSelectedUpTest() {
-        Assertions.assertFalse(menu.isSelectedUp());
+        Assertions.assertFalse(menu.isSelectedVolumeUp());
         menu.nextEntry();
-        Assertions.assertTrue(menu.isSelectedUp());
+        Assertions.assertTrue(menu.isSelectedVolumeUp());
         menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedUp());
+        Assertions.assertFalse(menu.isSelectedVolumeUp());
         menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedUp());
+        Assertions.assertFalse(menu.isSelectedVolumeUp());
         menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedUp());
+        Assertions.assertFalse(menu.isSelectedVolumeUp());
     }
 
     @Test
     public void isSelectedDownTest() {
-        Assertions.assertFalse(menu.isSelectedDown());
+        Assertions.assertFalse(menu.isSelectedVolumeDown());
         menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedDown());
+        Assertions.assertFalse(menu.isSelectedVolumeDown());
         menu.nextEntry();
-        Assertions.assertTrue(menu.isSelectedDown());
+        Assertions.assertTrue(menu.isSelectedVolumeDown());
         menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedDown());
+        Assertions.assertFalse(menu.isSelectedVolumeDown());
         menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedDown());
+        Assertions.assertFalse(menu.isSelectedVolumeDown());
     }
 
     @Test

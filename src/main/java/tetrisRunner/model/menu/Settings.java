@@ -6,7 +6,15 @@ import java.util.Arrays;
 
 public class Settings extends Menu{
 
-    public static boolean wasPlaying = false;
+    private static boolean playing = false;
+
+    public static boolean isPlaying(){
+        return playing;
+    }
+
+    public static void setPlaying(boolean val){
+        playing = val;
+    }
 
     public Settings() {
         super.entries = Arrays.asList(!Music.isMuted() ? "Mute" : "Unmute", "Volume UP", "Volume DOWN", "Return");
@@ -20,11 +28,11 @@ public class Settings extends Menu{
         return isSelected(0);
     }
 
-    public boolean isSelectedUp() {
+    public boolean isSelectedVolumeUp() {
         return isSelected(1);
     }
 
-    public boolean isSelectedDown() {
+    public boolean isSelectedVolumeDown() {
         return isSelected(2);
     }
 

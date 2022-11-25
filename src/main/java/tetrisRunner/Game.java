@@ -27,8 +27,6 @@ public class Game {
 
         //Music
         Music.runMusic("./src/main/resources/music/theme.wav");
-
-
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
