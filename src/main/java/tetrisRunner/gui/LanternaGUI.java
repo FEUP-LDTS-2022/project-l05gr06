@@ -1,5 +1,6 @@
 package tetrisRunner.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -84,17 +85,32 @@ public class LanternaGUI implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.getX(), position.getY(), text);
     }
+
+    @Override
+    public void paintBackground(TextColor color, int width, int height){
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(color);
+        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
+    }
     @Override
     public void drawJacob(Position position){
-        drawCharacter(position.getX(), position.getY(), 'J', "#FF0000");
+        drawCharacter(position.getX(), position.getY(), '|', "#FFFFFF");
     }
     @Override
     public void drawWall(Position position){
-        drawCharacter(position.getX(), position.getY(), 'X',"#00FFFF");
+
+
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString("#00008B"));
+        tg.putString(position.getX(), position.getY() + 1, "" + ' ');
+
+
     }
     void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        //Paint Background Character
+        tg.setBackgroundColor(TextColor.Factory.fromString("#95C8D8"));
         tg.putString(x, y + 1, "" + c);
     }
     @Override

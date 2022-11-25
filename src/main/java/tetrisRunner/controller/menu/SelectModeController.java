@@ -30,11 +30,9 @@ public class SelectModeController extends Controller<SelectMode> {
                 break;
             case SELECT:
                 if (getModel().isSelectedReturn()) game.setState(new StartMenuState(new StartMenu()));
-                //---------------------------------------------------------------------------------------------
                 if (getModel().isSelectedClassic())  game.setState(new GameState(new LoaderLayoutBuilder().createLayout()));
                 if (getModel().isSelectedCoOp())  game.setState(new GameState(new LoaderLayoutBuilder().createLayout()));
                 if (getModel().isSelected1v1()) game.setState(new GameState(new LoaderLayoutBuilder().createLayout()));
-                //TODO -> Criar o layout builder + Design Pattern para GameOver
         }
     }
 }
