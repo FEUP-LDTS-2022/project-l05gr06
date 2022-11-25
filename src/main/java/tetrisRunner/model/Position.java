@@ -19,7 +19,7 @@ public class Position {
         return new Position(x + 1, y);
     }
 
-    public Position jump() {return new Position(x,y-3);}
+    public Position jump() {return new Position(x,y-2);}
 
     public Position fall() {return new Position(x,y+1);}
 
