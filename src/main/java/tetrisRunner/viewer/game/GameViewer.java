@@ -8,6 +8,8 @@ import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.viewer.Viewer;
 import tetrisRunner.viewer.game.element.ElementViewer;
 import tetrisRunner.viewer.game.element.JacobViewer;
+import tetrisRunner.viewer.game.element.WallViewer;
+import tetrisRunner.model.game.elements.Wall;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class GameViewer extends Viewer<Layout> {
     @Override
     protected void drawElements(GUI gui) {
         gui.paintBackground(TextColor.Factory.fromString("#95C8D8"), getModel().getWidth(), getModel().getHeight());
+        drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElement(gui,getModel().getJacob(), new JacobViewer());
     }
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

@@ -98,7 +98,7 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public void drawWall(Position position){
-        drawCharacter(position.getX(), position.getY(), 'X',"#00FFFF");
+        drawCharacter(position.getX(), position.getY(), ' ',"#00FFFF");
     }
     void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();

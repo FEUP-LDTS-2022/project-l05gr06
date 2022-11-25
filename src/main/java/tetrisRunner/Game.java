@@ -26,7 +26,7 @@ public class Game {
         this.state = new StartMenuState(new StartMenu());
 
         //Music
-        Music.runMusic("./src/main/resources/music/theme.wav");
+        Music.runMusic("./src/ smain/resources/music/theme.wav");
 
 
     }
