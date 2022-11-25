@@ -1,5 +1,6 @@
 package tetrisRunner.model.game.layout;
 
+import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
 
@@ -27,7 +28,15 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     protected Jacob createJacob(){
         return new Jacob(startPosX,startPosY);
     }
-
+    @Override
+    protected List<Block> createBlocks(){
+        List<Block> blocks = new ArrayList<>();
+        blocks.add(new Block(15,getHeight()-3));
+        blocks.add(new Block(16,getHeight()-3));
+        blocks.add(new Block(17,getHeight()-3));
+        blocks.add(new Block(15,getHeight()-4));
+        return blocks;
+    }
     @Override
     protected List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
