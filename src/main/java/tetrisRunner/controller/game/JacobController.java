@@ -3,21 +3,23 @@ package tetrisRunner.controller.game;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
+import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.layout.Layout;
 
 import java.io.IOException;
+import java.util.List;
 
 public class JacobController extends GameController{
-    private long lastMovement;
+    private long lastMovementJacob;
 
-    static final long falltime = 300;
+    static final long fallTimeJacob = 300;
 
     
     final int ground;
 
     public JacobController(Layout layout){
         super(layout);
-        this.lastMovement = 0;
+        this.lastMovementJacob = 0;
         this.ground  = getModel().getHeight()-2;
     }
 
@@ -40,6 +42,8 @@ public class JacobController extends GameController{
             moveJacob(getModel().getJacob().getPosition().fall());
         }
     }
+
+
     private void moveJacob(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getJacob().setPosition(position);
@@ -48,11 +52,12 @@ public class JacobController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time-lastMovement>falltime) {
+        if (time-lastMovementJacob>fallTimeJacob) {
             fallJacob();
-            lastMovement = time;
+            lastMovementJacob = time;
         }
         switch (action){
+
             case UP:
                 jumpJacob();
                 break;
@@ -62,7 +67,6 @@ public class JacobController extends GameController{
             case RIGHT:
                 moveJacobRight();
                 break;
-
 
         }
 

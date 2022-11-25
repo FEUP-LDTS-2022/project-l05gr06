@@ -35,6 +35,13 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
         blocks.add(new Block(16,getHeight()-3));
         blocks.add(new Block(17,getHeight()-3));
         blocks.add(new Block(15,getHeight()-4));
+        blocks.add(new Block(10,7));
+        blocks.add(new Block(9,6));
+        blocks.add(new Block(10,6));
+        blocks.add(new Block(11,6));
+
+
+
         return blocks;
     }
     @Override
