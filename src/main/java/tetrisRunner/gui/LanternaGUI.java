@@ -101,29 +101,26 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public void drawJacob(Position position){
-        drawCharacter(position.getX(), position.getY(), FACE_BLACK, "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), FACE_BLACK, "#FFFFFF","#95C8D8");
     }
     @Override
     public void drawBlock(Position position){
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(TextColor.Factory.fromString("#00FFF0"));
-        tg.putString(position.getX(), position.getY() + 1, "" + ' ');
+        drawCharacter(position.getX(), position.getY(), DIAMOND, "#FFFFFF","#00FFF0");
+
+
     }
     @Override
     public void drawWall(Position position){
 
 
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(TextColor.Factory.fromString("#00008B"));
-        tg.putString(position.getX(), position.getY() + 1, "" + ' ');
-
+        drawCharacter(position.getX(), position.getY(), ' ', "#FFFFFF","#0000FF");
 
     }
-    void drawCharacter(int x, int y, char c, String color) {
+    void drawCharacter(int x, int y, char c, String color,String background) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         //Paint Background Character
-        tg.setBackgroundColor(TextColor.Factory.fromString("#95C8D8"));
+        tg.setBackgroundColor(TextColor.Factory.fromString(background));
         tg.putString(x, y + 1, "" + c);
     }
     @Override
