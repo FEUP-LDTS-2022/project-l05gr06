@@ -3,13 +3,19 @@ package tetrisRunner.model.menu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import tetrisRunner.Game;
+import tetrisRunner.music.Music;
 
 public class SettingsTest {
     Settings menu;
+    Game game;
 
     @BeforeEach
     public void helper(){
-        menu = new Settings();
+        game = Mockito.mock(Game.class);
+        Mockito.when(game.getMusic()).thenReturn(new Music("./src/main/resources/music/theme.wav"));
+        menu = new Settings(game.getMusic().isMuted());
     }
 
     @Test

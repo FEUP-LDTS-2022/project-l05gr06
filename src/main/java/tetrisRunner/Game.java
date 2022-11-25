@@ -16,17 +16,20 @@ import java.net.URISyntaxException;
 public class Game {
     private final LanternaGUI gui;
     private State state;
+    private Music music;
 
-
+    public Music getMusic() {
+        return music;
+    }
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
 
         //window
         this.gui = new LanternaGUI(20, 20);
         this.state = new StartMenuState(new StartMenu());
-
+        this.music = new Music("./src/main/resources/music/theme.wav");
         //Music
-        Music.runMusic("./src/main/resources/music/theme.wav");
+        music.runMusic();
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

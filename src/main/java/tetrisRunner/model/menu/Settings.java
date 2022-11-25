@@ -16,8 +16,8 @@ public class Settings extends Menu{
         playing = val;
     }
 
-    public Settings() {
-        super.entries = Arrays.asList(!Music.isMuted() ? "Mute" : "Unmute", "Volume UP", "Volume DOWN", "Return");
+    public Settings(boolean ismuted) {
+        super.entries = Arrays.asList(!ismuted ? "Mute" : "Unmute", "Volume UP", "Volume DOWN", "Return");
     }
 
     public void switchMute() {

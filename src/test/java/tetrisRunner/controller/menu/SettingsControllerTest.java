@@ -30,7 +30,6 @@ public class SettingsControllerTest {
         game = Mockito.mock(Game.class);
         guiActions = Arrays.asList(GUI.ACTION.UP, GUI.ACTION.DOWN, GUI.ACTION.SELECT);
         path = "./src/main/resources/music/theme.wav";
-        Music.runMusic(path);
     }
 
     @Test

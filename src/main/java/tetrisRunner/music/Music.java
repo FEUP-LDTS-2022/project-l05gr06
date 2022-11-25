@@ -6,47 +6,52 @@ import java.io.File;
 import java.io.IOException;
 
 public class Music {
-    static Clip clip;
-    static float currentVolume = 0;
-    static float previousVolume = 0;
-    static FloatControl fc;
-    static boolean muted = false;
+    private Clip clip;
+    private float currentVolume;
+    private float previousVolume;
+    private FloatControl fc;
+    private boolean muted;
 
-    public static boolean isMuted() {
-        return muted;
-    }
-
-    public static void runMusic(String path) {
+    public Music(String path) {
         try {
+            muted = false;
+            currentVolume = 0;
+            previousVolume = 0;
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
             clip = AudioSystem.getClip();
             clip.open(inputStream);
             fc = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-
-            Music.play();
-            Music.loop();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
-    public static void play(){
+
+    public boolean isMuted() {
+        return muted;
+    }
+
+    public void runMusic() {
+        play();
+        loop();
+    }
+    public void play(){
         clip.setFramePosition(0);
         clip.start();
     }
 
-    public static void loop(){
+    public void loop(){
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
-    public static void volumeUp(){
+    public void volumeUp(){
         if (!muted) {
             currentVolume += 5.0f;
             if (currentVolume>6.0f) currentVolume = 6.0f;
             fc.setValue(currentVolume);
         }
     }
-    public static void volumeDown(){
+    public void volumeDown(){
         if (!muted) {
             currentVolume -= 5.0f;
             if (currentVolume < -80.0f) currentVolume = -80.0f;
@@ -54,7 +59,7 @@ public class Music {
         }
     }
 
-    public static void volumeMute(){
+    public void volumeMute(){
         if (!muted) {
             previousVolume = currentVolume;
             currentVolume = -80.0f;
@@ -69,11 +74,10 @@ public class Music {
 
     }
 
-    public static FloatControl getFc() {
+    public FloatControl getFc() {
         return fc;
     }
-
-    public static Clip getClip() {
+    public Clip getClip() {
         return clip;
     }
 }
