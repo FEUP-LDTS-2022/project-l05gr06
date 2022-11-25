@@ -8,8 +8,11 @@ import tetrisRunner.model.game.layout.Layout;
 import java.io.IOException;
 
 public class JacobController extends GameController{
+    private long lastMovement;
+    static final long falltime = 400;
     public JacobController(Layout layout){
         super(layout);
+        this.lastMovement = 0;
     }
 
     public void moveJacobLeft(){
@@ -36,7 +39,10 @@ public class JacobController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        fallJacob();
+        if (time-lastMovement>falltime) {
+            fallJacob();
+            lastMovement = time;
+        }
         switch (action){
             case LEFT:
                 moveJacobLeft();
