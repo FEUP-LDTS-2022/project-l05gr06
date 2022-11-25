@@ -12,7 +12,7 @@ public class PauseViewer extends Viewer<Pause> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "The Game is Paused", "#FFFFFF");
+        gui.drawText(new Position(5, 5), "Game Paused", "#FFFFFF");
         String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++){
             switch (getModel().getEntry(i)) {
