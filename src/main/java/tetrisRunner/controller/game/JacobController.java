@@ -13,10 +13,10 @@ public class JacobController extends GameController{
     }
 
     public void moveJacobLeft(){
-        moveHero(getModel().getJacob().getPosition().getLeft());
+        moveJacob(getModel().getJacob().getPosition().getLeft());
     }
     public void moveJacobRight(){
-        moveHero(getModel().getJacob().getPosition().getRight());
+        moveJacob(getModel().getJacob().getPosition().getRight());
     }
     public void jumpJacob(){
         if (getModel().getJacob().getPosition().getY() == (getModel().getHeight()-3)){
@@ -28,8 +28,10 @@ public class JacobController extends GameController{
             moveHero(getModel().getJacob().getPosition().fall());
         }
     }
-    private void moveHero(Position position) {
+    private void moveJacob(Position position) {
+        if (getModel().isEmpty(position)) {
             getModel().getJacob().setPosition(position);
+        }
     }
 
     @Override
