@@ -10,9 +10,11 @@ import java.io.IOException;
 public class JacobController extends GameController{
     private long lastMovement;
     static final long falltime = 400;
+    final int ground;
     public JacobController(Layout layout){
         super(layout);
         this.lastMovement = 0;
+        this.ground  = getModel().getHeight()-2;
     }
 
     public void moveJacobLeft(){
@@ -22,12 +24,12 @@ public class JacobController extends GameController{
         moveJacob(getModel().getJacob().getPosition().getRight());
     }
     public void jumpJacob(){
-        if (getModel().getJacob().getPosition().getY() == (getModel().getHeight()-3)){
+        if (getModel().getJacob().getPosition().getY() == ground-1){
             moveJacob(getModel().getJacob().getPosition().jump());
         }
     }
     public void fallJacob(){
-        if (getModel().getJacob().getPosition().getY() < (getModel().getHeight()-3)){
+        if (getModel().getJacob().getPosition().getY() < (ground-1)){
             moveJacob(getModel().getJacob().getPosition().fall());
         }
     }
