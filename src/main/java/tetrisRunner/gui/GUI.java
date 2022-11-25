@@ -20,6 +20,7 @@ public interface GUI {
     void refresh() throws IOException;
 
     void close() throws IOException;
+    void drawBlock(Position position);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, ESCAPE}
 

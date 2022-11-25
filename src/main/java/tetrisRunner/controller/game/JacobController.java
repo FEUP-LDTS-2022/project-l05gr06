@@ -28,7 +28,10 @@ public class JacobController extends GameController{
         moveJacob(getModel().getJacob().getPosition().getRight());
     }
     public void jumpJacob(){
-        if (getModel().getJacob().getPosition().getY() == ground-1){
+        int x = getModel().getJacob().getPosition().getX();
+        int y = getModel().getJacob().getPosition().getY();
+        Position position = new Position(x,y+1);
+        if (!getModel().isEmpty(position) ){
             moveJacob(getModel().getJacob().getPosition().jump());
         }
     }
@@ -50,15 +53,16 @@ public class JacobController extends GameController{
             lastMovement = time;
         }
         switch (action){
+            case UP:
+                jumpJacob();
+                break;
             case LEFT:
                 moveJacobLeft();
                 break;
             case RIGHT:
                 moveJacobRight();
                 break;
-            case UP:
-                jumpJacob();
-                break;
+
 
         }
 
