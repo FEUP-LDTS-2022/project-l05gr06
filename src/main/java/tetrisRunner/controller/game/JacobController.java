@@ -12,7 +12,7 @@ import java.util.List;
 public class JacobController extends GameController{
     private long lastMovementJacob;
 
-    static final long falltimeJacob = 300;
+    static final long fallTimeJacob = 300;
 
     
     final int ground;
@@ -52,7 +52,7 @@ public class JacobController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time-lastMovementJacob>falltimeJacob) {
+        if (time-lastMovementJacob>fallTimeJacob) {
             fallJacob();
             lastMovementJacob = time;
         }
