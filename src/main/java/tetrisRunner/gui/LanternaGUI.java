@@ -1,5 +1,6 @@
 package tetrisRunner.gui;
 
+
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -18,6 +19,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
+
+import static com.googlecode.lanterna.Symbols.*;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -46,6 +50,7 @@ public class LanternaGUI implements GUI {
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
+
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
     }
@@ -94,7 +99,7 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public void drawJacob(Position position){
-        drawCharacter(position.getX(), position.getY(), '|', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(),FACE_BLACK, "#FFFFFF");
     }
     @Override
     public void drawWall(Position position){
