@@ -18,6 +18,16 @@ public class JacobController extends GameController{
     public void moveJacobRight(){
         moveJacob(getModel().getJacob().getPosition().getRight());
     }
+    public void jumpJacob(){
+        if (getModel().getJacob().getPosition().getY() == (getModel().getHeight()-3)){
+            moveHero(getModel().getJacob().getPosition().jump());
+        }
+    }
+    public void fallJacob(){
+        if (getModel().getJacob().getPosition().getY() < (getModel().getHeight()-3)){
+            moveHero(getModel().getJacob().getPosition().fall());
+        }
+    }
     private void moveJacob(Position position) {
         if (getModel().isEmpty(position)) {
             getModel().getJacob().setPosition(position);
@@ -26,6 +36,7 @@ public class JacobController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        fallJacob();
         switch (action){
             case LEFT:
                 moveJacobLeft();
@@ -33,6 +44,10 @@ public class JacobController extends GameController{
             case RIGHT:
                 moveJacobRight();
                 break;
+            case UP:
+                jumpJacob();
+                break;
+
         }
 
     }

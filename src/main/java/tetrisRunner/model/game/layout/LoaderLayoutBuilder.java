@@ -7,6 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoaderLayoutBuilder extends LayoutBuilder{
+    private final int startPosX;
+    private final int startPosY;
+
+    public LoaderLayoutBuilder() {
+        this.startPosX = getWidth()/2;
+        this.startPosY = getHeight()-3;
+    }
 
     @Override
     protected int getWidth(){
@@ -18,7 +25,7 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     }
     @Override
     protected Jacob createJacob(){
-        return new Jacob(10,17);
+        return new Jacob(startPosX,startPosY);
     }
 
     @Override
@@ -33,6 +40,4 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
         }
         return walls;
     }
-
-
 }

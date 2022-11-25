@@ -8,4 +8,5 @@ public abstract class GameController extends Controller<Layout> {
         super(model);
     }
 
+
 }
