@@ -10,11 +10,13 @@ import tetrisRunner.music.Music;
 public class SettingsTest {
     Settings menu;
     Game game;
+    String path;
 
     @BeforeEach
     public void helper(){
+        path = "./src/main/resources/music/theme.wav";
         game = Mockito.mock(Game.class);
-        Mockito.when(game.getMusic()).thenReturn(new Music("./src/main/resources/music/theme.wav"));
+        Mockito.when(game.getMusic()).thenReturn(new Music(path));
         menu = new Settings(game.getMusic().isMuted());
     }
 

@@ -6,10 +6,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class Music {
-    private Clip clip;
+    protected Clip clip;
     private float currentVolume;
     private float previousVolume;
-    private FloatControl fc;
+    protected FloatControl fc;
     private boolean muted;
 
     public Music(String path) {
@@ -24,7 +24,6 @@ public class Music {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public boolean isMuted() {
@@ -45,14 +44,14 @@ public class Music {
     }
 
     public void volumeUp(){
-        if (!muted) {
+        if (!isMuted()) {
             currentVolume += 5.0f;
             if (currentVolume>6.0f) currentVolume = 6.0f;
             fc.setValue(currentVolume);
         }
     }
     public void volumeDown(){
-        if (!muted) {
+        if (!isMuted()) {
             currentVolume -= 5.0f;
             if (currentVolume < -80.0f) currentVolume = -80.0f;
             fc.setValue(currentVolume);
@@ -60,13 +59,13 @@ public class Music {
     }
 
     public void volumeMute(){
-        if (!muted) {
+        if (!isMuted()) {
             previousVolume = currentVolume;
             currentVolume = -80.0f;
             fc.setValue(currentVolume);
             muted = true;
         }
-        else if (muted) {
+        else {
             currentVolume = previousVolume;
             fc.setValue(currentVolume);
             muted = false;
@@ -74,11 +73,8 @@ public class Music {
 
     }
 
-    public FloatControl getFc() {
-        return fc;
-    }
-    public Clip getClip() {
-        return clip;
+    public float getCurrentVolume() {
+        return currentVolume;
     }
 }
 
