@@ -22,8 +22,10 @@ public class Music {
             clip = AudioSystem.getClip();
             clip.open(inputStream);
             fc = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+
             Music.play();
             Music.loop();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
