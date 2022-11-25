@@ -2,6 +2,7 @@ package tetrisRunner.controller.menu;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
@@ -20,16 +21,20 @@ public class SettingsControllerTest {
     private SettingsController settingsController;
     private Settings settings;
     private Game game;
+    private Music music;
     private List<GUI.ACTION> guiActions;
-    private String path;
 
     @BeforeEach
     public void helper(){
-        settings = Mockito.mock(Settings.class);
+        settings = Mockito.mock(Settings.class, Mockito.withSettings().useConstructor(true));
         settingsController = new SettingsController(settings);
         game = Mockito.mock(Game.class);
+        music = Mockito.mock(Music.class);
+        Mockito.when(game.getMusic()).thenReturn(music);
+        Mockito.doNothing().when(music).volumeMute();
+        Mockito.doNothing().when(music).volumeUp();
+        Mockito.doNothing().when(music).volumeDown();
         guiActions = Arrays.asList(GUI.ACTION.UP, GUI.ACTION.DOWN, GUI.ACTION.SELECT);
-        path = "./src/main/resources/music/theme.wav";
     }
 
     @Test
@@ -48,27 +53,26 @@ public class SettingsControllerTest {
     public void stepSelectMuteTest() throws IOException {
         Mockito.when(settings.isSelectedMute()).thenReturn(true);
         settingsController.step(game, guiActions.get(2),0);
-        Mockito.verify(settings, Mockito.times(1)).switchMute();
+        Mockito.verify(game, Mockito.times(1)).getMusic();
+        Mockito.verify(music,Mockito.times(1)).volumeMute();
+
     }
 
     @Test
     public void stepSelectVolumeUpTest() throws IOException {
         Mockito.when(settings.isSelectedVolumeUp()).thenReturn(true);
         settingsController.step(game, guiActions.get(2),0);
-        Mockito.verify(game, Mockito.times(1)).setState(null);
+        Mockito.verify(game, Mockito.times(1)).getMusic();
+        Mockito.verify(music,Mockito.times(1)).volumeUp();
     }
 
     @Test
     public void stepSelectVolumeDownTest() throws IOException {
         Mockito.when(settings.isSelectedVolumeDown()).thenReturn(true);
         settingsController.step(game, guiActions.get(2),0);
-        //Mockito.verify(music, Mockito.times(1)).volumeDown();
+        Mockito.verify(game, Mockito.times(1)).getMusic();
+        Mockito.verify(music,Mockito.times(1)).volumeDown();
     }
 
-    @Test
-    public void stepSelectReturnTest() throws IOException {
-        Mockito.when(settings.isSelectedReturn()).thenReturn(true);
-        settingsController.step(game, guiActions.get(2),0);
-        Mockito.verify(game, Mockito.times(1)).setState(any(SelectModeState.class));
-    }
+    //TODO stepSelectReturn (stop static dependency)
 }
