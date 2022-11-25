@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class JacobController extends GameController{
     private long lastMovement;
-    static final long falltime = 400;
+    static final long falltime = 300;
     public JacobController(Layout layout){
         super(layout);
         this.lastMovement = 0;
