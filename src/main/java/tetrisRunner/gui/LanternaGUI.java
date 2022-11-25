@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import static com.googlecode.lanterna.Symbols.FACE_BLACK;
+
 public class LanternaGUI implements GUI {
     private final Screen screen;
 
@@ -94,7 +96,7 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public void drawJacob(Position position){
-        drawCharacter(position.getX(), position.getY(), '|', "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), FACE_BLACK, "#FFFFFF");
     }
     @Override
     public void drawWall(Position position){
