@@ -21,11 +21,8 @@ This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João F
 **Menu**: Working menu with multiple options, such as 'Game Mode', to select the intended variant of the game and 'Instructions', to read the instructions of each
 mode. We also implemented the tetris theme song running on the background, therefore there's an additional option 'Settings' in which you can mute and change the music's volume.
 
+Although the pause menu isn't working totally by now, it's already possible to pause the game by pressing ESC. 
 
-**Player1**:
-
-- **Moving the piece** - The piece will move, sideways, when the user presses 'A' or 'D' (left or right, respectively).
-- **Rotating the piece** - The piece will rotate, when the user presses 'W' or 'S' (clockwise or anti-clockwise, respectively).
 
 **Player2**:
 
@@ -37,6 +34,23 @@ mode. We also implemented the tetris theme song running on the background, there
 ### PLANNED FEATURES
 
 > This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+
+Currently, there's a block class implemented, which is 100% temporary and its purpose is to test player2's dynamics 
+regarding the shapes. In the future, we will implement, instead, the shapes itself (you can get an idea of what we planned
+observing the UML). Shape will be an abstract class with ShapeSquare, ShapeT, ShapeS, ShapeZ, ShapeL, ShapeJ and ShapeLine extending it.
+
+As pause isn't yet returning to the game, we will need some form of saving the game state when pausing, we will do that with a specific pattern, more on that later.
+
+We also need to implement Player1's inputs.
+
+**Player1**:
+
+- **Moving the shape** - The shape will move, sideways, when the user presses 'A' or 'D' (left or right, respectively).
+- **Rotating the shape** - The shape will rotate, when the user presses 'W' or 'S' (clockwise or anti-clockwise, respectively).
+
+We also need to create the GameOverState, which will differ from game mode to game mode. Each game mode, mechanically speaking, is exactly the same, therefore
+the GameState is the same, but who wins and the leaderboards change according to the chosen mode. For this we will also need to implement a new pattern, maybe the same as the pause one.
+
 
 ### DESIGN
 
@@ -108,6 +122,6 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 
 **Example**:
 
-- Francisco Campos: 
-- João Figueiredo:
-- João Longras:
+- Francisco Campos: 33.3%
+- João Figueiredo: 33.3%
+- João Longras: 33.3%
