@@ -31,7 +31,7 @@ public class StartMenuController extends Controller<StartMenu> {
                 if(getModel().isSelectedGameMode()) game.setState(new SelectModeState(new SelectMode()));
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionState(new Instruction()));
-                if (getModel().isSelectedSettings()) game.setState(new SettingsState(new Settings()));
+                if (getModel().isSelectedSettings()) game.setState(new SettingsState(new Settings(game.getMusic().isMuted())));
 
         }
     }

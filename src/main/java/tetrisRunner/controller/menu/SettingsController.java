@@ -30,13 +30,13 @@ public class SettingsController extends Controller<Settings> {
             case SELECT:
                 if (getModel().isSelectedMute()){
                     getModel().switchMute();
-                    Music.volumeMute();
+                    game.getMusic().volumeMute();
                 }
-                if (getModel().isSelectedUp()) Music.volumeUp();
-                if (getModel().isSelectedDown()) Music.volumeDown();
+                if (getModel().isSelectedVolumeUp()) game.getMusic().volumeUp();
+                if (getModel().isSelectedVolumeDown()) game.getMusic().volumeDown();
                 if (getModel().isSelectedReturn()) {
-                    if(Settings.wasPlaying){
-                        Settings.wasPlaying = false;
+                    if(Settings.isPlaying()){
+                        Settings.setPlaying(false);
                         game.setState(new PauseState(new Pause()));
                     }
                     else game.setState(new StartMenuState(new StartMenu()));

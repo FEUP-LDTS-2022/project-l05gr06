@@ -23,6 +23,8 @@ import java.nio.charset.Charset;
 
 import static com.googlecode.lanterna.Symbols.*;
 
+import static com.googlecode.lanterna.Symbols.FACE_BLACK;
+
 public class LanternaGUI implements GUI {
     private final Screen screen;
 
@@ -99,7 +101,7 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public void drawJacob(Position position){
-        drawCharacter(position.getX(), position.getY(),FACE_BLACK, "#FFFFFF");
+        drawCharacter(position.getX(), position.getY(), FACE_BLACK, "#FFFFFF");
     }
     @Override
     public void drawWall(Position position){
