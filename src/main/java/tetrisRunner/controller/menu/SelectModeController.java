@@ -6,10 +6,12 @@ import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.game.layout.LoaderLayoutBuilder;
 import tetrisRunner.model.menu.Instruction;
+import tetrisRunner.model.menu.Pause;
 import tetrisRunner.model.menu.SelectMode;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.states.GameState;
 import tetrisRunner.states.InstructionState;
+import tetrisRunner.states.PauseState;
 import tetrisRunner.states.SelectModeState;
 import tetrisRunner.states.StartMenuState;
 

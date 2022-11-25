@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 public class Settings extends Menu{
 
+    public static boolean wasPlaying = false;
+
     public Settings() {
         super.entries = Arrays.asList(!Music.isMuted() ? "Mute" : "Unmute", "Volume UP", "Volume DOWN", "Return");
     }

@@ -1,23 +1,21 @@
 package tetrisRunner.controller.menu;
 
-
 import tetrisRunner.Game;
 import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
-import tetrisRunner.model.menu.*;
-import tetrisRunner.states.InstructionState;
-import tetrisRunner.states.PauseState;
-import tetrisRunner.states.SelectModeState;
+import tetrisRunner.model.menu.Pause;
+import tetrisRunner.model.menu.Settings;
+import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.states.SettingsState;
+import tetrisRunner.states.StartMenuState;
 
 
 import java.io.IOException;
 
-public class StartMenuController extends Controller<StartMenu> {
-    public StartMenuController(StartMenu menu) {
-        super(menu);
+public class PauseController extends Controller<Pause> {
+    public PauseController(Pause pause){
+        super(pause);
     }
-
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
@@ -28,10 +26,10 @@ public class StartMenuController extends Controller<StartMenu> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().isSelectedGameMode()) game.setState(new SelectModeState(new SelectMode()));
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedInstructions()) game.setState(new InstructionState(new Instruction()));
-                if (getModel().isSelectedSettings()) game.setState(new SettingsState(new Settings()));
+                if (getModel().isSelectedSettings()) {Settings.wasPlaying = true; game.setState(new SettingsState(new Settings()));}
+                if (getModel().isSelectedMenu()) game.setState(new StartMenuState(new StartMenu()));
+                if (getModel().isSelectedGame())                                                   ;
 
         }
     }
