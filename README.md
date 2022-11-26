@@ -2,7 +2,7 @@
 
 ### Game Description
 
-![](imagens/uml.png)
+![](imagens/UML.png)
 ![](imagens/state.png) ![](imagens/gif.gif)
 
 
