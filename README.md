@@ -2,6 +2,12 @@
 
 > Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
 
+![](imagens/uml.png)
+![](imagens/state.png)
+
+![](imagens/gif.gif)
+
+
 In this new exciting multiplayer version of a game we all are familiar with - tetris - there's a vast sea of fun ways to play it.
 The game is basically the tetris everyone knows, but there's a little man down there, where the pieces fall, trying to avoid them. 
 
@@ -93,7 +99,7 @@ These classes can be found in the following files:
 
 The use of the State Pattern in the current design allows the following benefits:
 
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
+- The several states that represent the character’s ability to jump become explicit in the code, instead of relying on a series of flags.
 - We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
 - There are now more classes and instances to manage, but still in a reasonable number.
 
@@ -113,8 +119,8 @@ A way to improve the code would be to move the `isPlatformSegmentSolid()` method
 
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+![](imagens/coverage.png)
+
 
 ### SELF-EVALUATION
 
