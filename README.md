@@ -35,7 +35,7 @@ and how the user can access one state through another.
 The following UML Diagram showcases the most important classes in our game,
 and how they interact with each other
 
-![](imagens/uml.png)
+![](imagens/UML.png)
 
 
 ### IMPLEMENTED FEATURES
