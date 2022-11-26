@@ -3,9 +3,7 @@
 > Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
 
 ![](imagens/uml.png)
-![](imagens/state.png)
-
-![](imagens/gif.gif)
+![](imagens/state.png) ![](imagens/gif.gif)
 
 
 In this new exciting multiplayer version of a game we all are familiar with - tetris - there's a vast sea of fun ways to play it.
