@@ -3,11 +3,9 @@ package tetrisRunner.controller.game;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.layout.Layout;
 
 import java.io.IOException;
-import java.util.List;
 
 public class JacobController extends GameController{
     private long lastMovementJacob;

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.List;
 
 import static com.googlecode.lanterna.Symbols.*;
 
@@ -86,6 +87,21 @@ public class LanternaGUI implements GUI {
         return ACTION.NONE;
     }
 
+    public String getStringColor(COLOR color){
+        if (color == COLOR.BLACK) return "#000000";
+        if(color == COLOR.RED) return "#D22B2B";
+        if(color == COLOR.YELLOW) return "#FFEA00";
+        if(color == COLOR.BLUE) return "#0096FF";
+        if(color == COLOR.PURPLE) return "#BF40BF";
+        if(color == COLOR.ORANGE) return "#FFAC1C";
+        if(color == COLOR.GREEN) return "#50C878";
+        if(color == COLOR.PINK) return "#FF69B4";
+        if(color == COLOR.CYAN) return "#40E0D0";
+        if(color == COLOR.BRICK) return "#BC4A3C";
+        if(color == COLOR.WHITE) return "#FFFFFF";
+        return "";
+    }
+
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -94,33 +110,32 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void paintBackground(TextColor color, int width, int height){
+    public void paintBackground(COLOR color, int width, int height){
         TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(color);
+        TextColor c = TextColor.Factory.fromString(getStringColor(color));
+        tg.setBackgroundColor(c);
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
     @Override
     public void drawJacob(Position position){
-        drawCharacter(position.getX(), position.getY(), FACE_BLACK, "#FFFFFF","#95C8D8");
+        drawCharacter(position.getX(), position.getY(), FACE_BLACK, COLOR.WHITE,COLOR.CYAN);
     }
     @Override
-    public void drawBlock(Position position){
-        drawCharacter(position.getX(), position.getY(), DIAMOND, "#FFFFFF","#00FFF0");
+    public void drawShape(List<Position> positions, COLOR color){
+        for (Position pos:positions)
+            drawCharacter(pos.getX(), pos.getY(), DIAMOND, color, COLOR.CYAN);
 
 
     }
     @Override
     public void drawWall(Position position){
-
-
-        drawCharacter(position.getX(), position.getY(), ' ', "#FFFFFF","#0000FF");
-
+        drawCharacter(position.getX(), position.getY(), ' ', COLOR.WHITE,COLOR.BRICK);
     }
-    void drawCharacter(int x, int y, char c, String color,String background) {
+    void drawCharacter(int x, int y, char c, COLOR color,COLOR background) {
         TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setForegroundColor(TextColor.Factory.fromString(getStringColor(color)));
         //Paint Background Character
-        tg.setBackgroundColor(TextColor.Factory.fromString(background));
+        tg.setBackgroundColor(TextColor.Factory.fromString(getStringColor(background)));
         tg.putString(x, y + 1, "" + c);
     }
     @Override
