@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ShapeT extends Shape{
     public ShapeT(List<Position> pos) {
-        super.shapePos = pos;
+        super(pos);
     }
     @Override
     public void rotateClockwise() {

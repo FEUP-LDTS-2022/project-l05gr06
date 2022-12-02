@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ShapeI extends Shape{
     public ShapeI(List<Position> pos) {
-        super.shapePos = pos;
+        super(pos);
     }
 
     @Override

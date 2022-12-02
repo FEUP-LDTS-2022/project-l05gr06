@@ -5,7 +5,11 @@ import tetrisRunner.model.Position;
 import java.util.List;
 
 public abstract class Shape {
-    protected List<Position> shapePos;
+    private final List<Position> shapePos;
+
+    public Shape(List<Position> shapePos) {
+        this.shapePos = shapePos;
+    }
 
     public void moveRight(){
         for (Position pos: shapePos){
