@@ -1,9 +1,10 @@
 package tetrisRunner.model.game.layout;
 
-import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
 import tetrisRunner.model.game.shapes.Shape;
+import tetrisRunner.model.game.shapes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,20 +32,22 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     }
     @Override
     protected List<Shape> createShapes(){
-        List<Block> blocks = new ArrayList<>();
-        blocks.add(new Block(15,getHeight()-3));
-        blocks.add(new Block(16,getHeight()-3));
-        blocks.add(new Block(17,getHeight()-3));
-        blocks.add(new Block(15,getHeight()-4));
+        List<Shape> shapes = new ArrayList<>();
+        List<Position> positions = new ArrayList<>();
+        positions.add(new Position(15,getHeight()-3));
+        positions.add(new Position(16,getHeight()-3));
+        positions.add(new Position(17,getHeight()-3));
+        positions.add(new Position(15,getHeight()-4));
+        Shape a = new ShapeT(positions);
+        shapes.add(a); positions.clear();
 
-        blocks.add(new Block(9,6));
-        blocks.add(new Block(10,6));
-        blocks.add(new Block(11,6));
-        blocks.add(new Block(10,5));
-
-
-
-        return blocks;
+        positions.add(new Position(9,6));
+        positions.add(new Position(10,6));
+        positions.add(new Position(11,6));
+        positions.add(new Position(10,5));
+        Shape b = new ShapeO(positions);
+        shapes.add(b); positions.clear();
+        return shapes;
     }
     @Override
     protected List<Wall> createWalls() {

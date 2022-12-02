@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.List;
 
 import static com.googlecode.lanterna.Symbols.*;
 
@@ -109,33 +110,32 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void paintBackground(TextColor color, int width, int height){
+    public void paintBackground(COLOR color, int width, int height){
         TextGraphics tg = screen.newTextGraphics();
-        tg.setBackgroundColor(color);
+        TextColor c = TextColor.Factory.fromString(getStringColor(color));
+        tg.setBackgroundColor(c);
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
     @Override
     public void drawJacob(Position position){
-        drawCharacter(position.getX(), position.getY(), FACE_BLACK, "#FFFFFF","#95C8D8");
+        drawCharacter(position.getX(), position.getY(), FACE_BLACK, COLOR.WHITE,COLOR.CYAN);
     }
     @Override
-    public void drawBlock(Position position){
-        drawCharacter(position.getX(), position.getY(), DIAMOND, "#FFFFFF","#00FFF0");
+    public void drawShape(List<Position> positions, COLOR color){
+        for (Position pos:positions)
+            drawCharacter(pos.getX(), pos.getY(), DIAMOND, color, COLOR.CYAN);
 
 
     }
     @Override
     public void drawWall(Position position){
-
-
-        drawCharacter(position.getX(), position.getY(), ' ', "#FFFFFF","#0000FF");
-
+        drawCharacter(position.getX(), position.getY(), ' ', COLOR.WHITE,COLOR.BRICK);
     }
-    void drawCharacter(int x, int y, char c, String color,String background) {
+    void drawCharacter(int x, int y, char c, COLOR color,COLOR background) {
         TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setForegroundColor(TextColor.Factory.fromString(getStringColor(color)));
         //Paint Background Character
-        tg.setBackgroundColor(TextColor.Factory.fromString(background));
+        tg.setBackgroundColor(TextColor.Factory.fromString(getStringColor(background)));
         tg.putString(x, y + 1, "" + c);
     }
     @Override

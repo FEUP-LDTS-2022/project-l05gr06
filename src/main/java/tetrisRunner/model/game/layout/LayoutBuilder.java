@@ -1,6 +1,5 @@
 package tetrisRunner.model.game.layout;
 
-import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
 import tetrisRunner.model.game.shapes.Shape;

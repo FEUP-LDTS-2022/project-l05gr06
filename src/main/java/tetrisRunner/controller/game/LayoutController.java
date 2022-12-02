@@ -14,11 +14,11 @@ import java.io.IOException;
 
 public class LayoutController extends GameController{
     private final JacobController jacobController;
-    private final BlockController blockController;
+    private final ShapeController shapeController;
     public LayoutController(Layout model) {
         super(model);
         jacobController = new JacobController(model);
-        blockController = new BlockController(model);
+        shapeController = new ShapeController(model);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class LayoutController extends GameController{
                 break;
             default:
                 jacobController.step(game, action, time);
-                blockController.step(game,action,time);
+                shapeController.step(game,action,time);
         }
     }
 }
