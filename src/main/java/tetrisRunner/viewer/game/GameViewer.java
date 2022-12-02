@@ -1,16 +1,16 @@
 package tetrisRunner.viewer.game;
 
 import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.elements.Element;
 import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.viewer.Viewer;
 import tetrisRunner.viewer.game.element.BlockViewer;
 import tetrisRunner.viewer.game.element.ElementViewer;
 import tetrisRunner.viewer.game.element.JacobViewer;
 import tetrisRunner.viewer.game.element.WallViewer;
-import tetrisRunner.model.game.elements.Wall;
+import tetrisRunner.viewer.game.shape.ShapeViewer;
 
 import java.util.List;
 
@@ -31,6 +31,14 @@ public class GameViewer extends Viewer<Layout> {
             drawElement(gui, element, viewer);
     }
     private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
+        viewer.draw(element, gui);
+    }
+
+    private <T extends Shape> void drawShapes(GUI gui, List<T> shapes, ShapeViewer<T> viewer) {
+        for (T shape : shapes)
+            drawElement(gui, shape, viewer);
+    }
+    private <T extends Shape> void drawShape(GUI gui, T element, ElementViewer<T> viewer) {
         viewer.draw(element, gui);
     }
 }

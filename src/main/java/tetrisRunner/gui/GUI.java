@@ -10,7 +10,7 @@ public interface GUI {
 
     ACTION getNextAction() throws IOException;
     void drawText(Position position, String text, String color);
-
+    String getStringColor(COLOR color);
     void paintBackground(TextColor color, int width, int height);
     void drawJacob(Position position);
     void drawWall(Position position);
@@ -23,5 +23,5 @@ public interface GUI {
     void drawBlock(Position position);
 
     enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, ESCAPE}
-
+    enum COLOR {RED, YELLOW, BLUE, PURPLE, ORANGE, GREEN, PINK, CYAN, BRICK, WHITE, BLACK}
 }

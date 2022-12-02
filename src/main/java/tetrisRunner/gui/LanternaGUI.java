@@ -86,6 +86,21 @@ public class LanternaGUI implements GUI {
         return ACTION.NONE;
     }
 
+    public String getStringColor(COLOR color){
+        if (color == COLOR.BLACK) return "#000000";
+        if(color == COLOR.RED) return "#D22B2B";
+        if(color == COLOR.YELLOW) return "#FFEA00";
+        if(color == COLOR.BLUE) return "#0096FF";
+        if(color == COLOR.PURPLE) return "#BF40BF";
+        if(color == COLOR.ORANGE) return "#FFAC1C";
+        if(color == COLOR.GREEN) return "#50C878";
+        if(color == COLOR.PINK) return "#FF69B4";
+        if(color == COLOR.CYAN) return "#40E0D0";
+        if(color == COLOR.BRICK) return "#BC4A3C";
+        if(color == COLOR.WHITE) return "#FFFFFF";
+        return "";
+    }
+
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
