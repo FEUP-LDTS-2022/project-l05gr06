@@ -2,10 +2,6 @@
 
 ### Game Description
 
-![](imagens/uml.png)
-![](imagens/state.png) ![](imagens/gif.gif)
-
-
 In this new exciting multiplayer version of a game we all are familiar with - tetris - there's a vast sea of fun ways to play it.
 The game is basically the tetris everyone knows, but there's a little man down there, where the pieces fall, trying to avoid them. 
 
@@ -18,9 +14,31 @@ player2 - to choose:
 
 This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João Figueiredo* (*up202108829*@up.pt) and *João Longras* (*up202108780*@up.pt) for LDTS 2022⁄23.
 
-### IMPLEMENTED FEATURES
+### Screenshots / Gifs
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
+The following gif illustrates a little of the concept we
+want to implement in this game (that is runnable in the code).
+
+![](imagens/gif.gif)
+
+
+### State Diagram
+
+This Diagram shows how we want to implement the state-logic behind the game,
+and how the user can access one state through another.
+
+![](imagens/state.png)
+
+
+### UML Diagram
+
+The following UML Diagram showcases the most important classes in our game,
+and how they interact with each other
+
+![](imagens/UML.png)
+
+
+### IMPLEMENTED FEATURES
 
 **Menu**: Working menu with multiple options, such as 'Game Mode', to select the intended variant of the game and 'Instructions', to read the instructions of each
 mode. We also implemented the tetris theme song running on the background, therefore there's an additional option 'Settings' in which you can mute and change the music's volume.
@@ -90,12 +108,19 @@ Therefore, we considered this to be the best pattern to organize our code.
 
 **Problem in Context**
 
-We needed to implement a lot of Menus (shown in code), so the user may select and traverse through the game.
+We need to implement a lot of menus in our game. That is because, as we said above, want the user to select different
+options before he can start the game. It can be the Game Mode, or he maybe doesn't want to hear the music playing, so
+he wishes to mute it, or hen doesn't want to play the game at all, and he wishes to quit. Therefore, it is necessary that
+we provide different Menus, according to the user wishes.
 
 **The Pattern**
 
-To accomplish this, we decided to use the **Factory** pattern. We created a abstract class Menu, which is the extended
-by the other sub-classes.
+To accomplish this, we decided to use the **Factory** pattern. We created an abstract class Menu, which is then extended
+by the other sub-classes (other sub-menus).
+
+**Implementation**
+
+As it can be seen in the UML, there is a Menu that is being extended by other sub-menus.
 
 **Consequences**
 
@@ -103,7 +128,8 @@ The use of the Factory Method Pattern in the current design allows the following
 
 - Factory methods eliminate the need to bind application-specific classes into our code
 
-Therefore, we considered this to be the best pattern to organize our code.
+Therefore, we considered this to be the best pattern to implement new sub-menus easily, since they share a lot of features
+with each other.
 
 ------
 
@@ -111,7 +137,10 @@ Therefore, we considered this to be the best pattern to organize our code.
 
 **Problem in Context**
 
-We need to know 
+We need to know how are we going to achieve the different states of the game. What usually happens (and is a bad programming 
+practice in OOP) is the usage of if-else clauses to achieve different stages of the game. However, that just makes
+the code harder to decipher in the future, and harder to modify (because we would have to search all the if-else clauses)
+to find the change we need to do.
 
 **The Pattern**
 
@@ -121,11 +150,12 @@ program that need to be achieved (Menu States, Game States, ...), then this patt
 
 **Implementation**
 
-The UML presented at the beginning of the report shows how we organized our code by that model.
+The UML presented at the beginning of the report shows how we organized our code by that model (creation of an abstract class
+State<T>, that takes as arguments the different states we wish to achieve).
 
 **Consequences**
 
-The use of the MVC Architectural Pattern in the current design allows the following benefits:
+The use of the State Pattern in the current design allows the following benefits:
 
 
 - Localizes and partitions behavior for different states.
@@ -133,7 +163,8 @@ The use of the MVC Architectural Pattern in the current design allows the follow
 - We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
 - There are now more classes and instances to manage, but still in a reasonable number.
 
-Therefore, we considered this to be the best pattern to organize our code.
+Therefore, we considered this to be the best pattern to achieve different sections of our game, keeping a good OOP
+practices, and making it easier to implement the state diagram shown above.
 
 -----
 
