@@ -42,7 +42,7 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
         positions.add(new Position(9,6));
         positions.add(new Position(10,6));
         positions.add(new Position(11,6));
-        positions.add(new Position(10,5));
+        positions.add(new Position(10,7));
         shapes.add(new ShapeT(new ArrayList<>(positions))); positions.clear();
         return shapes;
     }

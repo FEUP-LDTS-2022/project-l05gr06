@@ -5,7 +5,7 @@ import tetrisRunner.model.Position;
 import java.util.List;
 
 public abstract class Shape {
-    private final List<Position> shapePos;
+    private List<Position> shapePos;
 
     public Shape(List<Position> shapePos) {
         this.shapePos = shapePos;
@@ -24,6 +24,10 @@ public abstract class Shape {
 
     public List<Position> getShapePos() {
         return shapePos;
+    }
+
+    public void setShapePos(List<Position> shapePos) {
+        this.shapePos = shapePos;
     }
 
     public abstract void rotateClockwise();
