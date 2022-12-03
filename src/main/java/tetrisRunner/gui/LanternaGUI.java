@@ -123,7 +123,7 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawShape(List<Position> positions, COLOR color){
         for (Position pos:positions)
-            drawCharacter(pos.getX(), pos.getY(), DIAMOND, color, COLOR.CYAN);
+            drawCharacter(pos.getX(), pos.getY(), DIAMOND, COLOR.WHITE, color);
 
 
     }
