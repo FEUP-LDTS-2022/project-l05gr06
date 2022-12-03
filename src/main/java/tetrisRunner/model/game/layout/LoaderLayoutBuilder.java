@@ -36,17 +36,14 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
         List<Position> positions = new ArrayList<>();
         positions.add(new Position(15,getHeight()-3));
         positions.add(new Position(16,getHeight()-3));
-        positions.add(new Position(17,getHeight()-3));
+        positions.add(new Position(16,getHeight()-4));
         positions.add(new Position(15,getHeight()-4));
-        Shape a = new ShapeT(positions);
-        shapes.add(a); positions.clear();
-
+        shapes.add(new ShapeO(new ArrayList<>(positions))); positions.clear();
         positions.add(new Position(9,6));
         positions.add(new Position(10,6));
         positions.add(new Position(11,6));
         positions.add(new Position(10,5));
-        Shape b = new ShapeO(positions);
-        shapes.add(b); positions.clear();
+        shapes.add(new ShapeT(new ArrayList<>(positions))); positions.clear();
         return shapes;
     }
     @Override
