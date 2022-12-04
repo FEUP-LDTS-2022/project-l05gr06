@@ -30,9 +30,11 @@ public class JacobController extends GameController{
     public void jumpJacob(){
         int x = getModel().getJacob().getPosition().getX();
         int y = getModel().getJacob().getPosition().getY();
-        Position position = new Position(x,y+1);
-        if (!getModel().isEmpty(position) ){
-            moveJacob(getModel().getJacob().getPosition().jump());
+        for(int i=0;i<2;i++){
+            Position position = new Position(x,y+1);
+            if (!getModel().isEmpty(position) ) {
+                moveJacob(getModel().getJacob().getPosition().jump());
+            }
         }
     }
     public void fallJacob(){
