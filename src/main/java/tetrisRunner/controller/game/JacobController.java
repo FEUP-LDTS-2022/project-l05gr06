@@ -61,10 +61,10 @@ public class JacobController extends GameController{
             case UP:
                 jumpJacob();
                 break;
-            case LEFT:
+            case JACOB_LEFT:
                 moveJacobLeft();
                 break;
-            case RIGHT:
+            case JACOB_RIGHT:
                 moveJacobRight();
                 break;
 

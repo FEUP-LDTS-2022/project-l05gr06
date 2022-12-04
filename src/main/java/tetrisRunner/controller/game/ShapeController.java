@@ -45,7 +45,8 @@ public class ShapeController extends GameController{
         Shape shape = shapes.get(shapes.size()-1);
         boolean leftFlag = true;
         for (Position pos: shape.getShapePos()) {
-            if(!getModel().isEmpty(pos.getLeft()) && !shape.getShapePos().contains(pos.getLeft()))
+            if(!getModel().isEmpty(pos.getLeft()) && !shape.getShapePos().contains(pos.getLeft())
+                    || (!getModel().isEmpty(pos.fall()) && !shape.getShapePos().contains(pos.fall())))
                 leftFlag = false;
         }
         if(leftFlag){
@@ -54,18 +55,23 @@ public class ShapeController extends GameController{
             newpos.clear();
         }
     }
-    /*
-    public void moveShape(){
+    public void moveShapeRight(){
         List<Shape> shapes = getModel().getShapes();
+        List<Position> newpos = new ArrayList<>();
         Shape shape = shapes.get(shapes.size()-1);
-        List<Position> shapePos =  shape.getShapePos();
-        for(Position position: shapePos){
-            if (getModel().isEmpty(position)) {
-                getModel().getJacob().setPosition(position);
-            }
+        boolean rightFlag = true;
+        for (Position pos: shape.getShapePos()) {
+            if(!getModel().isEmpty(pos.getRight()) && !shape.getShapePos().contains(pos.getRight()) ||
+                    (!getModel().isEmpty(pos.fall()) && !shape.getShapePos().contains(pos.fall())))
+                rightFlag = false;
         }
+        if(rightFlag){
+            for (Position pos: shape.getShapePos()) newpos.add(pos.getRight());
+            shape.setShapePos(new ArrayList<>(newpos));
+            newpos.clear();
+        }
+    }
 
-    }*/
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
@@ -74,9 +80,12 @@ public class ShapeController extends GameController{
             lastMovementBlock = time;
         }
         switch (action){
-            case LEFT_SHAPE:
+            case SHAPE_RIGHT:
+                moveShapeRight();
+                break;
+            case SHAPE_LEFT:
                 moveShapeLeft();
-
+                break;
         }
     }
 }
