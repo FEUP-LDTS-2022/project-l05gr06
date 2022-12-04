@@ -39,12 +39,44 @@ public class ShapeController extends GameController{
             }
         }
     }
+    public void moveShapeLeft(){
+        List<Shape> shapes = getModel().getShapes();
+        List<Position> newpos = new ArrayList<>();
+        Shape shape = shapes.get(shapes.size()-1);
+        boolean leftFlag = true;
+        for (Position pos: shape.getShapePos()) {
+            if(!getModel().isEmpty(pos.getLeft()) && !shape.getShapePos().contains(pos.getLeft()))
+                leftFlag = false;
+        }
+        if(leftFlag){
+            for (Position pos: shape.getShapePos()) newpos.add(pos.getLeft());
+            shape.setShapePos(new ArrayList<>(newpos));
+            newpos.clear();
+        }
+    }
+    /*
+    public void moveShape(){
+        List<Shape> shapes = getModel().getShapes();
+        Shape shape = shapes.get(shapes.size()-1);
+        List<Position> shapePos =  shape.getShapePos();
+        for(Position position: shapePos){
+            if (getModel().isEmpty(position)) {
+                getModel().getJacob().setPosition(position);
+            }
+        }
+
+    }*/
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time-lastMovementBlock>fallTimeBlock) {
             fallShape();
             lastMovementBlock = time;
+        }
+        switch (action){
+            case LEFT_SHAPE:
+                moveShapeLeft();
+
         }
     }
 }

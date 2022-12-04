@@ -23,6 +23,6 @@ public interface GUI {
     void close() throws IOException;
     void drawShape(List<Position> positions, COLOR color);
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, ESCAPE}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, ESCAPE, LEFT_SHAPE}
     enum COLOR {RED, YELLOW, BLUE, PURPLE, ORANGE, GREEN, PINK, CYAN, BRICK, WHITE, BLACK}
 }
