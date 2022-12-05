@@ -32,31 +32,10 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     }
     @Override
     protected List<Shape> createShapes(){
+        ShapeFactory factory = new RandomShapeFactory();
         List<Shape> shapes = new ArrayList<>();
-        List<Position> positions = new ArrayList<>();
-
-        // SQUARE
-        positions.add(new Position(15,getHeight()-3));
-        positions.add(new Position(16,getHeight()-3));
-        positions.add(new Position(16,getHeight()-4));
-        positions.add(new Position(15,getHeight()-4));
-        shapes.add(new ShapeO(new ArrayList<>(positions))); positions.clear();
-
-        // T
-        positions.add(new Position(9,6));
-        positions.add(new Position(10,6));
-        positions.add(new Position(11,6));
-        positions.add(new Position(10,7));
-        shapes.add(new ShapeT(new ArrayList<>(positions))); positions.clear();
-/*
-        // LINE
-        positions.add(new Position(8,6));
-        positions.add(new Position(9,6));
-        positions.add(new Position(10,6));
-        positions.add(new Position(11,6));
-        shapes.add(new ShapeI(new ArrayList<>(positions))); positions.clear();
-
-*/
+        Shape shape = factory.createShape();
+        shapes.add(shape);
         return shapes;
     }
     @Override

@@ -28,8 +28,9 @@ public class Game {
         this.gui = new LanternaGUI(20, 20);
         this.state = new StartMenuState(new StartMenu());
         this.music = new Music("./src/main/resources/music/theme.wav");
+
         //Music
-       // music.runMusic();
+        music.runMusic();
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

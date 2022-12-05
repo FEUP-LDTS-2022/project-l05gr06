@@ -4,7 +4,9 @@ import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.model.game.shapes.RandomShapeFactory;
 import tetrisRunner.model.game.shapes.Shape;
+import tetrisRunner.model.game.shapes.ShapeFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,9 +71,14 @@ public class ShapeController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        List<Shape> shapes = getModel().getShapes();
         if (time-lastMovementBlock>fallTimeBlock) {
             fallShape();
             lastMovementBlock = time;
+        }
+        if (!isFalling(shapes.get(shapes.size()-1))) {
+            ShapeFactory factory = new RandomShapeFactory();
+            getModel().getShapes().add(factory.createShape());
         }
         switch (action){
             case SHAPE_RIGHT:
