@@ -64,7 +64,7 @@ public class ShapeController extends GameController{
     public void maneuverRight(){
         List<Shape> shapes = getModel().getShapes();
         Shape shape = shapes.get(shapes.size()-1);
-        if(canMoveLeft(shape)){
+        if(canMoveRight(shape)){
             shape.moveRight();
         }
     }
