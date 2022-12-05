@@ -25,14 +25,8 @@ public class ShapeController extends GameController{
     public void fallShape(){
         List<Shape> shapes = getModel().getShapes();
         List<Position> newpos = new ArrayList<>();
-        boolean fallFlag;
         for(Shape shape:shapes){
-            fallFlag = true;
-            for (Position pos: shape.getShapePos()) {
-                if(!getModel().isEmpty(pos.fall()) && !shape.getShapePos().contains(pos.fall()))
-                    fallFlag = false;
-            }
-            if (fallFlag){
+            if (isFalling(shape)){
                 for (Position pos: shape.getShapePos()) newpos.add(pos.fall());
                 shape.setShapePos(new ArrayList<>(newpos));
                 newpos.clear();
@@ -43,13 +37,7 @@ public class ShapeController extends GameController{
         List<Shape> shapes = getModel().getShapes();
         List<Position> newpos = new ArrayList<>();
         Shape shape = shapes.get(shapes.size()-1);
-        boolean leftFlag = true;
-        for (Position pos: shape.getShapePos()) {
-            if(!getModel().isEmpty(pos.getLeft()) && !shape.getShapePos().contains(pos.getLeft())
-                    || (!getModel().isEmpty(pos.fall()) && !shape.getShapePos().contains(pos.fall())))
-                leftFlag = false;
-        }
-        if(leftFlag){
+        if(canMoveLeft(shape) && isFalling(shape)){
             for (Position pos: shape.getShapePos()) newpos.add(pos.getLeft());
             shape.setShapePos(new ArrayList<>(newpos));
             newpos.clear();
@@ -59,17 +47,32 @@ public class ShapeController extends GameController{
         List<Shape> shapes = getModel().getShapes();
         List<Position> newpos = new ArrayList<>();
         Shape shape = shapes.get(shapes.size()-1);
-        boolean rightFlag = true;
-        for (Position pos: shape.getShapePos()) {
-            if(!getModel().isEmpty(pos.getRight()) && !shape.getShapePos().contains(pos.getRight()) ||
-                    (!getModel().isEmpty(pos.fall()) && !shape.getShapePos().contains(pos.fall())))
-                rightFlag = false;
-        }
-        if(rightFlag){
+        if(canMoveRight(shape) && isFalling(shape)){
             for (Position pos: shape.getShapePos()) newpos.add(pos.getRight());
             shape.setShapePos(new ArrayList<>(newpos));
             newpos.clear();
         }
+    }
+    public boolean canMoveRight(Shape shape){
+        for (Position pos: shape.getShapePos()) {
+            if(!getModel().isEmpty(pos.getRight()) && !shape.getShapePos().contains(pos.getRight()))
+                return  false;
+        }
+        return true;
+    }
+    public boolean canMoveLeft(Shape shape){
+        for (Position pos: shape.getShapePos()) {
+            if(!getModel().isEmpty(pos.getLeft()) && !shape.getShapePos().contains(pos.getLeft()))
+                return  false;
+        }
+        return true;
+    }
+    public boolean isFalling(Shape shape){
+        for (Position pos: shape.getShapePos()) {
+            if(!getModel().isEmpty(pos.fall()) && !shape.getShapePos().contains(pos.fall()))
+                 return false;
+        }
+        return true;
     }
 
 
