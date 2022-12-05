@@ -30,6 +30,7 @@ public class Game {
         this.music = new Music("./src/main/resources/music/theme.wav");
 
         //Music
+
         music.runMusic();
     }
 

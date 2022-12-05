@@ -90,7 +90,54 @@ public class ShapeController extends GameController{
         }
         return true;
     }
+    public boolean canShapeRotateClockWise(Shape shape){
+        for (Position pos: shape.rotate()) {
+            if(!getModel().isEmpty(pos) && !shape.getShapePos().contains(pos))
+                return  false;
+        }
+        return true;
+    }
+    public boolean canShapeRotateAntiClockWise(Shape shape){
+        for (Position pos: shape.rotate()) {
+            if(!getModel().isEmpty(pos) && !shape.getShapePos().contains(pos))
+                return  false;
+        }
+        return true;
+    }
 
+
+
+    public void shapeRotateClockWise(){
+        List<Shape> shapes = getModel().getShapes();
+        Shape shape = shapes.get(shapes.size()-1);
+        shape.rotateClockwise();
+        if(canShapeRotateClockWise(shape)) {
+            shape.setShapePos(shape.rotate());
+        }
+        else{
+            shapeRotateAntiClockWise();
+        }
+    }
+
+    public void shapeRotateAntiClockWise(){
+        List<Shape> shapes = getModel().getShapes();
+        Shape shape = shapes.get(shapes.size()-1);
+        shape.rotateAntiClockwise();
+        if(canShapeRotateAntiClockWise(shape)){
+            shape.setShapePos(shape.rotate());
+        }
+        else{
+            shapeRotateClockWise();
+        }
+    }
+
+    @Override
+    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        List<Shape> shapes = getModel().getShapes();
+        if (time-lastMovementBlock>fallTimeBlock) {
+            fallShape();
+            lastMovementBlock = time;
+        }
     private void createShapes(List<Shape> shapes){
         if (!isFalling(shapes.get(shapes.size()-1))) {
             ShapeFactory factory = new RandomShapeFactory();
@@ -118,6 +165,8 @@ public class ShapeController extends GameController{
             switch (action) {
                 case SHAPE_RIGHT -> moveShapeRight();
                 case SHAPE_LEFT -> moveShapeLeft();
+                case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
+                case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
             }
             createShapes(getModel().getShapes());
             if (time - lastMovementBlock > fallTimeBlock) {
