@@ -10,10 +10,12 @@ public abstract class Shape {
     private List<Position> shapePos;
     private int direction = 0;
     private GUI.COLOR color;
+    private boolean impact;
 
     public Shape(List<Position> shapePos, GUI.COLOR color) {
         this.shapePos = shapePos;
         this.color=color;
+        this.impact = true;
     }
 
     public void moveRight(){
@@ -54,6 +56,7 @@ public abstract class Shape {
         return color;
     }
 
+
     public abstract List<Position> rotate();
     public void rotateClockwise(){
         direction = (direction+1) % 4;
@@ -61,5 +64,16 @@ public abstract class Shape {
     public void rotateAntiClockwise(){
         direction = (direction+3) % 4;
     }
+
+    public void setImpact(boolean flag){
+        this.impact = flag;
+    }
+    public boolean isImpact() {
+        return impact;
+    }
+
+    public abstract void rotateClockwise();
+    public abstract void rotateAntiClockwise();
+
 
 }
