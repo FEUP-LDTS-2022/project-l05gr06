@@ -3,6 +3,7 @@ package tetrisRunner.model.game.shapes;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeS extends Shape{
@@ -12,8 +13,9 @@ public class ShapeS extends Shape{
     }
 
     @Override
-    public void rotate(){
-
+    public List<Position> rotate(){
+        List<Position> positions = new ArrayList<>();
+        return positions;
     }
 
 

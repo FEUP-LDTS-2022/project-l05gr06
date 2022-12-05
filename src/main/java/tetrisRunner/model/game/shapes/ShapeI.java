@@ -14,7 +14,7 @@ public class ShapeI extends Shape{
 
     }
     @Override
-    public void rotate() {
+    public List<Position> rotate() {
         List<Position> positions1 = getShapePos();
         List<Position> positions = new ArrayList<>();
         int x = positions1.get(0).getX(); int y = positions1.get(0).getY();
@@ -25,7 +25,6 @@ public class ShapeI extends Shape{
                 positions.add(new Position(x+1,y));
                 positions.add(new Position(x+2,y));
                 positions.add(new Position(x+3,y));
-                setShapePos(positions);
                 break;
 
             case 1:
@@ -33,23 +32,21 @@ public class ShapeI extends Shape{
                 positions.add(new Position(x,y+1));
                 positions.add(new Position(x,y+2));
                 positions.add(new Position(x,y+3));
-                setShapePos(positions);
                 break;
             case 2:
                 positions.add(new Position(x,y));
                 positions.add(new Position(x-1,y));
                 positions.add(new Position(x-2,y));
                 positions.add(new Position(x-3,y));
-                setShapePos(positions);
                 break;
             case 3:
                 positions.add(new Position(x,y));
                 positions.add(new Position(x,y-1));
                 positions.add(new Position(x,y-2));
                 positions.add(new Position(x,y-3));
-                setShapePos(positions);
                 break;
         }
+        return positions;
     }
 
 

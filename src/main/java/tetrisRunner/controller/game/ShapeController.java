@@ -67,31 +67,46 @@ public class ShapeController extends GameController{
         }
         return true;
     }
-    /*
+
     public boolean canShapeRotateClockWise(Shape shape){
-        for (Position pos: shape.getShapePos()) {
-            if(!getModel().isEmpty(pos.getRight()) && !shape.getShapePos().contains(pos.getRight()))
+        for (Position pos: shape.rotate()) {
+            if(!getModel().isEmpty(pos) && !shape.getShapePos().contains(pos))
                 return  false;
         }
         return true;
     }
-    public boolean canShapeAntiRotateClockWise(){
-
+    public boolean canShapeRotateAntiClockWise(Shape shape){
+        for (Position pos: shape.rotate()) {
+            if(!getModel().isEmpty(pos) && !shape.getShapePos().contains(pos))
+                return  false;
+        }
+        return true;
     }
-    */
+
+
 
     public void shapeRotateClockWise(){
         List<Shape> shapes = getModel().getShapes();
         Shape shape = shapes.get(shapes.size()-1);
         shape.rotateClockwise();
-        shape.rotate();
+        if(canShapeRotateClockWise(shape)) {
+            shape.setShapePos(shape.rotate());
+        }
+        else{
+            shapeRotateAntiClockWise();
+        }
     }
 
     public void shapeRotateAntiClockWise(){
         List<Shape> shapes = getModel().getShapes();
         Shape shape = shapes.get(shapes.size()-1);
         shape.rotateAntiClockwise();
-        shape.rotate();
+        if(canShapeRotateAntiClockWise(shape)){
+            shape.setShapePos(shape.rotate());
+        }
+        else{
+            shapeRotateClockWise();
+        }
     }
 
     @Override

@@ -54,7 +54,7 @@ public abstract class Shape {
         return color;
     }
 
-    public abstract void rotate();
+    public abstract List<Position> rotate();
     public void rotateClockwise(){
         direction = (direction+1) % 4;
     }
