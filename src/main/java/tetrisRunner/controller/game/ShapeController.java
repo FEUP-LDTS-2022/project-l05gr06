@@ -130,14 +130,6 @@ public class ShapeController extends GameController{
             shapeRotateClockWise();
         }
     }
-
-    @Override
-    public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        List<Shape> shapes = getModel().getShapes();
-        if (time-lastMovementBlock>fallTimeBlock) {
-            fallShape();
-            lastMovementBlock = time;
-        }
     private void createShapes(List<Shape> shapes){
         if (!isFalling(shapes.get(shapes.size()-1))) {
             ShapeFactory factory = new RandomShapeFactory();

@@ -71,9 +71,4 @@ public abstract class Shape {
     public boolean isImpact() {
         return impact;
     }
-
-    public abstract void rotateClockwise();
-    public abstract void rotateAntiClockwise();
-
-
 }
