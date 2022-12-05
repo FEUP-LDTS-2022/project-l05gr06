@@ -14,7 +14,6 @@ public class Position {
     }
 
 
-
     public Position getRight() {
         return new Position(x + 1, y);
     }

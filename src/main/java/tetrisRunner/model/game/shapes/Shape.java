@@ -3,6 +3,7 @@ package tetrisRunner.model.game.shapes;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Shape {
@@ -16,14 +17,25 @@ public abstract class Shape {
     }
 
     public void moveRight(){
+        List<Position> temp = new ArrayList<>();
         for (Position pos: shapePos){
-            pos.getRight();
+            temp.add(pos.getRight());
         }
+        setShapePos(temp);
     }
     public void moveLeft(){
+        List<Position> temp = new ArrayList<>();
         for (Position pos: shapePos){
-            pos.getLeft();
+            temp.add(pos.getLeft());
         }
+        setShapePos(temp);
+    }
+    public void fall(){
+        List<Position> temp = new ArrayList<>();
+        for (Position pos: shapePos){
+            temp.add(pos.fall());
+        }
+        setShapePos(temp);
     }
 
     public List<Position> getShapePos() {
