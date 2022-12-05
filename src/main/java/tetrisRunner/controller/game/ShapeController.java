@@ -14,12 +14,17 @@ import java.util.List;
 
 public class ShapeController extends GameController{
     private long lastMovementBlock;
-    static final long fallTimeBlock = 700;
+    private long maneuvering;
+
+    static final long fallTimeBlock = 400;
+    static final long maneuverTime = 700;
+
     final int ground;
 
     public ShapeController(Layout model) {
         super(model);
         this.lastMovementBlock = 0;
+        this.maneuvering = 0;
         this.ground  = getModel().getHeight()-2;
     }
 
@@ -39,6 +44,15 @@ public class ShapeController extends GameController{
             shape.moveLeft();
         }
     }
+
+    public void maneuverLeft(){
+        List<Shape> shapes = getModel().getShapes();
+        Shape shape = shapes.get(shapes.size()-1);
+        if(canMoveLeft(shape)){
+            shape.moveLeft();
+        }
+    }
+
     public void moveShapeRight(){
         List<Shape> shapes = getModel().getShapes();
         Shape shape = shapes.get(shapes.size()-1);
@@ -46,6 +60,15 @@ public class ShapeController extends GameController{
           shape.moveRight();
         }
     }
+
+    public void maneuverRight(){
+        List<Shape> shapes = getModel().getShapes();
+        Shape shape = shapes.get(shapes.size()-1);
+        if(canMoveLeft(shape)){
+            shape.moveRight();
+        }
+    }
+
     public boolean canMoveRight(Shape shape){
         for (Position pos: shape.getShapePos()) {
             if(!getModel().isEmpty(pos.getRight()) && !shape.getShapePos().contains(pos.getRight()))
@@ -68,25 +91,39 @@ public class ShapeController extends GameController{
         return true;
     }
 
-
-    @Override
-    public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        List<Shape> shapes = getModel().getShapes();
-        if (time-lastMovementBlock>fallTimeBlock) {
-            fallShape();
-            lastMovementBlock = time;
-        }
+    private void createShapes(List<Shape> shapes){
         if (!isFalling(shapes.get(shapes.size()-1))) {
             ShapeFactory factory = new RandomShapeFactory();
             getModel().getShapes().add(factory.createShape());
         }
-        switch (action){
-            case SHAPE_RIGHT:
-                moveShapeRight();
-                break;
-            case SHAPE_LEFT:
-                moveShapeLeft();
-                break;
+    }
+    private void startManeuver(Shape shape, long time) {
+        if (shape.isImpact())
+            this.maneuvering = time;
+        shape.setImpact(false);
+    }
+    @Override
+    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        Shape shape = getModel().getShapes().get(getModel().getShapes().size()-1);
+        if (!isFalling(shape))
+            startManeuver(shape, time);
+        else shape.setImpact(true);
+        if (time-maneuvering<=maneuverTime){
+            switch (action) {
+                case SHAPE_RIGHT -> maneuverRight();
+                case SHAPE_LEFT -> maneuverLeft();
+            }
+        }
+        else {
+            switch (action) {
+                case SHAPE_RIGHT -> moveShapeRight();
+                case SHAPE_LEFT -> moveShapeLeft();
+            }
+            createShapes(getModel().getShapes());
+            if (time - lastMovementBlock > fallTimeBlock) {
+                fallShape();
+                lastMovementBlock = time;
+            }
         }
     }
 }
