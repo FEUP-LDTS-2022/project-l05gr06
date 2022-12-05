@@ -12,19 +12,19 @@ public class StartMenuViewer extends Viewer<StartMenu> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Menu", "#FFFFFF");
+        gui.drawText(new Position(5, 5), gui.getMenuName(GUI.NAME_STATES.START_MENU), gui.getStringColor(GUI.COLOR.WHITE));
         String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++){
             switch (getModel().getEntry(i)) {
                 case "Exit":
-                    color = "#FF0000"; break;
+                    color = gui.getStringColor(GUI.COLOR.RED); break;
                 default:
-                    color = "#00FFFF";
+                    color = gui.getStringColor(GUI.COLOR.CYAN);
             }
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? color : "#FFFFFF");
+                    getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE));
     }
     }
 }

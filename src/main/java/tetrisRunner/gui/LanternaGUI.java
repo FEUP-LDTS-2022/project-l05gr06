@@ -87,7 +87,7 @@ public class LanternaGUI implements GUI {
 
         return ACTION.NONE;
     }
-
+    @Override
     public String getStringColor(COLOR color){
         if (color == COLOR.BLACK) return "#000000";
         if(color == COLOR.RED) return "#D22B2B";
@@ -100,6 +100,27 @@ public class LanternaGUI implements GUI {
         if(color == COLOR.CYAN) return "#40E0D0";
         if(color == COLOR.BRICK) return "#BC4A3C";
         if(color == COLOR.WHITE) return "#FFFFFF";
+        return "";
+    }
+    @Override
+    public String getMenuName(NAME_STATES state){
+        switch (state){
+            case INSTRUCTION ->{
+                return "Instruction";
+            }
+            case PAUSE -> {
+                return "Game Paused";
+            }
+            case SETTINGS -> {
+                return "Settings";
+            }
+            case START_MENU -> {
+                return "Menu";
+            }
+            case SELECT_MODE -> {
+                return "Select Mode";
+            }
+        }
         return "";
     }
 

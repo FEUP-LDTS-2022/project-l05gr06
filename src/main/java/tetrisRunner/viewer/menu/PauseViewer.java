@@ -5,6 +5,8 @@ import tetrisRunner.model.Position;
 import tetrisRunner.model.menu.Pause;
 import tetrisRunner.viewer.Viewer;
 
+
+
 public class PauseViewer extends Viewer<Pause> {
     public PauseViewer(Pause pause) {
         super(pause);
@@ -12,20 +14,20 @@ public class PauseViewer extends Viewer<Pause> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Game Paused", "#FFFFFF");
+        gui.drawText(new Position(5, 5), gui.getMenuName(GUI.NAME_STATES.PAUSE), gui.getStringColor(GUI.COLOR.WHITE));
         String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++){
             switch (getModel().getEntry(i)) {
                 case "Exit":
-                    color = "#FF0000";
+                    color = gui.getStringColor(GUI.COLOR.RED);
                     break;
                 default:
-                    color = "#00FFFF";
+                    color = gui.getStringColor(GUI.COLOR.CYAN);
             }
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? color : "#FFFFFF");
+                    getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE));
         }
     }
 }
