@@ -14,12 +14,8 @@ public class ShapeL extends Shape{
 
     }
     @Override
-    public void rotateClockwise() {
+    public void rotate(){
 
     }
 
-    @Override
-    public void rotateAntiClockwise() {
-
-    }
 }

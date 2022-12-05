@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class Shape {
     private List<Position> shapePos;
-
+    private int direction = 0;
     private GUI.COLOR color;
 
     public Shape(List<Position> shapePos, GUI.COLOR color) {
@@ -46,12 +46,20 @@ public abstract class Shape {
         this.shapePos = shapePos;
     }
 
+    public int getDirection() {
+        return direction;
+    }
+
     public GUI.COLOR getColor() {
         return color;
     }
 
-
-    public abstract void rotateClockwise();
-    public abstract void rotateAntiClockwise();
+    public abstract void rotate();
+    public void rotateClockwise(){
+        direction = (direction+1) % 4;
+    }
+    public void rotateAntiClockwise(){
+        direction = (direction+3) % 4;
+    }
 
 }

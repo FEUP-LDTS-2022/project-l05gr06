@@ -9,13 +9,11 @@ public class ShapeZ extends Shape{
     public ShapeZ(List<Position> pos) {
         super(pos,GUI.COLOR.RED);
     }
+
     @Override
-    public void rotateClockwise() {
+    public void rotate(){
 
     }
 
-    @Override
-    public void rotateAntiClockwise() {
 
-    }
 }

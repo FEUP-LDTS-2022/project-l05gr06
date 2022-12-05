@@ -30,7 +30,8 @@ public class Game {
         this.music = new Music("./src/main/resources/music/theme.wav");
 
         //Music
-        music.runMusic();
+
+        //music.runMusic();
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

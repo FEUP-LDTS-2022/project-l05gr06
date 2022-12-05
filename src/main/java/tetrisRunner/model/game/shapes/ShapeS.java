@@ -10,13 +10,11 @@ public class ShapeS extends Shape{
         super(pos,GUI.COLOR.GREEN);
 
     }
+
     @Override
-    public void rotateClockwise() {
+    public void rotate(){
 
     }
 
-    @Override
-    public void rotateAntiClockwise() {
 
-    }
 }

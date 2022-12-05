@@ -14,12 +14,8 @@ public class ShapeJ extends Shape{
 
     }
     @Override
-    public void rotateClockwise() {
+    public void rotate(){
 
     }
 
-    @Override
-    public void rotateAntiClockwise() {
-
-    }
 }

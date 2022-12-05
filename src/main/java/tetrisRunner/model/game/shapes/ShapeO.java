@@ -13,12 +13,8 @@ public class ShapeO extends Shape{
 
     }
     @Override
-    public void rotateClockwise() {
+    public void rotate(){
 
     }
 
-    @Override
-    public void rotateAntiClockwise() {
-
-    }
 }
