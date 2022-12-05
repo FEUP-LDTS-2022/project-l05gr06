@@ -24,33 +24,24 @@ public class ShapeController extends GameController{
     //TODO ALTERAR IF PARA PARAR CASO BATA EM ALGUMA COISA
     public void fallShape(){
         List<Shape> shapes = getModel().getShapes();
-        List<Position> newpos = new ArrayList<>();
-        for(Shape shape:shapes){
-            if (isFalling(shape)){
-                for (Position pos: shape.getShapePos()) newpos.add(pos.fall());
-                shape.setShapePos(new ArrayList<>(newpos));
-                newpos.clear();
-            }
+        Shape shape = shapes.get(shapes.size()-1);
+        if (isFalling(shape)){
+            shape.fall();
         }
     }
+
     public void moveShapeLeft(){
         List<Shape> shapes = getModel().getShapes();
-        List<Position> newpos = new ArrayList<>();
         Shape shape = shapes.get(shapes.size()-1);
         if(canMoveLeft(shape) && isFalling(shape)){
-            for (Position pos: shape.getShapePos()) newpos.add(pos.getLeft());
-            shape.setShapePos(new ArrayList<>(newpos));
-            newpos.clear();
+            shape.moveLeft();
         }
     }
     public void moveShapeRight(){
         List<Shape> shapes = getModel().getShapes();
-        List<Position> newpos = new ArrayList<>();
         Shape shape = shapes.get(shapes.size()-1);
         if(canMoveRight(shape) && isFalling(shape)){
-            for (Position pos: shape.getShapePos()) newpos.add(pos.getRight());
-            shape.setShapePos(new ArrayList<>(newpos));
-            newpos.clear();
+          shape.moveRight();
         }
     }
     public boolean canMoveRight(Shape shape){
