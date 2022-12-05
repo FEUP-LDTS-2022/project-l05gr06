@@ -89,17 +89,42 @@ public class LanternaGUI implements GUI {
     }
     @Override
     public String getStringColor(COLOR color){
-        if (color == COLOR.BLACK) return "#000000";
-        if(color == COLOR.RED) return "#D22B2B";
-        if(color == COLOR.YELLOW) return "#FFEA00";
-        if(color == COLOR.BLUE) return "#0096FF";
-        if(color == COLOR.PURPLE) return "#BF40BF";
-        if(color == COLOR.ORANGE) return "#FFAC1C";
-        if(color == COLOR.GREEN) return "#50C878";
-        if(color == COLOR.PINK) return "#FF69B4";
-        if(color == COLOR.CYAN) return "#40E0D0";
-        if(color == COLOR.BRICK) return "#BC4A3C";
-        if(color == COLOR.WHITE) return "#FFFFFF";
+        switch (color){
+            case RED -> {
+                return "#D22B2B";
+            }
+            case BLUE -> {
+                return "#0096FF";
+            }
+            case CYAN -> {
+                return "#40E0D0";
+            }
+            case BLACK -> {
+                return "#000000";
+            }
+            case PINK -> {
+                return "#FF69B4";
+            }
+            case BRICK -> {
+                return "#BC4A3C";
+            }
+            case GREEN -> {
+                return "#50C878";
+            }
+            case WHITE -> {
+                return "#FFFFFF";
+            }
+            case ORANGE -> {
+                return "#FFAC1C";
+            }
+            case PURPLE -> {
+                return "#BF40BF";
+            }
+            case YELLOW -> {
+                return "#FFEA00";
+            }
+        }
+
         return "";
     }
     @Override
@@ -120,8 +145,10 @@ public class LanternaGUI implements GUI {
             case SELECT_MODE -> {
                 return "Select Mode";
             }
+            default -> {
+                return "";
+            }
         }
-        return "";
     }
 
     @Override
