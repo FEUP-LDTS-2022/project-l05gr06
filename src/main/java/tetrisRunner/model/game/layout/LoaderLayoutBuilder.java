@@ -57,9 +57,6 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
         shapes.add(new ShapeI(new ArrayList<>(positions))); positions.clear();
 
 */
-
-
-
         return shapes;
     }
     @Override
