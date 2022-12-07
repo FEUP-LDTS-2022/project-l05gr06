@@ -16,7 +16,7 @@ public class RandomShapeFactory extends ShapeFactory{
     public Shape createShape() {
         List<Position> positions = new ArrayList<>();
         int randomInt = generateRandomInt();
-        switch (randomInt) {
+        switch (0) {
             case 0 -> {
                 positions.add(new Position(8, 0));
                 positions.add(new Position(9, 0));

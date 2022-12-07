@@ -181,6 +181,12 @@ public class LanternaGUI implements GUI {
     public void drawWall(Position position){
         drawCharacter(position.getX(), position.getY(), ' ', COLOR.WHITE,COLOR.BRICK);
     }
+
+    @Override
+    public void drawBlock(Position position, COLOR color){
+        drawCharacter(position.getX(), position.getY(), DIAMOND, COLOR.WHITE, color);
+    }
+
     void drawCharacter(int x, int y, char c, COLOR color,COLOR background) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(getStringColor(color)));
