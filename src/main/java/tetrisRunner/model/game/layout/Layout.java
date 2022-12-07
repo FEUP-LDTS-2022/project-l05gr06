@@ -57,6 +57,10 @@ public class Layout {
     public void addBlock(Block block) {
         this.blocks.add(block);
     }
+    public void removeBlocks(List<Block> blocksList) {
+        for(Block block : blocksList){blocks.remove(block);}
+    }
+
 
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)
@@ -80,4 +84,15 @@ public class Layout {
     public int getHeight() {
         return height;
     }
+
+
+    public boolean isLineComplete(int y){
+        for(int xi=1; xi<width-1;xi++){
+            if (isEmpty(new Position(xi,y))) return false;
+        }
+        return true;
+    }
+
+
+
 }
