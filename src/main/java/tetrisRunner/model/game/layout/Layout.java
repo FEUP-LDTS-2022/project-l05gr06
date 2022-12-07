@@ -87,8 +87,18 @@ public class Layout {
 
 
     public boolean isLineComplete(int y){
+        boolean isBlock;
+        Position position;
+
         for(int xi=1; xi<width-1;xi++){
-            if (isEmpty(new Position(xi,y))) return false;
+            position = new Position(xi,y);
+
+            isBlock = false;
+            for (Block block : blocks){
+                if (block.getPosition().equals(position))
+                    isBlock = true;}
+
+            if(!isBlock) return false;
         }
         return true;
     }
