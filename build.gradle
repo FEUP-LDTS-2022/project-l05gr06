@@ -3,6 +3,10 @@ plugins {
     id 'info.solidsoft.pitest' version '1.7.0'
 
 }
+pitest {
+    junit5PluginVersion = '0.15'
+
+}
 
 group 'tetrisRunner'
 version '1.0-SNAPSHOT'
