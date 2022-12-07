@@ -25,7 +25,7 @@ public class LayoutController extends GameController{
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action){
             case ESCAPE:
-                game.setState(new PauseState(new Pause()));
+                game.setState(new PauseState(new Pause(game.getState())));
                 break;
             default:
                 jacobController.step(game, action, time);

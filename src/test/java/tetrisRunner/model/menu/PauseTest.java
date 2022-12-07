@@ -3,14 +3,20 @@ package tetrisRunner.model.menu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import tetrisRunner.Game;
+import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.states.GameState;
 
 public class PauseTest {
-
+    Game game;
     Pause menu;
 
     @BeforeEach
     public void helper(){
-        menu = new Pause();
+        game = Mockito.mock(Game.class);
+        Mockito.when(game.getState()).thenReturn(new GameState(new Layout(10,10)));
+        menu = new Pause(game.getState());
     }
 
 

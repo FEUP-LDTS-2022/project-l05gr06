@@ -35,10 +35,8 @@ public class SettingsController extends Controller<Settings> {
                 if (getModel().isSelectedVolumeUp()) game.getMusic().volumeUp();
                 if (getModel().isSelectedVolumeDown()) game.getMusic().volumeDown();
                 if (getModel().isSelectedReturn()) {
-                    if(Settings.isPlaying()){
-                        Settings.setPlaying(false);
-                        game.setState(new PauseState(new Pause()));
-                    }
+                    if(getModel().getGameState() != null)
+                        game.setState(new PauseState(new Pause(getModel().getGameState())));
                     else game.setState(new StartMenuState(new StartMenu()));
                 }
         }
