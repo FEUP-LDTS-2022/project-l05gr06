@@ -3,6 +3,7 @@ package tetrisRunner.controller.game;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
+import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.game.shapes.RandomShapeFactory;
 import tetrisRunner.model.game.shapes.Shape;
@@ -15,7 +16,7 @@ public class ShapeController extends GameController{
     private long lastMovementBlock;
     private long maneuvering;
 
-    static final long fallTimeBlock = 400;
+    static final long fallTimeBlock = 200;
     static final long maneuverTime = 700;
 
     final int ground;
@@ -29,40 +30,35 @@ public class ShapeController extends GameController{
 
     //TODO ALTERAR IF PARA PARAR CASO BATA EM ALGUMA COISA
     public void fallShape(){
-        List<Shape> shapes = getModel().getShapes();
-        Shape shape = shapes.get(shapes.size()-1);
+        Shape shape = getModel().getShape();
         if (isFalling(shape)){
             shape.fall();
         }
     }
 
     public void moveShapeLeft(){
-        List<Shape> shapes = getModel().getShapes();
-        Shape shape = shapes.get(shapes.size()-1);
+        Shape shape = getModel().getShape();
         if(canMoveLeft(shape) && isFalling(shape)){
             shape.moveLeft();
         }
     }
 
     public void maneuverLeft(){
-        List<Shape> shapes = getModel().getShapes();
-        Shape shape = shapes.get(shapes.size()-1);
+        Shape shape = getModel().getShape();
         if(canMoveLeft(shape)){
             shape.moveLeft();
         }
     }
 
     public void moveShapeRight(){
-        List<Shape> shapes = getModel().getShapes();
-        Shape shape = shapes.get(shapes.size()-1);
+        Shape shape = getModel().getShape();
         if(canMoveRight(shape) && isFalling(shape)){
           shape.moveRight();
         }
     }
 
     public void maneuverRight(){
-        List<Shape> shapes = getModel().getShapes();
-        Shape shape = shapes.get(shapes.size()-1);
+        Shape shape = getModel().getShape();
         if(canMoveRight(shape)){
             shape.moveRight();
         }
@@ -104,11 +100,8 @@ public class ShapeController extends GameController{
         return true;
     }
 
-
-
     public void shapeRotateClockWise(){
-        List<Shape> shapes = getModel().getShapes();
-        Shape shape = shapes.get(shapes.size()-1);
+        Shape shape = getModel().getShape();
         shape.rotateClockwise();
         if(canShapeRotateClockWise(shape)) {
             shape.setShapePos(shape.rotate());
@@ -119,8 +112,7 @@ public class ShapeController extends GameController{
     }
 
     public void shapeRotateAntiClockWise(){
-        List<Shape> shapes = getModel().getShapes();
-        Shape shape = shapes.get(shapes.size()-1);
+        Shape shape = getModel().getShape();
         shape.rotateAntiClockwise();
         if(canShapeRotateAntiClockWise(shape)){
             shape.setShapePos(shape.rotate());
@@ -129,10 +121,18 @@ public class ShapeController extends GameController{
             shapeRotateClockWise();
         }
     }
-    private void createShapes(List<Shape> shapes){
-        if (!isFalling(shapes.get(shapes.size()-1))) {
+    public void Transform(){
+        Shape shape = getModel().getShape();
+        if(!isFalling(shape)){
+            for (Position position : shape.getShapePos()){
+                getModel().addBlock(new Block(position.getX(), position.getY(), shape.getColor()));
+            }
+        }
+    }
+    private void createShape(Shape shape){
+        if (!isFalling(shape)) {
             ShapeFactory factory = new RandomShapeFactory();
-            getModel().getShapes().add(factory.createShape());
+            getModel().setShape(factory.createShape());
         }
     }
     private void startManeuver(Shape shape, long time) {
@@ -142,7 +142,7 @@ public class ShapeController extends GameController{
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        Shape shape = getModel().getShapes().get(getModel().getShapes().size()-1);
+        Shape shape = getModel().getShape();
         if (!isFalling(shape))
             startManeuver(shape, time);
         else shape.setImpact(true);
@@ -159,7 +159,8 @@ public class ShapeController extends GameController{
                 case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
                 case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
             }
-            createShapes(getModel().getShapes());
+            Transform();
+            createShape(getModel().getShape());
             if (time - lastMovementBlock > fallTimeBlock) {
                 fallShape();
                 lastMovementBlock = time;

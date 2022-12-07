@@ -2,13 +2,17 @@ package tetrisRunner.controller.game;
 
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
+import tetrisRunner.model.Position;
+import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.model.menu.GameOver;
 import tetrisRunner.model.menu.Pause;
 import tetrisRunner.states.GameOverState;
 import tetrisRunner.states.PauseState;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LayoutController extends GameController{
     private final JacobController jacobController;
