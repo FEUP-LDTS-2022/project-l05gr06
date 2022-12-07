@@ -121,7 +121,7 @@ public class ShapeController extends GameController{
             shapeRotateClockWise();
         }
     }
-    public void Transform(){
+    public void transformShapetoBlock(){
         Shape shape = getModel().getShape();
         if(!isFalling(shape)){
             for (Position position : shape.getShapePos()){
@@ -159,7 +159,7 @@ public class ShapeController extends GameController{
                 case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
                 case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
             }
-            Transform();
+            transformShapetoBlock();
             createShape(getModel().getShape());
             if (time - lastMovementBlock > fallTimeBlock) {
                 fallShape();
