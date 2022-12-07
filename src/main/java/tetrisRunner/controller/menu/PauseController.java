@@ -27,9 +27,9 @@ public class PauseController extends Controller<Pause> {
                 break;
             case SELECT:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedSettings()) {Settings.setPlaying(true); game.setState(new SettingsState(new Settings(game.getMusic().isMuted())));}
+                if (getModel().isSelectedSettings()) {game.setState(new SettingsState(new Settings(game.getMusic().isMuted(), getModel().getGameState())));}
                 if (getModel().isSelectedMenu()) game.setState(new StartMenuState(new StartMenu()));
-                if (getModel().isSelectedGame())                                                   ;
+                if (getModel().isSelectedGame()) game.setState(getModel().getGameState());
 
         }
     }
