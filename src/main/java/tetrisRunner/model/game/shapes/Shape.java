@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class Shape {
     private List<Position> shapePos;
     private int direction = 0;
-    private GUI.COLOR color;
+    private final GUI.COLOR color;
     private boolean impact;
 
     public Shape(List<Position> shapePos, GUI.COLOR color) {

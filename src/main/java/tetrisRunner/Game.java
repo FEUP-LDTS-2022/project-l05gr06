@@ -6,10 +6,7 @@ import tetrisRunner.music.Music;
 import tetrisRunner.states.StartMenuState;
 import tetrisRunner.states.State;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 

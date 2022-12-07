@@ -9,7 +9,6 @@ import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.model.game.shapes.ShapeFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeController extends GameController{

@@ -5,12 +5,8 @@ import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.menu.GameOver;
 import tetrisRunner.model.menu.Pause;
-import tetrisRunner.model.menu.Settings;
-import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.states.GameOverState;
 import tetrisRunner.states.PauseState;
-import tetrisRunner.states.SettingsState;
-import tetrisRunner.states.StartMenuState;
 
 import java.io.IOException;
 
@@ -25,17 +21,14 @@ public class LayoutController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action){
-            case ESCAPE:
-                game.setState(new PauseState(new Pause(game.getState())));
-                break;
-            default:
-                if(!jacobController.JacobIsAlive()){
-                    game.setState(new GameOverState(new GameOver()));
-                }
-                jacobController.step(game, action, time);
-                shapeController.step(game,action,time);
-
+        if (action == GUI.ACTION.ESCAPE) {
+            game.setState(new PauseState(new Pause(game.getState())));
+        } else {
+            if (!jacobController.JacobIsAlive()) {
+                game.setState(new GameOverState(new GameOver()));
+            }
+            jacobController.step(game, action, time);
+            shapeController.step(game, action, time);
         }
     }
 }

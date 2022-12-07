@@ -1,7 +1,6 @@
 package tetrisRunner.model.menu;
 
 import tetrisRunner.model.game.layout.Layout;
-import tetrisRunner.music.Music;
 import tetrisRunner.states.State;
 
 import java.util.Arrays;
@@ -24,7 +23,7 @@ public class Settings extends Menu{
     }
 
     public void switchMute() {
-        if (super.entries.get(0) == "Mute") super.entries.set(0, "Unmute");
+        if (super.entries.get(0).equals("Mute")) super.entries.set(0, "Unmute");
         else super.entries.set(0, "Mute");
     }
     public boolean isSelectedMute() {

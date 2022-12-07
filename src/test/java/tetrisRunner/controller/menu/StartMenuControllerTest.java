@@ -4,13 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import tetrisRunner.Game;
-import tetrisRunner.controller.game.GameController;
 import tetrisRunner.gui.GUI;
-import tetrisRunner.model.menu.Instruction;
-import tetrisRunner.model.menu.SelectMode;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.states.SelectModeState;
-import tetrisRunner.states.StartMenuState;
 
 import java.io.IOException;
 import java.util.Arrays;

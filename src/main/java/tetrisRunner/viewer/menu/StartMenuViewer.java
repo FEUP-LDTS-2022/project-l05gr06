@@ -15,11 +15,10 @@ public class StartMenuViewer extends Viewer<StartMenu> {
         gui.drawText(new Position(5, 5), gui.getMenuName(GUI.NAME_STATES.START_MENU), gui.getStringColor(GUI.COLOR.WHITE));
         String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++){
-            switch (getModel().getEntry(i)) {
-                case "Exit":
-                    color = gui.getStringColor(GUI.COLOR.RED); break;
-                default:
-                    color = gui.getStringColor(GUI.COLOR.CYAN);
+            if ("Exit".equals(getModel().getEntry(i))) {
+                color = gui.getStringColor(GUI.COLOR.RED);
+            } else {
+                color = gui.getStringColor(GUI.COLOR.CYAN);
             }
             gui.drawText(
                     new Position(5, 7 + i),

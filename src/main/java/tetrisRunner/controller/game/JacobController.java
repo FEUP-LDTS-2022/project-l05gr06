@@ -51,10 +51,7 @@ public class JacobController extends GameController{
     }
     public boolean JacobIsAlive(){
         Position position = getModel().getJacob().getPosition();
-        if(!getModel().isEmpty(position)){
-            return false;
-        }
-        return true;
+        return getModel().isEmpty(position);
     }
 
     @Override
@@ -63,18 +60,10 @@ public class JacobController extends GameController{
             fallJacob();
             lastMovementJacob = time;
         }
-        switch (action){
-
-            case UP:
-                jumpJacob();
-                break;
-            case JACOB_LEFT:
-                moveJacobLeft();
-                break;
-            case JACOB_RIGHT:
-                moveJacobRight();
-                break;
-
+        switch (action) {
+            case UP -> jumpJacob();
+            case JACOB_LEFT -> moveJacobLeft();
+            case JACOB_RIGHT -> moveJacobRight();
         }
 
     }

@@ -19,32 +19,31 @@ public class ShapeZ extends Shape{
         int y = positions1.get(1).getY();
 
         switch (getDirection()) {
-            case 0:
+            case 0 -> {
                 positions.add(new Position(x - 1, y - 1));
                 positions.add(new Position(x, y));
                 positions.add(new Position(x, y - 1));
                 positions.add(new Position(x + 1, y));
-                break;
-
-            case 1:
+            }
+            case 1 -> {
                 positions.add(new Position(x + 1, y - 1));
                 positions.add(new Position(x, y));
                 positions.add(new Position(x + 1, y));
                 positions.add(new Position(x, y + 1));
-                break;
-            case 2:
+            }
+            case 2 -> {
                 positions.add(new Position(x + 1, y + 1));
                 positions.add(new Position(x, y));
                 positions.add(new Position(x, y + 1));
                 positions.add(new Position(x - 1, y));
-                break;
-            case 3:
+            }
+            case 3 -> {
                 positions.add(new Position(x - 1, y + 1));
                 positions.add(new Position(x, y));
                 positions.add(new Position(x - 1, y));
                 positions.add(new Position(x, y - 1));
-                break;
+            }
         }
             return positions;
-        }
+    }
 }

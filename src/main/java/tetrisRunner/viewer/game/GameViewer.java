@@ -1,6 +1,5 @@
 package tetrisRunner.viewer.game;
 
-import com.googlecode.lanterna.TextColor;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.elements.Element;
 import tetrisRunner.model.game.layout.Layout;

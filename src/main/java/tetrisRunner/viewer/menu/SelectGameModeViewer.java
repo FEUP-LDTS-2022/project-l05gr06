@@ -14,12 +14,10 @@ public class SelectGameModeViewer extends Viewer<SelectMode> {
         gui.drawText(new Position(5, 5), gui.getMenuName(GUI.NAME_STATES.SELECT_MODE), gui.getStringColor(GUI.COLOR.WHITE));
         String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
-            switch (getModel().getEntry(i)) {
-                case "Return":
-                    color = gui.getStringColor(GUI.COLOR.ORANGE);
-                    break;
-                default:
-                    color = gui.getStringColor(GUI.COLOR.CYAN);
+            if ("Return".equals(getModel().getEntry(i))) {
+                color = gui.getStringColor(GUI.COLOR.ORANGE);
+            } else {
+                color = gui.getStringColor(GUI.COLOR.CYAN);
             }
             gui.drawText(
                     new Position(5, 7 + i),
