@@ -16,16 +16,12 @@ public class SettingsViewer extends Viewer<Settings> {
         String color;
         for (int i = 0; i < getModel().getNumberEntries() ; i++) {
 
-            switch (getModel().getEntry(i)) {
-                case "Mute":
-                    color = gui.getStringColor(GUI.COLOR.RED); break;
-                case "Unmute":
-                    color = gui.getStringColor(GUI.COLOR.GREEN); break;
-                case "Return":
-                    color = gui.getStringColor(GUI.COLOR.ORANGE); break;
-                default:
-                    color = gui.getStringColor(GUI.COLOR.CYAN);
-            }
+            color = switch (getModel().getEntry(i)) {
+                case "Mute" -> gui.getStringColor(GUI.COLOR.RED);
+                case "Unmute" -> gui.getStringColor(GUI.COLOR.GREEN);
+                case "Return" -> gui.getStringColor(GUI.COLOR.ORANGE);
+                default -> gui.getStringColor(GUI.COLOR.CYAN);
+            };
 
             gui.drawText(
                     new Position(5, 7 + i),

@@ -2,20 +2,15 @@ package tetrisRunner.controller.menu;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.menu.Settings;
-import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.music.Music;
-import tetrisRunner.states.SelectModeState;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.mockito.ArgumentMatchers.any;
 
 public class SettingsControllerTest {
     private SettingsController settingsController;

@@ -20,31 +20,30 @@ public class ShapeI extends Shape{
         int x = positions1.get(1).getX(); int y = positions1.get(1).getY();
 
         switch (getDirection()) {
-            case 0:
-                positions.add(new Position(x-1,y));
-                positions.add(new Position(x,y));
-                positions.add(new Position(x+1,y));
-                positions.add(new Position(x+2,y));
-                break;
-
-            case 1:
-                positions.add(new Position(x,y-1));
-                positions.add(new Position(x,y));
-                positions.add(new Position(x,y+1));
-                positions.add(new Position(x,y+2));
-                break;
-            case 2:
-                positions.add(new Position(x+1,y));
-                positions.add(new Position(x,y));
-                positions.add(new Position(x-1,y));
-                positions.add(new Position(x-2,y));
-                break;
-            case 3:
-                positions.add(new Position(x,y+1));
-                positions.add(new Position(x,y));
-                positions.add(new Position(x,y-1));
-                positions.add(new Position(x,y-2));
-                break;
+            case 0 -> {
+                positions.add(new Position(x - 1, y));
+                positions.add(new Position(x, y));
+                positions.add(new Position(x + 1, y));
+                positions.add(new Position(x + 2, y));
+            }
+            case 1 -> {
+                positions.add(new Position(x, y - 1));
+                positions.add(new Position(x, y));
+                positions.add(new Position(x, y + 1));
+                positions.add(new Position(x, y + 2));
+            }
+            case 2 -> {
+                positions.add(new Position(x + 1, y));
+                positions.add(new Position(x, y));
+                positions.add(new Position(x - 1, y));
+                positions.add(new Position(x - 2, y));
+            }
+            case 3 -> {
+                positions.add(new Position(x, y + 1));
+                positions.add(new Position(x, y));
+                positions.add(new Position(x, y - 1));
+                positions.add(new Position(x, y - 2));
+            }
         }
         return positions;
     }

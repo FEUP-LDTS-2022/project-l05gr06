@@ -19,18 +19,16 @@ public class PauseController extends Controller<Pause> {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
-            case UP:
-                getModel().previousEntry();
-                break;
-            case DOWN:
-                getModel().nextEntry();
-                break;
-            case SELECT:
+            case UP -> getModel().previousEntry();
+            case DOWN -> getModel().nextEntry();
+            case SELECT -> {
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedSettings()) {game.setState(new SettingsState(new Settings(game.getMusic().isMuted(), getModel().getGameState())));}
+                if (getModel().isSelectedSettings()) {
+                    game.setState(new SettingsState(new Settings(game.getMusic().isMuted(), getModel().getGameState())));
+                }
                 if (getModel().isSelectedMenu()) game.setState(new StartMenuState(new StartMenu()));
                 if (getModel().isSelectedGame()) game.setState(getModel().getGameState());
-
+            }
         }
     }
 }

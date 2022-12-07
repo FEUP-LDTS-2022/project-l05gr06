@@ -1,9 +1,7 @@
 package tetrisRunner.music;
 
 import javax.sound.sampled.*;
-import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 
 public class Music {
     protected Clip clip;

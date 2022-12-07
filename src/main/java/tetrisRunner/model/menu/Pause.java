@@ -1,6 +1,5 @@
 package tetrisRunner.model.menu;
 
-import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.states.State;
 
 import java.util.Arrays;
@@ -28,7 +27,7 @@ public class Pause extends Menu{
         return isSelected(3);
     }
 
-    public State<Layout> getGameState() {
+    public State getGameState() {
         return gameState;
     }
 }
