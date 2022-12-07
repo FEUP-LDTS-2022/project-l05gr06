@@ -145,6 +145,9 @@ public class LanternaGUI implements GUI {
             case SELECT_MODE -> {
                 return "Select Mode";
             }
+            case GAME_OVER -> {
+                return "GameOver";
+            }
             default -> {
                 return "";
             }
