@@ -23,18 +23,6 @@ public class LayoutController extends GameController{
         shapeController = new ShapeController(model);
     }
 
-    public void Transform(){
-        List<Shape> shapes = getModel().getShapes();
-        for(Shape shape: shapes){
-            if(!shapeController.isFalling(shape)){
-                for (Position position : shape.getShapePos()){
-                    getModel().addBlock(new Block(position.getX(), position.getY(), shape.getColor()));
-                }
-                getModel().removeShape(shape);
-            }
-        }
-    }
-
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.ESCAPE) {
@@ -43,7 +31,6 @@ public class LayoutController extends GameController{
             if (!jacobController.jacobIsAlive() && !jacobController.isFalling()) {
                 game.setState(new GameOverState(new GameOver()));
             }
-            Transform();
             jacobController.step(game, action, time);
             shapeController.step(game, action, time);
         }

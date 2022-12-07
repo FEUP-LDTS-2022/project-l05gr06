@@ -17,7 +17,7 @@ public class Layout {
     private List<Wall> walls;
     private Shape fallingShape;
 
-    private List<Block> blocks = new ArrayList<>();
+    private List<Block> blocks;
     public Layout(int width,int height){
         this.width = width;
         this.height = height;
@@ -34,10 +34,13 @@ public class Layout {
         return walls;
     }
 
+    public List<Block> getBlocks() {
+        return blocks;
+    }
+
     public Shape getShape() {
         return fallingShape;
     }
-
 
     public void setShape(Shape fallingShape) {
         this.fallingShape = fallingShape;
@@ -45,6 +48,10 @@ public class Layout {
 
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
+    }
+
+    public void setBlocks(List<Block> blocks) {
+        this.blocks = blocks;
     }
 
     public void addBlock(Block block) {
