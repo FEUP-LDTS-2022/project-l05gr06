@@ -3,9 +3,11 @@ package tetrisRunner.controller.game;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.model.menu.GameOver;
 import tetrisRunner.model.menu.Pause;
 import tetrisRunner.model.menu.Settings;
 import tetrisRunner.model.menu.StartMenu;
+import tetrisRunner.states.GameOverState;
 import tetrisRunner.states.PauseState;
 import tetrisRunner.states.SettingsState;
 import tetrisRunner.states.StartMenuState;
@@ -28,8 +30,12 @@ public class LayoutController extends GameController{
                 game.setState(new PauseState(new Pause()));
                 break;
             default:
+                if(!jacobController.JacobIsAlive()){
+                    game.setState(new GameOverState(new GameOver()));
+                }
                 jacobController.step(game, action, time);
                 shapeController.step(game,action,time);
+
         }
     }
 }

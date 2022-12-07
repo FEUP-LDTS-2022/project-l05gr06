@@ -49,6 +49,13 @@ public class JacobController extends GameController{
             getModel().getJacob().setPosition(position);
         }
     }
+    public boolean JacobIsAlive(){
+        Position position = getModel().getJacob().getPosition();
+        if(!getModel().isEmpty(position)){
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
