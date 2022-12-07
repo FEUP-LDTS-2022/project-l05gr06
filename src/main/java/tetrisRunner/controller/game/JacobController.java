@@ -42,6 +42,13 @@ public class JacobController extends GameController{
             moveJacob(getModel().getJacob().getPosition().fall());
         }
     }
+    public boolean isFalling() {
+        Position position = getModel().getJacob().getPosition();
+        if (!getModel().isEmpty(position.fall()))
+            return false;
+
+        return true;
+    }
 
 
     private void moveJacob(Position position) {
@@ -49,7 +56,7 @@ public class JacobController extends GameController{
             getModel().getJacob().setPosition(position);
         }
     }
-    public boolean JacobIsAlive(){
+    public boolean jacobIsAlive(){
         Position position = getModel().getJacob().getPosition();
         return getModel().isEmpty(position);
     }

@@ -24,7 +24,7 @@ public class LayoutController extends GameController{
         if (action == GUI.ACTION.ESCAPE) {
             game.setState(new PauseState(new Pause(game.getState())));
         } else {
-            if (!jacobController.JacobIsAlive()) {
+            if (!jacobController.jacobIsAlive() && !jacobController.isFalling()) {
                 game.setState(new GameOverState(new GameOver()));
             }
             jacobController.step(game, action, time);
