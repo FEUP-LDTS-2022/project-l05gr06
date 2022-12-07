@@ -1,10 +1,12 @@
 package tetrisRunner.model.game.layout;
 
 import tetrisRunner.model.Position;
+import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
 import tetrisRunner.model.game.shapes.Shape;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Layout {
@@ -13,7 +15,9 @@ public class Layout {
     private Jacob jacob;
 
     private List<Wall> walls;
-    private List<Shape> shapes;
+    private Shape fallingShape;
+
+    private List<Block> blocks = new ArrayList<>();
     public Layout(int width,int height){
         this.width = width;
         this.height = height;
@@ -30,28 +34,37 @@ public class Layout {
         return walls;
     }
 
-    public List<Shape> getShapes() {
-        return shapes;
+    public Shape getShape() {
+        return fallingShape;
     }
 
-    public void setShapes(List<Shape> shapes) {
-        this.shapes = shapes;
+
+    public void setShape(Shape fallingShape) {
+        this.fallingShape = fallingShape;
     }
 
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
 
+    public void addBlock(Block block) {
+        this.blocks.add(block);
+    }
+
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
-        for (Shape shape : shapes)
-            for (Position pos: shape.getShapePos())
-                if (pos.equals(position))
-                    return false;
+        for (Block block : blocks){
+            if (block.getPosition().equals(position))
+                return false;}
+        for (Position pos : fallingShape.getShapePos()){
+            if(pos.equals(position)) return false;
+        }
+
         return true;
     }
+
 
     public int getWidth() {
         return width;

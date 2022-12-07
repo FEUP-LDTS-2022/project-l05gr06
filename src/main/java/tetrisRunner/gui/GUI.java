@@ -16,6 +16,8 @@ public interface GUI {
     void drawJacob(Position position);
     void drawWall(Position position);
 
+    void drawBlock(Position position, COLOR color);
+
     void clear();
 
     void refresh() throws IOException;

@@ -15,7 +15,7 @@ public class ShapeController extends GameController{
     private long lastMovementBlock;
     private long maneuvering;
 
-    static final long fallTimeBlock = 400;
+    static final long fallTimeBlock = 200;
     static final long maneuverTime = 700;
 
     final int ground;
