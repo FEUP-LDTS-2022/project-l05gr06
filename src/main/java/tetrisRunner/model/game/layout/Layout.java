@@ -105,7 +105,7 @@ public class Layout {
 
     public boolean checkOver() {
         for(Block block : blocks){
-            if(block.getPosition().getY()<0){
+            if(block.getPosition().getY()<1){
                 return true;
             }
         }
