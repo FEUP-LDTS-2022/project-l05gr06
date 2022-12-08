@@ -35,6 +35,8 @@ public class LayoutController extends GameController{
         getModel().removeBlocks(blocksToGo);
     }
 
+
+
     public void transform(){
         for (int yi = 1; yi< getModel().getHeight()-2;yi++)
         if(getModel().isLineComplete(yi)) clearLine(yi);
@@ -45,13 +47,15 @@ public class LayoutController extends GameController{
         if (action == GUI.ACTION.ESCAPE) {
             game.setState(new PauseState(new Pause(game.getState())));
         } else {
-            if (!jacobController.jacobIsAlive() && !jacobController.isFalling()) {
+            if (!jacobController.jacobIsAlive() && !jacobController.isFalling())
                 game.setState(new GameOverState(new GameOver()));
-            }
-
-            transform();
-            jacobController.step(game, action, time);
-            shapeController.step(game, action, time);
+            if (getModel().checkOver())
+                game.setState(new GameOverState(new GameOver()));
         }
+
+        transform();
+        jacobController.step(game, action, time);
+        shapeController.step(game, action, time);
     }
+
 }
