@@ -103,6 +103,15 @@ public class Layout {
         return true;
     }
 
+    public boolean checkOver() {
+        for(Block block : blocks){
+            if(block.getPosition().getY()<0){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 }
