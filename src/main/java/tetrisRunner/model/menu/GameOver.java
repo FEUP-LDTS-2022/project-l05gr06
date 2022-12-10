@@ -1,8 +1,11 @@
 package tetrisRunner.model.menu;
 
+import tetrisRunner.model.game.gameover.GameOverBehavior;
+
 import java.util.Arrays;
 
 public class GameOver extends Menu {
+    private GameOverBehavior gameOverBehavior;
     public GameOver() {
         super.entries = Arrays.asList("Play Again","Main Menu","Exit");
     }

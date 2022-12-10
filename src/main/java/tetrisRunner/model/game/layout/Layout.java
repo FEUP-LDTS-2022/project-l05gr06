@@ -1,9 +1,11 @@
 package tetrisRunner.model.game.layout;
 
+import tetrisRunner.controller.game.LayoutController;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
+import tetrisRunner.model.game.gameover.GameOverBehavior;
 import tetrisRunner.model.game.shapes.Shape;
 
 import java.util.ArrayList;
@@ -12,6 +14,7 @@ import java.util.List;
 public class Layout {
     private final int width;
     private final int height;
+    private GameOverBehavior gameOverBehavior;
     private Jacob jacob;
 
     private List<Wall> walls;
@@ -112,6 +115,11 @@ public class Layout {
         return false;
     }
 
+    public void setGameOverBehavior(GameOverBehavior gameOverBehavior) {
+        this.gameOverBehavior = gameOverBehavior;
+    }
 
-
+    public boolean gameOverStatus(LayoutController layoutController, long time){
+        return this.gameOverBehavior.gameOverStatus(layoutController, time);
+    }
 }
