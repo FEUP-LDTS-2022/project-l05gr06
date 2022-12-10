@@ -143,7 +143,7 @@ public class ShapeController extends GameController{
 
         if (time-maneuvering>maneuverTime){
 
-            transformShapetoBlock();
+            transformShapeToBlock();
             createShape(getModel().getShape());
             if (time - lastMovementBlock > fallTimeBlock) {
                 fallShape();
