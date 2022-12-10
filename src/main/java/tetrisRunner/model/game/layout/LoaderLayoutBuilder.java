@@ -5,6 +5,7 @@ import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
 import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.model.game.shapes.*;
+import tetrisRunner.model.game.gameover.GameOverBehavior;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +14,12 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     private final int startPosX;
     private final int startPosY;
 
-    public LoaderLayoutBuilder() {
+    private final GameOverBehavior gameOverBehavior;
+
+    public LoaderLayoutBuilder(GameOverBehavior gameOverBehavior) {
         this.startPosX = getWidth()/2;
         this.startPosY = getHeight()-3;
+        this.gameOverBehavior = gameOverBehavior;
     }
 
     @Override
@@ -39,6 +43,12 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     protected List<Block> initializeBlocks() {
         return  new ArrayList<>();
     }
+
+    @Override
+    protected GameOverBehavior typeGameOver() {
+        return this.gameOverBehavior;
+    }
+
     @Override
     protected List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
