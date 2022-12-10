@@ -108,7 +108,7 @@ public class ShapeController extends GameController{
             shapeRotateClockWise();
         }
     }
-    public void transformShapetoBlock(){
+    public void transformShapeToBlock(){
         Shape shape = getModel().getShape();
         if(!isFalling(shape)){
             for (Position position : shape.getShapePos()){
