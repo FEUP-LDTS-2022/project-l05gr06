@@ -38,13 +38,6 @@ public class ShapeController extends GameController{
 
     public void moveShapeLeft(){
         Shape shape = getModel().getShape();
-        if(canMoveLeft(shape) && isFalling(shape)){
-            shape.moveLeft();
-        }
-    }
-
-    public void maneuverLeft(){
-        Shape shape = getModel().getShape();
         if(canMoveLeft(shape)){
             shape.moveLeft();
         }
@@ -52,17 +45,11 @@ public class ShapeController extends GameController{
 
     public void moveShapeRight(){
         Shape shape = getModel().getShape();
-        if(canMoveRight(shape) && isFalling(shape)){
+        if(canMoveRight(shape)){
           shape.moveRight();
         }
     }
 
-    public void maneuverRight(){
-        Shape shape = getModel().getShape();
-        if(canMoveRight(shape)){
-            shape.moveRight();
-        }
-    }
 
     public boolean canMoveRight(Shape shape){
         for (Position pos: shape.getShapePos()) {
@@ -146,19 +133,16 @@ public class ShapeController extends GameController{
         if (!isFalling(shape))
             startManeuver(shape, time);
         else shape.setImpact(true);
-        if (time-maneuvering<=maneuverTime){
-            switch (action) {
-                case SHAPE_RIGHT -> maneuverRight();
-                case SHAPE_LEFT -> maneuverLeft();
+
+        switch (action) {
+            case SHAPE_RIGHT -> moveShapeRight();
+            case SHAPE_LEFT -> moveShapeLeft();
+            case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
+            case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
             }
-        }
-        else {
-            switch (action) {
-                case SHAPE_RIGHT -> moveShapeRight();
-                case SHAPE_LEFT -> moveShapeLeft();
-                case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
-                case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
-            }
+
+        if (time-maneuvering>maneuverTime){
+
             transformShapetoBlock();
             createShape(getModel().getShape());
             if (time - lastMovementBlock > fallTimeBlock) {
