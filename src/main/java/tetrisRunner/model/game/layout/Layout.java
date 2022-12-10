@@ -122,4 +122,8 @@ public class Layout {
     public boolean gameOverStatus(LayoutController layoutController, long time){
         return this.gameOverBehavior.gameOverStatus(layoutController, time);
     }
+
+    public GameOverBehavior getGameOverBehavior() {
+        return gameOverBehavior;
+    }
 }
