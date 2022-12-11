@@ -15,8 +15,14 @@ public class Game {
     private State state;
     private Music music;
 
+    public int FPS = 40;
+
     public Music getMusic() {
         return music;
+    }
+
+    public int getFPS() {
+        return FPS;
     }
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
@@ -46,7 +52,7 @@ public class Game {
     }
 
     private void start() throws IOException {
-        int FPS = 40;
+        int FPS = this.FPS;
         int frameTime = 1000 / FPS;
 
         while (this.state != null) {

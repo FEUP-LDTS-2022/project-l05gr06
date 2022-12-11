@@ -34,6 +34,8 @@ public class LayoutController extends GameController{
             else if (block.getPosition().getY() < y) block.setPosition(block.getPosition().fall());
         }
         getModel().removeBlocks(blocksToGo);
+        if(getModel().scoreOrTimer()) getModel().incrementScore(500);
+
     }
 
     public JacobController getJacobController() {
@@ -55,6 +57,7 @@ public class LayoutController extends GameController{
             game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
 
         transform();
+        if(!getModel().scoreOrTimer()) getModel().incrementScore(1.0/game.getFPS());
         jacobController.step(game, action, time);
         shapeController.step(game, action, time);
     }

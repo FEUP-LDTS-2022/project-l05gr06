@@ -1,6 +1,7 @@
 package tetrisRunner.viewer.game;
 
 import tetrisRunner.gui.GUI;
+import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Element;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.game.shapes.Shape;
@@ -23,6 +24,14 @@ public class GameViewer extends Viewer<Layout> {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElements(gui, getModel().getBlocks(), new BlockViewer());
         drawElement(gui,getModel().getJacob(), new JacobViewer());
+
+        gui.drawText(
+                new Position(1, getModel().getHeight()-1),
+                getModel().scoreOrTimer() ? getModel().getScore() : getModel().getTime(),
+                gui.getStringColor(GUI.COLOR.WHITE),
+                gui.getStringColor(GUI.COLOR.BRICK));
+
+
         drawShape(gui,getModel().getShape(),new ShapeViewer());
     }
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

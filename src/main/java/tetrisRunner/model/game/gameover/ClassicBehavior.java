@@ -15,9 +15,15 @@ public class ClassicBehavior implements GameOverBehavior {
     }
 
     @Override
+    public boolean scoreOrTimer() {
+        return true;
+    }
+
+    @Override
     public void leaderboardUpdate() {
 
     }
+
 
 
 }
