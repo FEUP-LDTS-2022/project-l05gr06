@@ -4,6 +4,7 @@ import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.game.gameover.ClimbingBehavior;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.model.menu.GameOver;
@@ -53,7 +54,10 @@ public class LayoutController extends GameController{
         else if (isGameOver())
             game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
 
+        else if (jacobController.hasReachedTop() && getModel().getGameOverBehavior() instanceof ClimbingBehavior) {
 
+            game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
+        }
 
         transform();
         jacobController.step(game, action, time);

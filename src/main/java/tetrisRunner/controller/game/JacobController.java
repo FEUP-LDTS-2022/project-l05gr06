@@ -61,6 +61,14 @@ public class JacobController extends GameController{
         return getModel().isEmpty(position);
     }
 
+    public boolean hasReachedTop(){
+        if(getModel().getJacob().getPosition().getY() == -1 &&
+          (getModel().getJacob().getPosition().getX() == 0 ||
+           getModel().getJacob().getPosition().getX() == getModel().getWidth())) return true;
+
+        return false;
+    }
+
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (time-lastMovementJacob>fallTimeJacob) {
