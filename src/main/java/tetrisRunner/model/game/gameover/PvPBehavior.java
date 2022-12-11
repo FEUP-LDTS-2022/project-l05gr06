@@ -7,7 +7,10 @@ import tetrisRunner.model.game.layout.Layout;
 public class PvPBehavior implements GameOverBehavior {
     @Override
     public boolean gameOverStatus(LayoutController layoutController, long time) {
-        return false;
+        return ((!layoutController.getJacobController().jacobIsAlive() &&
+                !layoutController.getJacobController().isFalling())
+
+                || layoutController.getModel().checkOver());
     }
 
     @Override
