@@ -44,6 +44,7 @@ public abstract class Shape {
         return shapePos;
     }
 
+
     public void setShapePos(List<Position> shapePos) {
         this.shapePos = shapePos;
     }
@@ -57,7 +58,7 @@ public abstract class Shape {
     }
 
 
-    public abstract List<Position> rotate();
+    public abstract List<Position> rotate(List<Position> positions1);
     public void rotateClockwise(){
         direction = (direction+1) % 4;
     }

@@ -75,7 +75,7 @@ public class Layout {
         for (Position pos : fallingShape.getShapePos()){
             if(pos.equals(position)) return false;
         }
-        if(position.getX()>width || position.getX()<0) return false;
+        if(position.getX()>=width || position.getX()<0) return false;
 
         return true;
     }
