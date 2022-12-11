@@ -2,21 +2,19 @@ package tetrisRunner.viewer.menu;
 
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.menu.Instruction;
+import tetrisRunner.model.menu.Leaderboard;
 import tetrisRunner.viewer.Viewer;
 
-
-
-public class InstructionViewer extends Viewer<Instruction> {
-    public InstructionViewer(Instruction inst) {
-        super(inst);
+public class LeaderboardViewer extends Viewer<Leaderboard> {
+    public LeaderboardViewer(Leaderboard model) {
+        super(model);
     }
 
     @Override
-    public void drawElements(GUI gui) {
+    protected void drawElements(GUI gui) {
         gui.drawText(
                 new Position(5, 5),
-                gui.getMenuName(GUI.NAME_STATES.INSTRUCTION),
+                gui.getMenuName(GUI.NAME_STATES.LEADERBOARD),
                 gui.getStringColor(GUI.COLOR.WHITE),
                 gui.getStringColor(GUI.COLOR.BLACK));
 
@@ -35,4 +33,3 @@ public class InstructionViewer extends Viewer<Instruction> {
         }
     }
 }
-

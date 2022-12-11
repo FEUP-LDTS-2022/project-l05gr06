@@ -6,6 +6,7 @@ import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.menu.*;
 import tetrisRunner.states.InstructionState;
+import tetrisRunner.states.LeaderboardState;
 import tetrisRunner.states.SelectModeState;
 import tetrisRunner.states.SettingsState;
 
@@ -24,10 +25,11 @@ public class StartMenuController extends Controller<StartMenu> {
             case DOWN -> getModel().nextEntry();
             case SELECT -> {
                 if (getModel().isSelectedGameMode()) game.setState(new SelectModeState(new SelectMode()));
-                if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionState(new Instruction()));
+                if (getModel().isSelectedLeaderboard()) game.setState(new LeaderboardState(new Leaderboard()));
                 if (getModel().isSelectedSettings())
                     game.setState(new SettingsState(new Settings(game.getMusic().isMuted())));
+                if (getModel().isSelectedExit()) game.setState(null);
             }
         }
     }

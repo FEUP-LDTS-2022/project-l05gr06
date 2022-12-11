@@ -26,7 +26,7 @@ public class LanternaGUITest {
 
     @Test
     public void drawTextTest() {
-        gui.drawText(new Position(1,1),"Testing Text","#F0F0F0");
+        gui.drawText(new Position(1,1),"Testing Text","#F0F0F0", "#FFFFFF");
         Mockito.verify(tg,Mockito.times(1)).putString(1,1,"Testing Text");
     }
 
