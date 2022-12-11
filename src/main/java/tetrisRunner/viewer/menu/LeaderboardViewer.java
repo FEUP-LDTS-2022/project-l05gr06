@@ -23,20 +23,7 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
                 gui.getStringColor(GUI.COLOR.BLACK));
 
         String file = "docs/leaderboard/classicLeaderboard.txt";
-        int j = 0;
-        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = br.readLine();
-
-            while (line != null) {
-                gui.drawText(new Position(5, 7 + j), line,
-                        gui.getStringColor(GUI.COLOR.WHITE),
-                        gui.getStringColor(GUI.COLOR.BLACK));
-                line = br.readLine();
-                j++;
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        drawLeaderboard(gui,file);
 
         String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++){
@@ -50,6 +37,23 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE),
                     gui.getStringColor(GUI.COLOR.BLACK));
+        }
+    }
+
+    private void drawLeaderboard(GUI gui, String file){
+        int j = 0;
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line = br.readLine();
+
+            while (line != null) {
+                gui.drawText(new Position(5, 7 + j), line,
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                line = br.readLine();
+                j++;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
