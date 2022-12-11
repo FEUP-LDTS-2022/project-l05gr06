@@ -35,6 +35,9 @@ public class LayoutController extends GameController{
         getModel().removeBlocks(blocksToGo);
     }
 
+    public boolean isGameOver(){
+        return ((!jacobController.jacobIsAlive() && !jacobController.isFalling()) || getModel().checkOver());
+    }
 
 
     public void transform(){
@@ -46,12 +49,11 @@ public class LayoutController extends GameController{
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.ESCAPE) {
             game.setState(new PauseState(new Pause(game.getState())));
-        } else {
-            if (!jacobController.jacobIsAlive() && !jacobController.isFalling())
-                game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
-            if (getModel().checkOver())
-                game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
         }
+        else if (isGameOver())
+            game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
+
+
 
         transform();
         jacobController.step(game, action, time);

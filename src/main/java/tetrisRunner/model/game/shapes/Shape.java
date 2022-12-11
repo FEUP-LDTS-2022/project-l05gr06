@@ -18,8 +18,6 @@ public abstract class Shape {
         this.impact = true;
     }
 
-
-
     public void moveRight(){
         List<Position> temp = new ArrayList<>();
         for (Position pos: shapePos){

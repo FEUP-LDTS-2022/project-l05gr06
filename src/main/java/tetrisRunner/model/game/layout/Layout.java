@@ -75,6 +75,7 @@ public class Layout {
         for (Position pos : fallingShape.getShapePos()){
             if(pos.equals(position)) return false;
         }
+        if(position.getX()>width || position.getX()<0) return false;
 
         return true;
     }
@@ -108,7 +109,7 @@ public class Layout {
 
     public boolean checkOver() {
         for(Block block : blocks){
-            if(block.getPosition().getY()<1){
+            if(block.getPosition().getY()<0){
                 return true;
             }
         }

@@ -14,4 +14,6 @@ public class ClassicBehavior implements GameOverBehavior {
     public void leaderboardUpdate() {
 
     }
+
+
 }
