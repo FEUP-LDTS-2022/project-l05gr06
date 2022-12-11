@@ -14,6 +14,10 @@ import java.util.List;
 public class Layout {
     private final int width;
     private final int height;
+
+    private double score = 0;
+
+
     private GameOverBehavior gameOverBehavior;
     private Jacob jacob;
 
@@ -62,6 +66,34 @@ public class Layout {
     }
     public void removeBlocks(List<Block> blocksList) {
         for(Block block : blocksList){blocks.remove(block);}
+    }
+
+    public String getScore() {
+        return String.valueOf((int) score);
+
+    }
+
+    public String getTime(){
+        StringBuilder stringBuilder = new StringBuilder();
+        int minutes = (int) score/60;
+        int seconds = (int) score%60;
+
+        if(minutes < 10) {
+            stringBuilder.append(0);
+        }
+        stringBuilder.append(minutes);
+        stringBuilder.append(":");
+
+        if(seconds < 10) {
+            stringBuilder.append(0);
+        }
+        stringBuilder.append(seconds);
+        return stringBuilder.toString();
+    }
+
+
+    public void incrementScore(double num) {
+        this.score = score + num;
     }
 
 
@@ -123,6 +155,11 @@ public class Layout {
     public boolean gameOverStatus(LayoutController layoutController, long time){
         return this.gameOverBehavior.gameOverStatus(layoutController, time);
     }
+
+    public boolean scoreOrTimer(){
+        return this.gameOverBehavior.scoreOrTimer();
+    }
+
 
     public GameOverBehavior getGameOverBehavior() {
         return gameOverBehavior;

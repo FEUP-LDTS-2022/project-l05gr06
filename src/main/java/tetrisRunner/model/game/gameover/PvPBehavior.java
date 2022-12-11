@@ -14,6 +14,11 @@ public class PvPBehavior implements GameOverBehavior {
     }
 
     @Override
+    public boolean scoreOrTimer() {
+        return false;
+    }
+
+    @Override
     public void leaderboardUpdate() {
 
     }

@@ -11,7 +11,12 @@ public class SelectGameModeViewer extends Viewer<SelectMode> {
     }
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), gui.getMenuName(GUI.NAME_STATES.SELECT_MODE), gui.getStringColor(GUI.COLOR.WHITE));
+        gui.drawText(
+                new Position(5, 5),
+                gui.getMenuName(GUI.NAME_STATES.SELECT_MODE),
+                gui.getStringColor(GUI.COLOR.WHITE),
+                gui.getStringColor(GUI.COLOR.BLACK));
+
         String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             if ("Return".equals(getModel().getEntry(i))) {
@@ -22,7 +27,8 @@ public class SelectGameModeViewer extends Viewer<SelectMode> {
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE));
+                    getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE),
+                    gui.getStringColor(GUI.COLOR.BLACK));
         }
     }
 }

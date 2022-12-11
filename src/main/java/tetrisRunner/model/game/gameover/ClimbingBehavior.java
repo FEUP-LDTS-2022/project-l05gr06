@@ -14,7 +14,16 @@ public class ClimbingBehavior implements GameOverBehavior {
     }
 
     @Override
+    public boolean scoreOrTimer() {
+        return false;
+    }
+
+    @Override
     public void leaderboardUpdate() {
 
     }
+
+
+
+
 }

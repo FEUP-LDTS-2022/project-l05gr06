@@ -9,7 +9,7 @@ public interface GUI {
 
 
     ACTION getNextAction() throws IOException;
-    void drawText(Position position, String text, String color);
+    void drawText(Position position, String text, String color, String background);
     String getStringColor(COLOR color);
     String getMenuName(NAME_STATES state);
     void paintBackground(COLOR color, int width, int height);
