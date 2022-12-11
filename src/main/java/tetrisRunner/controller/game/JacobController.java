@@ -65,7 +65,7 @@ public class JacobController extends GameController{
 
         if(getModel().getJacob().getPosition().getY() == -1 &&
           (getModel().getJacob().getPosition().getX() == 0 ||
-           getModel().getJacob().getPosition().getX() == getModel().getWidth())) return true;
+           getModel().getJacob().getPosition().getX() == getModel().getWidth()-1)) return true;
 
         return false;
     }
