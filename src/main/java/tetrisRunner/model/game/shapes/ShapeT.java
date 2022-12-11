@@ -12,8 +12,7 @@ public class ShapeT extends Shape{
 
     }
     @Override
-    public List<Position> rotate(){
-        List<Position> positions1 = getShapePos();
+    public List<Position> rotate(List<Position> positions1){
         List<Position> positions = new ArrayList<>();
         int x = positions1.get(1).getX(); int y = positions1.get(1).getY();
 

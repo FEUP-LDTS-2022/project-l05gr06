@@ -14,7 +14,7 @@ public class ShapeO extends Shape{
 
     }
     @Override
-    public List<Position> rotate(){
+    public List<Position> rotate(List<Position> positions1){
         return getShapePos();
     }
 
