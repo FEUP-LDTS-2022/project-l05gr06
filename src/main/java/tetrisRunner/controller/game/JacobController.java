@@ -62,6 +62,7 @@ public class JacobController extends GameController{
     }
 
     public boolean hasReachedTop(){
+
         if(getModel().getJacob().getPosition().getY() == -1 &&
           (getModel().getJacob().getPosition().getX() == 0 ||
            getModel().getJacob().getPosition().getX() == getModel().getWidth())) return true;

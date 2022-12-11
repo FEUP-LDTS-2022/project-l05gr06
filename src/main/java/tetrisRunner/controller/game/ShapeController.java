@@ -129,6 +129,7 @@ public class ShapeController extends GameController{
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
+
         Shape shape = getModel().getShape();
         if (!isFalling(shape))
             startManeuver(shape, time);

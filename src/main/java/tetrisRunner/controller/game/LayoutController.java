@@ -47,6 +47,7 @@ public class LayoutController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
+
         if (action == GUI.ACTION.ESCAPE) {
             game.setState(new PauseState(new Pause(game.getState())));
         }
