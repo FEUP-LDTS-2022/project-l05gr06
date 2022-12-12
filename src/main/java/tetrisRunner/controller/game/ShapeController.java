@@ -17,8 +17,8 @@ public class ShapeController extends GameController{
     private long lastMovementBlock;
     private long maneuvering;
 
-    static final long fallTimeBlock = 400;
-    static final long maneuverTime = 700;
+    private long fallTimeBlock = 400;
+    private long maneuverTime = 700;
 
     final int ground;
 
@@ -29,6 +29,18 @@ public class ShapeController extends GameController{
         this.ground  = getModel().getHeight()-2;
     }
 
+    public void instaDrop(){
+        while (isFalling(getModel().getShape())){fallTimeBlock=1; getModel().getShape().fall();}
+
+        fallTimeBlock=400;
+    }
+
+    public void goFaster(){
+        if(true) {
+            fallTimeBlock -= 300;
+            maneuverTime -= 300;
+        }
+    }
     public void fallShape(){
         Shape shape = getModel().getShape();
         if (isFalling(shape)){
@@ -181,6 +193,7 @@ public class ShapeController extends GameController{
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
 
+
         Shape shape = getModel().getShape();
         if (!isFalling(shape))
             startManeuver(shape, time);
@@ -191,6 +204,7 @@ public class ShapeController extends GameController{
             case SHAPE_LEFT -> moveShapeLeft();
             case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
             case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
+            case SPACE -> {if(getModel().scoreOrTimer()) instaDrop();}
             }
 
         if (time-maneuvering>maneuverTime){

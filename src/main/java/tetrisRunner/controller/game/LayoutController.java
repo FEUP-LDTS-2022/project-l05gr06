@@ -31,7 +31,7 @@ public class LayoutController extends GameController{
             else if (block.getPosition().getY() < y) block.setPosition(block.getPosition().fall());
         }
         getModel().removeBlocks(blocksToGo);
-        if(getModel().scoreOrTimer()) getModel().incrementScore(500);
+        if(getModel().scoreOrTimer()) {getModel().incrementScore(500);}
 
     }
 
