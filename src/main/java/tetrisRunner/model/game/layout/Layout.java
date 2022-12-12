@@ -129,16 +129,17 @@ public class Layout {
         this.gameBehavior = gameBehavior;
     }
 
-    public boolean gameOverStatus(LayoutController layoutController, long time){
-        return this.gameBehavior.gameOverStatus(layoutController, time);
+    public boolean gameOverStatus(LayoutController layoutController){
+        return this.gameBehavior.gameOverStatus(layoutController);
+    }
+    public boolean gameOverWin(LayoutController layoutController){
+        return this.gameBehavior.gameOverWin(layoutController);
     }
 
     public boolean scoreOrTimer(){
         return this.gameBehavior.scoreOrTimer();
     }
-
-
-    public GameBehavior getGameOverBehavior() {
-        return gameBehavior;
+    public boolean checkLeaderboardUpdate(){
+        return this.gameBehavior.checkLeaderboardUpdate();
     }
 }

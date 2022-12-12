@@ -5,8 +5,10 @@ import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.menu.GameOver;
+import tetrisRunner.model.menu.HighScore;
 import tetrisRunner.model.menu.Pause;
 import tetrisRunner.states.GameOverState;
+import tetrisRunner.states.HighScoreState;
 import tetrisRunner.states.PauseState;
 
 import java.io.IOException;
@@ -50,9 +52,13 @@ public class LayoutController extends GameController{
         if (action == GUI.ACTION.ESCAPE) {
             game.setState(new PauseState(new Pause(game.getState())));
         }
-        else if (getModel().gameOverStatus(this,time))
-            game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
-
+        else if (getModel().gameOverWin(this)){
+            if(getModel().checkLeaderboardUpdate())
+                game.setState(new HighScoreState(new HighScore()));
+            else game.setState(new GameOverState(new GameOver()));
+        }
+        else if (getModel().gameOverStatus(this))
+            game.setState(new GameOverState(new GameOver()));
         transform();
         if(!getModel().scoreOrTimer()) getModel().incrementScore(1.0/game.getFPS());
         jacobController.step(game, action, time);
