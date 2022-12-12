@@ -23,6 +23,10 @@ public class PvPBehavior implements GameBehavior {
     }
 
     @Override
+    public boolean instaDropAvailable() {
+        return false;
+    }
+    @Override
     public String getScore() {
         StringBuilder stringBuilder = new StringBuilder();
         int minutes = (int) score/60;

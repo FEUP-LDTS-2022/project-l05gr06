@@ -212,7 +212,7 @@ public class ShapeController extends GameController{
             case SHAPE_LEFT -> moveShapeLeft();
             case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
             case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
-            case SPACE -> {if(getModel().scoreOrTimer()) instaDrop();}
+            case SPACE -> {if(getModel().instaDropAvailable()) instaDrop();}
             }
 
         if (time-maneuvering>maneuverTime){

@@ -14,6 +14,11 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
+    public boolean instaDropAvailable() {
+        return true;
+    }
+
+    @Override
     public boolean scoreOrTimer() {
         return false;
     }
