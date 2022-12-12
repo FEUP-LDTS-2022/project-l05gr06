@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SelectMode extends Menu{
     public SelectMode() {
-        super.entries = Arrays.asList("Classic", "Co-op", "1v1", "Return");
+        super.entries = Arrays.asList("Classic", "Climbing", "PvP", "Return");
     }
 
     public boolean isSelectedClassic() {
