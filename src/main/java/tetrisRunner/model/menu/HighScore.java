@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class HighScore extends Menu{
     String name;
     public HighScore() {
-        super.entries = Arrays.asList("Name: ", "Next");
+        super.entries = Arrays.asList("Name:", "Next");
         name = "";
     }
     public boolean isSelectedName() {
