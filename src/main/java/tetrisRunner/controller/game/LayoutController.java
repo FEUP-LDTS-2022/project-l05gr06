@@ -54,7 +54,7 @@ public class LayoutController extends GameController{
         }
         else if (getModel().gameOverWin(this)){
             if(getModel().checkLeaderboardUpdate())
-                game.setState(new HighScoreState(new HighScore(getModel().isClassic(), getModel().getScore())));
+                game.setState(new HighScoreState(new HighScore(getModel().isClassic(), getModel().getScoreNumber())));
             else game.setState(new GameOverState(new GameOver()));
         }
         else if (getModel().gameOverStatus(this))

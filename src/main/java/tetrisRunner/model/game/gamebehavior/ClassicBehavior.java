@@ -31,8 +31,13 @@ public class ClassicBehavior implements GameBehavior {
     }
 
     @Override
-    public String getScore() {
+    public String getScoreString() {
         return String.valueOf((int) score);
+    }
+
+    @Override
+    public double getScoreNumber() {
+        return this.score;
     }
 
     @Override

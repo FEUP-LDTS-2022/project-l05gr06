@@ -30,7 +30,7 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
-    public String getScore() {
+    public String getScoreString() {
         StringBuilder stringBuilder = new StringBuilder();
         int minutes = (int) score/60;
         int seconds = (int) score%60;
@@ -46,6 +46,11 @@ public class ClimbingBehavior implements GameBehavior {
         }
         stringBuilder.append(seconds);
         return stringBuilder.toString();
+    }
+
+    @Override
+    public double getScoreNumber() {
+        return this.score;
     }
 
     @Override

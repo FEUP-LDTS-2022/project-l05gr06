@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class HighScore extends Menu{
     String name;
-    String score;
+    double score;
     boolean isClassic;
-    public HighScore(boolean isClassic, String score) {
+    public HighScore(boolean isClassic, double score) {
         super.entries = Arrays.asList("Name:", "Next");
         this.isClassic = isClassic;
         this.score = score;
@@ -26,7 +26,10 @@ public class HighScore extends Menu{
     public void setName(String name) {
         this.name = name;
     }
-    public void updateLeaderboard(){
+    public void updateLeaderboardClassic(){
+
+    }
+    public void updateLeaderboardClimbing(){
 
     }
 }

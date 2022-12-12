@@ -25,7 +25,7 @@ public class PvPBehavior implements GameBehavior {
     }
 
     @Override
-    public String getScore() {
+    public String getScoreString() {
         StringBuilder stringBuilder = new StringBuilder();
         int minutes = (int) score/60;
         int seconds = (int) score%60;
@@ -46,5 +46,10 @@ public class PvPBehavior implements GameBehavior {
     @Override
     public boolean checkLeaderboardUpdate() {
         return false;
+    }
+
+    @Override
+    public double getScoreNumber() {
+        return this.score;
     }
 }

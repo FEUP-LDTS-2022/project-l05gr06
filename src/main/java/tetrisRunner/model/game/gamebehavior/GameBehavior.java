@@ -7,7 +7,8 @@ public interface GameBehavior {
     boolean gameOverWin(LayoutController layoutController);
     boolean isClassic();
     void incrementScore(double num);
-    String getScore();
+    String getScoreString();
+    double getScoreNumber();
     boolean checkLeaderboardUpdate();
 
 }

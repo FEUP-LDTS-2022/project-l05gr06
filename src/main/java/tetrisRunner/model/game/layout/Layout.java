@@ -64,11 +64,13 @@ public class Layout {
         for(Block block : blocksList){blocks.remove(block);}
     }
 
-    public String getScore() {
-        return this.gameBehavior.getScore();
+    public String getScoreString() {
+        return this.gameBehavior.getScoreString();
     }
 
-
+    public double getScoreNumber(){
+        return this.gameBehavior.getScoreNumber();
+    }
     public void incrementScore(double num) {
         this.gameBehavior.incrementScore(num);
     }
