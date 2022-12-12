@@ -25,6 +25,7 @@ public class LeaderboardController extends Controller<Leaderboard> {
                 break;
             case SELECT:
                 if (getModel().isSelectedReturn()) game.setState(new StartMenuState(new StartMenu()));
+                if (getModel().isSelectedChangeLeaderboard()) getModel().changeLeaderboard();
         }
     }
 }

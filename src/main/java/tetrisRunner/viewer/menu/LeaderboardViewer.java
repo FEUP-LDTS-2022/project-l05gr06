@@ -21,8 +21,10 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
                 gui.getMenuName(GUI.NAME_STATES.LEADERBOARD),
                 gui.getStringColor(GUI.COLOR.WHITE),
                 gui.getStringColor(GUI.COLOR.BLACK));
-
-        String file = "docs/leaderboard/classicLeaderboard.txt";
+        String file;
+        if (getModel().isClassic())
+            file = "docs/leaderboard/classicLeaderboard.txt";
+        else file = "docs/leaderboard/climbingLeaderboard.txt";
         drawLeaderboard(gui,file);
 
         String color;
