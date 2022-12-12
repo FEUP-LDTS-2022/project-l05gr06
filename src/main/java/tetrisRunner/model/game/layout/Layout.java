@@ -116,6 +116,10 @@ public class Layout {
         return true;
     }
 
+    public boolean instaDropAvailable(){
+       return gameBehavior.instaDropAvailable();
+    }
+
     public boolean checkOver() {
         for(Block block : blocks){
             if(block.getPosition().getY()<0){
