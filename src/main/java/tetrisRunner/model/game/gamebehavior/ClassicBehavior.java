@@ -1,12 +1,12 @@
-package tetrisRunner.model.game.gameover;
+package tetrisRunner.model.game.gamebehavior;
 
 import tetrisRunner.controller.game.LayoutController;
-import tetrisRunner.model.game.gameover.GameOverBehavior;
-import tetrisRunner.model.game.layout.Layout;
 
-public class PvPBehavior implements GameOverBehavior {
+public class ClassicBehavior implements GameBehavior {
+    private double score;
     @Override
     public boolean gameOverStatus(LayoutController layoutController, long time) {
+
         return ((!layoutController.getJacobController().jacobIsAlive() &&
                 !layoutController.getJacobController().isFalling())
 
@@ -15,11 +15,24 @@ public class PvPBehavior implements GameOverBehavior {
 
     @Override
     public boolean scoreOrTimer() {
-        return false;
+        return true;
+    }
+
+    @Override
+    public void incrementScore(double num) {
+        this.score = this.score + num;
+    }
+
+    @Override
+    public String getScore() {
+        return String.valueOf((int) score);
     }
 
     @Override
     public void leaderboardUpdate() {
 
     }
+
+
+
 }

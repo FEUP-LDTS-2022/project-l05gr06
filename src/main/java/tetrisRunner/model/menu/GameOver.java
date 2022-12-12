@@ -1,14 +1,14 @@
 package tetrisRunner.model.menu;
 
-import tetrisRunner.model.game.gameover.GameOverBehavior;
+import tetrisRunner.model.game.gamebehavior.GameBehavior;
 
 import java.util.Arrays;
 
 public class GameOver extends Menu {
-    private final GameOverBehavior gameOverBehavior;
-    public GameOver(GameOverBehavior gameOverBehavior) {
+    private final GameBehavior gameBehavior;
+    public GameOver(GameBehavior gameBehavior) {
         super.entries = Arrays.asList("Play Again","Main Menu","Exit");
-        this.gameOverBehavior = gameOverBehavior;
+        this.gameBehavior = gameBehavior;
     }
     public boolean isSelectedPlayAgain() {
         return isSelected(0);
@@ -21,6 +21,6 @@ public class GameOver extends Menu {
         return isSelected(2);
     }
     public void leaderboardUpdate(){
-        this.gameOverBehavior.leaderboardUpdate();
+        this.gameBehavior.leaderboardUpdate();
     }
 }
