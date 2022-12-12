@@ -15,7 +15,7 @@ public class PvPBehavior implements GameBehavior {
         return score>60;
     }
     @Override
-    public boolean scoreOrTimer() {
+    public boolean isClassic() {
         return false;
     }
 

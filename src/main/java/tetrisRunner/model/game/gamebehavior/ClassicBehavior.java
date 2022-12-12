@@ -21,7 +21,7 @@ public class ClassicBehavior implements GameBehavior {
         return gameOverStatus(layoutController);
     }
     @Override
-    public boolean scoreOrTimer() {
+    public boolean isClassic() {
         return true;
     }
 

@@ -136,8 +136,8 @@ public class Layout {
         return this.gameBehavior.gameOverWin(layoutController);
     }
 
-    public boolean scoreOrTimer(){
-        return this.gameBehavior.scoreOrTimer();
+    public boolean isClassic(){
+        return this.gameBehavior.isClassic();
     }
     public boolean checkLeaderboardUpdate(){
         return this.gameBehavior.checkLeaderboardUpdate();

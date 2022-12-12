@@ -33,7 +33,7 @@ public class LayoutController extends GameController{
             else if (block.getPosition().getY() < y) block.setPosition(block.getPosition().fall());
         }
         getModel().removeBlocks(blocksToGo);
-        if(getModel().scoreOrTimer()) getModel().incrementScore(500);
+        if(getModel().isClassic()) getModel().incrementScore(500);
 
     }
 
@@ -54,13 +54,13 @@ public class LayoutController extends GameController{
         }
         else if (getModel().gameOverWin(this)){
             if(getModel().checkLeaderboardUpdate())
-                game.setState(new HighScoreState(new HighScore()));
+                game.setState(new HighScoreState(new HighScore(getModel().isClassic(), getModel().getScore())));
             else game.setState(new GameOverState(new GameOver()));
         }
         else if (getModel().gameOverStatus(this))
             game.setState(new GameOverState(new GameOver()));
         transform();
-        if(!getModel().scoreOrTimer()) getModel().incrementScore(1.0/game.getFPS());
+        if(!getModel().isClassic()) getModel().incrementScore(1.0/game.getFPS());
         jacobController.step(game, action, time);
         shapeController.step(game, action, time);
     }

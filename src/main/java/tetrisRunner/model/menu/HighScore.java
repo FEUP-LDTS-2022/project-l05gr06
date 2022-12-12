@@ -4,8 +4,12 @@ import java.util.Arrays;
 
 public class HighScore extends Menu{
     String name;
-    public HighScore() {
+    String score;
+    boolean isClassic;
+    public HighScore(boolean isClassic, String score) {
         super.entries = Arrays.asList("Name:", "Next");
+        this.isClassic = isClassic;
+        this.score = score;
         name = "";
     }
     public boolean isSelectedName() {
@@ -21,5 +25,8 @@ public class HighScore extends Menu{
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void updateLeaderboard(){
+
     }
 }

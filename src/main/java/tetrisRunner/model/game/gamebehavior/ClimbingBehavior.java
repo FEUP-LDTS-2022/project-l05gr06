@@ -20,7 +20,7 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
-    public boolean scoreOrTimer() {
+    public boolean isClassic() {
         return false;
     }
 

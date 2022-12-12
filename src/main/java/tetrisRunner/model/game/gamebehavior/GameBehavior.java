@@ -5,7 +5,7 @@ import tetrisRunner.controller.game.LayoutController;
 public interface GameBehavior {
     boolean gameOverStatus(LayoutController layoutController);
     boolean gameOverWin(LayoutController layoutController);
-    boolean scoreOrTimer();
+    boolean isClassic();
     void incrementScore(double num);
     String getScore();
     boolean checkLeaderboardUpdate();
