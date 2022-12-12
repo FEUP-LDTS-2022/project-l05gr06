@@ -31,13 +31,12 @@ public class ShapeController extends GameController{
 
     public void instaDrop(){
         if (getModel().instaDropAvailable()) {
-            long temp = fallTimeBlock;
+
             while (isFalling(getModel().getShape())) {
-                fallTimeBlock = 1;
                 if(getModel().scoreOrTimer()) getModel().incrementScore(2);
                 getModel().getShape().fall();
             }
-            fallTimeBlock = temp;
+
         }
     }
 
