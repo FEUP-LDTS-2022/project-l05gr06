@@ -3,7 +3,7 @@ package tetrisRunner.model.game.layout;
 import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
-import tetrisRunner.model.game.gameover.GameOverBehavior;
+import tetrisRunner.model.game.gamebehavior.GameBehavior;
 import tetrisRunner.model.game.shapes.Shape;
 
 import java.util.List;
@@ -27,6 +27,6 @@ public abstract class LayoutBuilder {
 
     protected abstract List<Wall> createWalls();
     protected abstract List<Block> initializeBlocks();
-    protected abstract GameOverBehavior typeGameOver();
+    protected abstract GameBehavior typeGameOver();
 
 }

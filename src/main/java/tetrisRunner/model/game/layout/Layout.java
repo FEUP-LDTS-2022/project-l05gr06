@@ -5,20 +5,16 @@ import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
-import tetrisRunner.model.game.gameover.GameOverBehavior;
+import tetrisRunner.model.game.gamebehavior.GameBehavior;
 import tetrisRunner.model.game.shapes.Shape;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Layout {
     private final int width;
     private final int height;
 
-    private double score = 0;
-
-
-    private GameOverBehavior gameOverBehavior;
+    private GameBehavior gameBehavior;
     private Jacob jacob;
 
     private List<Wall> walls;
@@ -69,31 +65,12 @@ public class Layout {
     }
 
     public String getScore() {
-        return String.valueOf((int) score);
-
-    }
-
-    public String getTime(){
-        StringBuilder stringBuilder = new StringBuilder();
-        int minutes = (int) score/60;
-        int seconds = (int) score%60;
-
-        if(minutes < 10) {
-            stringBuilder.append(0);
-        }
-        stringBuilder.append(minutes);
-        stringBuilder.append(":");
-
-        if(seconds < 10) {
-            stringBuilder.append(0);
-        }
-        stringBuilder.append(seconds);
-        return stringBuilder.toString();
+        return this.gameBehavior.getScore();
     }
 
 
     public void incrementScore(double num) {
-        this.score = score + num;
+        this.gameBehavior.incrementScore(num);
     }
 
 
@@ -148,20 +125,20 @@ public class Layout {
         return false;
     }
 
-    public void setGameOverBehavior(GameOverBehavior gameOverBehavior) {
-        this.gameOverBehavior = gameOverBehavior;
+    public void setGameOverBehavior(GameBehavior gameBehavior) {
+        this.gameBehavior = gameBehavior;
     }
 
     public boolean gameOverStatus(LayoutController layoutController, long time){
-        return this.gameOverBehavior.gameOverStatus(layoutController, time);
+        return this.gameBehavior.gameOverStatus(layoutController, time);
     }
 
     public boolean scoreOrTimer(){
-        return this.gameOverBehavior.scoreOrTimer();
+        return this.gameBehavior.scoreOrTimer();
     }
 
 
-    public GameOverBehavior getGameOverBehavior() {
-        return gameOverBehavior;
+    public GameBehavior getGameOverBehavior() {
+        return gameBehavior;
     }
 }

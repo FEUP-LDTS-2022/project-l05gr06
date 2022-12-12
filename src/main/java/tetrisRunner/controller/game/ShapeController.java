@@ -29,7 +29,6 @@ public class ShapeController extends GameController{
         this.ground  = getModel().getHeight()-2;
     }
 
-    //TODO ALTERAR IF PARA PARAR CASO BATA EM ALGUMA COISA
     public void fallShape(){
         Shape shape = getModel().getShape();
         if (isFalling(shape)){
