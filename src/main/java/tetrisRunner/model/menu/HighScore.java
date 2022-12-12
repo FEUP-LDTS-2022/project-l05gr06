@@ -6,6 +6,7 @@ public class HighScore extends Menu{
     String name;
     public HighScore() {
         super.entries = Arrays.asList("Name: ", "Next");
+        name = "";
     }
     public boolean isSelectedName() {
         return isSelected(0);

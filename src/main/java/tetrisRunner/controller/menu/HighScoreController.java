@@ -19,15 +19,19 @@ public class HighScoreController extends Controller<HighScore> {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
+        if (getModel().isSelectedName()){
+
+        }
         switch (action) {
-            case UP:
+            case ARROW_UP:
                 getModel().previousEntry();
                 break;
-            case DOWN:
+            case ARROW_DOWN:
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedNext()) game.setState(new GameOverState(new GameOver()));
+                if (getModel().isSelectedNext() && getModel().getName().length() == 3)
+                    game.setState(new GameOverState(new GameOver()));
         }
     }
 }

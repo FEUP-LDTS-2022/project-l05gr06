@@ -71,15 +71,15 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'a' || keyStroke.getCharacter() == 'A' )) return ACTION.SHAPE_LEFT;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'd' || keyStroke.getCharacter() == 'D' )) return ACTION.SHAPE_RIGHT;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'w' || keyStroke.getCharacter() == 'W' )) return ACTION.SHAPE_ROTATE_CLOCK_WISE;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 's' || keyStroke.getCharacter() == 'S' )) return ACTION.SHAPE_ROTATE_ANTI_CLOCK_WISE;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'a' || keyStroke.getCharacter() == 'A' )) return ACTION.A;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'd' || keyStroke.getCharacter() == 'D' )) return ACTION.D;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'w' || keyStroke.getCharacter() == 'W' )) return ACTION.W;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 's' || keyStroke.getCharacter() == 'S' )) return ACTION.S;
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.JACOB_RIGHT;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.JACOB_LEFT;
+        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.ARROW_UP;
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.ARROW_RIGHT;
+        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.ARROW_DOWN;
+        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.ARROW_LEFT;
         if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 

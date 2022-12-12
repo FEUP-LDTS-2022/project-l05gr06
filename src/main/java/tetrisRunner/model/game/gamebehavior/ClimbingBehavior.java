@@ -59,7 +59,7 @@ public class ClimbingBehavior implements GameBehavior {
                 String[] times = leaderText.split(":");
                 int minutes = Integer.parseInt(times[0]);
                 int seconds = Integer.parseInt(times[1]);
-                if (score<minutes*60+seconds) return true;
+                if (score<=minutes*60+seconds) return true;
                 line = br.readLine();
             }
         } catch (IOException e) {

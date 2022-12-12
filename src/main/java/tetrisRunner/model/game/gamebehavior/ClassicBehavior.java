@@ -44,7 +44,7 @@ public class ClassicBehavior implements GameBehavior {
                 String leaderText = parts[1];
                 leaderText = leaderText.trim();
                 int leaderScore = Integer.parseInt(leaderText);
-                if (score>leaderScore) return true;
+                if (score>=leaderScore) return true;
                 line = br.readLine();
             }
         } catch (IOException e) {
