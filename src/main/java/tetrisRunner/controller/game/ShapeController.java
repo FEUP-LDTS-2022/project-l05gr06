@@ -30,16 +30,22 @@ public class ShapeController extends GameController{
     }
 
     public void instaDrop(){
+
+        long temp = fallTimeBlock;
+
         while (isFalling(getModel().getShape())){fallTimeBlock=1; getModel().getShape().fall();}
 
-        fallTimeBlock=400;
+        fallTimeBlock=temp;
     }
 
     public void goFaster(){
-        if(true) {
-            fallTimeBlock -= 300;
-            maneuverTime -= 300;
+
+        if(fallTimeBlock>100) {
+            this.fallTimeBlock = fallTimeBlock - 25;
+            this.maneuverTime = maneuverTime - 25;
         }
+
+
     }
     public void fallShape(){
         Shape shape = getModel().getShape();
@@ -195,6 +201,8 @@ public class ShapeController extends GameController{
 
 
         Shape shape = getModel().getShape();
+
+
         if (!isFalling(shape))
             startManeuver(shape, time);
         else shape.setImpact(true);
