@@ -31,7 +31,7 @@ public class LayoutController extends GameController{
             else if (block.getPosition().getY() < y) block.setPosition(block.getPosition().fall());
         }
         getModel().removeBlocks(blocksToGo);
-        if(getModel().scoreOrTimer()) {getModel().incrementScore(500); shapeController.goFaster();}
+        if(getModel().scoreOrTimer()) {shapeController.goFaster();}
 
     }
 
@@ -39,9 +39,36 @@ public class LayoutController extends GameController{
         return jacobController;
     }
 
-    public void transform(){
+    public int transform(){
+        int count = 0;
         for (int yi = 1; yi< getModel().getHeight()-2;yi++)
-        if(getModel().isLineComplete(yi)) clearLine(yi);
+        if(getModel().isLineComplete(yi)){
+            clearLine(yi);
+            count++;
+        }
+        return count;
+    }
+
+    public void updateScore(int linesCompleted){
+
+        switch(linesCompleted){
+            case 0:
+                break;
+            case 1:
+                getModel().incrementScore(100);
+                break;
+            case 2:
+                getModel().incrementScore(300);
+                break;
+            case 3:
+                getModel().incrementScore(500);
+                break;
+            case 4:
+                getModel().incrementScore(800);
+                break;
+
+        }
+
     }
 
     @Override
@@ -53,7 +80,9 @@ public class LayoutController extends GameController{
         else if (getModel().gameOverStatus(this,time))
             game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
 
-        transform();
+        int linesCompleted = transform();
+        if(getModel().scoreOrTimer()) updateScore(linesCompleted);
+
         if(!getModel().scoreOrTimer()) getModel().incrementScore(1.0/game.getFPS());
         jacobController.step(game, action, time);
         shapeController.step(game, action, time);
