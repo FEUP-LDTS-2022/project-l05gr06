@@ -30,22 +30,17 @@ public class ShapeController extends GameController{
     }
 
     public void instaDrop(){
-
-        long temp = fallTimeBlock;
-        while (isFalling(getModel().getShape())){fallTimeBlock=1; getModel().getShape().fall();}
-        fallTimeBlock=temp;
-    }
-
-    public void checkAndDrop(){
         if (getModel().instaDropAvailable()) {
-
-            int posY = getModel().getShape().getShapePos().get(1).getY();
-            instaDrop();
-            if (getModel().scoreOrTimer()) getModel().incrementScore(
-                    2*(getModel().getShape().getShapePos().get(1).getY() - posY - 1)
-            );
+            long temp = fallTimeBlock;
+            while (isFalling(getModel().getShape())) {
+                fallTimeBlock = 1;
+                if(getModel().scoreOrTimer()) getModel().incrementScore(2);
+                getModel().getShape().fall();
+            }
+            fallTimeBlock = temp;
         }
     }
+
 
     public void goFaster(){
 
@@ -221,7 +216,7 @@ public class ShapeController extends GameController{
             case SHAPE_LEFT -> moveShapeLeft();
             case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
             case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
-            case SPACE -> checkAndDrop();
+            case SPACE -> instaDrop();
 
         }
             if (time - maneuvering > maneuverTime) {
