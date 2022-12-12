@@ -81,9 +81,10 @@ public class LayoutController extends GameController{
             game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
 
         int linesCompleted = transform();
-        if(getModel().scoreOrTimer()) updateScore(linesCompleted);
 
-        if(!getModel().scoreOrTimer()) getModel().incrementScore(1.0/game.getFPS());
+        if(getModel().scoreOrTimer()) updateScore(linesCompleted);
+        else getModel().incrementScore(1.0/game.getFPS());
+
         jacobController.step(game, action, time);
         shapeController.step(game, action, time);
     }

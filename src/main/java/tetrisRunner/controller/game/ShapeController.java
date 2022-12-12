@@ -205,7 +205,6 @@ public class ShapeController extends GameController{
 
         Shape shape = getModel().getShape();
 
-
         if (!isFalling(shape))
             startManeuver(shape, time);
         else shape.setImpact(true);
