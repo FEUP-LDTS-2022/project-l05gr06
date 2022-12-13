@@ -21,9 +21,9 @@ public class GameViewer extends Viewer<Layout> {
     @Override
     protected void drawElements(GUI gui) {
         gui.paintBackground(GUI.COLOR.CYAN, getModel().getWidth(), getModel().getHeight());
+        drawElement(gui,getModel().getJacob(), new JacobViewer());
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElements(gui, getModel().getBlocks(), new BlockViewer());
-        drawElement(gui,getModel().getJacob(), new JacobViewer());
 
         gui.drawText(
                 new Position(1, getModel().getHeight()-1),
