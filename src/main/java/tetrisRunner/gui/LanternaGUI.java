@@ -218,6 +218,11 @@ public class LanternaGUI implements GUI {
         drawCharacter(position.getX(), position.getY(), DIAMOND, COLOR.WHITE, color);
     }
 
+    @Override
+    public void drawCoin(Position position) {
+        drawCharacter(position.getX(), position.getY(), WHITE_CIRCLE, COLOR.YELLOW, COLOR.CYAN);
+    }
+
     void drawCharacter(int x, int y, char c, COLOR color,COLOR background) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(getStringColor(color)));

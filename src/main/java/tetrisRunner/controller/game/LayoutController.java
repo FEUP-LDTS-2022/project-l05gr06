@@ -3,6 +3,9 @@ package tetrisRunner.controller.game;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.game.elements.Coin;
+import tetrisRunner.model.game.elements.CoinFactory;
+import tetrisRunner.model.game.elements.ElementFactory;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.menu.GameOver;
 import tetrisRunner.model.menu.HighScore;
@@ -51,7 +54,28 @@ public class LayoutController extends GameController{
         }
         return count;
     }
-
+    public List<Coin> manageCoins(){
+        List<Coin> coins = new ArrayList<>();
+        ElementFactory<Coin> factory = new CoinFactory();
+        for (Coin coin: getModel().getCoins()){
+            if ((getModel().getJacob().getPosition().getX() == coin.getPosition().getX())
+            && (getModel().getJacob().getPosition().getY() == coin.getPosition().getY())){
+                getModel().incrementScore(200);
+            }
+            else if(!coinUnderBlock(coin)) coins.add(coin);
+        }
+        for (int i=0; i<2-coins.size();i++){
+            coins.add(factory.createElement());
+        }
+        return coins;
+    }
+    public boolean coinUnderBlock(Coin coin){
+        for (Block block: getModel().getBlocks()){
+            if (block.getPosition().getX() == coin.getPosition().getX()
+            && block.getPosition().getY() ==coin.getPosition().getY()) return true;
+        }
+        return false;
+    }
     public void updateScore(int linesCompleted){
 
         switch(linesCompleted){
@@ -88,7 +112,10 @@ public class LayoutController extends GameController{
         else if (getModel().gameOverStatus(this))
             game.setState(new GameOverState(new GameOver()));
         int linesCompleted = transform();
-        if(getModel().isClassic()) updateScore(linesCompleted);
+        if(getModel().isClassic()){
+            updateScore(linesCompleted);
+            getModel().setCoins(manageCoins());
+        }
         else getModel().incrementScore(1.0/game.getFPS());
         jacobController.step(game, action, time);
         shapeController.step(game, action, time);

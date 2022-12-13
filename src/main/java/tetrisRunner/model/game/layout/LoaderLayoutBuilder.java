@@ -1,8 +1,6 @@
 package tetrisRunner.model.game.layout;
 
-import tetrisRunner.model.game.elements.Block;
-import tetrisRunner.model.game.elements.Jacob;
-import tetrisRunner.model.game.elements.Wall;
+import tetrisRunner.model.game.elements.*;
 import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.model.game.shapes.*;
 import tetrisRunner.model.game.gamebehavior.GameBehavior;
@@ -39,6 +37,16 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
         ShapeFactory factory = new RandomShapeFactory();
         return factory.createShape();
     }
+    @Override
+    protected List<Coin> createCoins() {
+        ElementFactory<Coin> factory = new CoinFactory();
+        List<Coin> coins = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            coins.add(factory.createElement());
+        }
+        return coins;
+    }
+
     @Override
     protected List<Block> initializeBlocks() {
         return  new ArrayList<>();

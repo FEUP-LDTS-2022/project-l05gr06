@@ -6,10 +6,7 @@ import tetrisRunner.model.game.elements.Element;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.viewer.Viewer;
-import tetrisRunner.viewer.game.element.BlockViewer;
-import tetrisRunner.viewer.game.element.ElementViewer;
-import tetrisRunner.viewer.game.element.JacobViewer;
-import tetrisRunner.viewer.game.element.WallViewer;
+import tetrisRunner.viewer.game.element.*;
 
 import java.util.List;
 
@@ -23,6 +20,7 @@ public class GameViewer extends Viewer<Layout> {
         gui.paintBackground(GUI.COLOR.CYAN, getModel().getWidth(), getModel().getHeight());
         drawElement(gui,getModel().getJacob(), new JacobViewer());
         drawElements(gui, getModel().getWalls(), new WallViewer());
+        drawElements(gui, getModel().getCoins(), new CoinViewer());
         drawElements(gui, getModel().getBlocks(), new BlockViewer());
 
         gui.drawText(

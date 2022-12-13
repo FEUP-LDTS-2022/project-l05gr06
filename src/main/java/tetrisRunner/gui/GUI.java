@@ -15,8 +15,8 @@ public interface GUI {
     void paintBackground(COLOR color, int width, int height);
     void drawJacob(Position position);
     void drawWall(Position position);
-
     void drawBlock(Position position, COLOR color);
+    void drawCoin(Position position);
 
     void clear();
 
