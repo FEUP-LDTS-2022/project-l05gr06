@@ -220,7 +220,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawCoin(Position position) {
-        drawCharacter(position.getX(), position.getY(), BULLET, COLOR.YELLOW, COLOR.CYAN);
+        drawCharacter(position.getX(), position.getY(), WHITE_CIRCLE, COLOR.YELLOW, COLOR.CYAN);
     }
 
     void drawCharacter(int x, int y, char c, COLOR color,COLOR background) {
