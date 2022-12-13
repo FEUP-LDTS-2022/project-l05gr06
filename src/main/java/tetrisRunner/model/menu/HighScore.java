@@ -44,11 +44,11 @@ public class HighScore extends Menu{
             leaderText = leaderText.trim();
             int leaderScore = Integer.parseInt(leaderText);
             if (score >= leaderScore && !changed) {
-                newLeaderboard.add(this.name + " - " + (int) this.score); counter++;
+                newLeaderboard.add(this.name + " - " + (int) this.score);
                 counter++;
                 changed = true;
             }
-            if (counter<=8)
+            if (counter<8)
                 newLeaderboard.add(line);
             counter++;
             line = br.readLine();
@@ -60,6 +60,34 @@ public class HighScore extends Menu{
         }
         writer.close();
     }
-    public void updateLeaderboardClimbing(){
+    public void updateLeaderboardClimbing() throws IOException {
+        int counter = 0;
+        boolean changed = false;
+        BufferedReader br = new BufferedReader(new FileReader("docs/leaderboard/climbingLeaderboard.txt"));
+        String line = br.readLine();
+        List<String> newLeaderboard = new ArrayList<>();
+        while (line != null) {
+            String[] parts = line.split("-");
+            String leaderText = parts[1];
+            leaderText = leaderText.trim();
+            String[] times = leaderText.split(":");
+            int minutes = Integer.parseInt(times[0]);
+            int seconds = Integer.parseInt(times[1]);
+            if (score<=minutes*60+seconds && !changed) {
+                newLeaderboard.add(this.name + " - " + (int) this.score/60 + ":" + (int) this.score%60);
+                counter++;
+                changed = true;
+            }
+            if (counter<8)
+                newLeaderboard.add(line);
+            counter++;
+            line = br.readLine();
+        }
+        br.close();
+        PrintWriter writer = new PrintWriter("docs/leaderboard/climbingLeaderboard.txt");
+        for (String leader: newLeaderboard){
+            writer.println(leader);
+        }
+        writer.close();
     }
 }
