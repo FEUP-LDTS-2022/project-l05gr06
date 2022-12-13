@@ -52,7 +52,7 @@ public class Game {
 
         //Music
 
-        music.runMusic();
+       // music.runMusic();
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
