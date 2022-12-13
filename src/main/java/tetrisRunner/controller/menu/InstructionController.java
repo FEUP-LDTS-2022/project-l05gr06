@@ -29,15 +29,15 @@ public class InstructionController extends Controller<Instruction> {
                     game.setState(new InstructionState(new Instruction()));
                 if(getModel().getMenu() == 3){
                     if(getModel().isSelectedClassic()){
-                        getModel().setMenu(5);
+                        getModel().setMenu(4);
                         getModel().changeInstruction();
                     }
                     if(getModel().isSelectedClimbing()){
-                        getModel().setMenu(6);
+                        getModel().setMenu(5);
                         getModel().changeInstruction();
                     }
                     if(getModel().isSelectedPvP()){
-                        getModel().setMenu(7);
+                        getModel().setMenu(6);
                         getModel().changeInstruction();
                     }
                 }

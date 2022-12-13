@@ -153,7 +153,7 @@ public class LanternaGUI implements GUI {
     public String getMenuName(NAME_STATES state){
         switch (state){
             case INSTRUCTION ->{
-                return "Instruction";
+                return "Instructions";
             }
             case PAUSE -> {
                 return "Game Paused";
@@ -173,7 +173,7 @@ public class LanternaGUI implements GUI {
             case LEADERBOARD -> {
                 return "Leaderboard";
             }
-            case HIGHSCORE -> {
+            case HIGH_SCORE -> {
                 return "HighScore!";
             }
             default -> {
