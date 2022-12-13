@@ -4,6 +4,8 @@ import tetrisRunner.controller.game.LayoutController;
 
 public class PvPBehavior implements GameBehavior {
     private double score;
+    private double gameOverTime = 60;
+
     @Override
     public boolean gameOverStatus(LayoutController layoutController) {
         return ((!layoutController.getJacobController().jacobIsAlive() &&
@@ -12,7 +14,7 @@ public class PvPBehavior implements GameBehavior {
     }
     @Override
     public boolean gameOverWin(LayoutController layoutController){
-        return score>60;
+        return score>gameOverTime;
     }
     @Override
     public boolean isClassic() {
@@ -32,8 +34,8 @@ public class PvPBehavior implements GameBehavior {
     @Override
     public String getScoreString() {
         StringBuilder stringBuilder = new StringBuilder();
-        int minutes = (int) score/60;
-        int seconds = (int) score%60;
+        int minutes = (int) (gameOverTime-score)/60;
+        int seconds = (int) (gameOverTime-score)%60;
 
         if(minutes < 10) {
             stringBuilder.append(0);
