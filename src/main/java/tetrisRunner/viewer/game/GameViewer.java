@@ -19,8 +19,8 @@ public class GameViewer extends Viewer<Layout> {
     protected void drawElements(GUI gui) {
         gui.paintBackground(GUI.COLOR.CYAN, getModel().getWidth(), getModel().getHeight());
         drawElements(gui, getModel().getWalls(), new WallViewer());
-        drawElements(gui, getModel().getBlocks(), new BlockViewer());
         drawElements(gui, getModel().getCoins(), new CoinViewer());
+        drawElements(gui, getModel().getBlocks(), new BlockViewer());
         drawElement(gui,getModel().getJacob(), new JacobViewer());
 
         gui.drawText(

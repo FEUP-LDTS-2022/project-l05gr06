@@ -7,6 +7,7 @@ import tetrisRunner.model.game.elements.Wall;
 import tetrisRunner.model.game.gamebehavior.GameBehavior;
 import tetrisRunner.model.game.shapes.Shape;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class LayoutBuilder {
@@ -18,7 +19,9 @@ public abstract class LayoutBuilder {
         layout.setWalls(createWalls());
         layout.setShape(createShape());
         layout.setBlocks(initializeBlocks());
-        layout.setCoins(createCoins());
+        if (layout.isClassic())
+            layout.setCoins(createCoins());
+        else layout.setCoins(new ArrayList<>());
         return layout;
     }
     protected abstract int getWidth();

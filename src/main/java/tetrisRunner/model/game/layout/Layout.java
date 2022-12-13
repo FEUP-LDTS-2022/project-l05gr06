@@ -87,12 +87,13 @@ public class Layout {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
-        for (Block block : blocks){
+        for (Block block : blocks)
             if (block.getPosition().equals(position))
-                return false;}
-        for (Position pos : fallingShape.getShapePos()){
-            if(pos.equals(position)) return false;
-        }
+                return false;
+        for (Position pos : fallingShape.getShapePos())
+            if(pos.equals(position))
+                return false;
+
         if(position.getX()>=width || position.getX()<0) return false;
 
         return true;
