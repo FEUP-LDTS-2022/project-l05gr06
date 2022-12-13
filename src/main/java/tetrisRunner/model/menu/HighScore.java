@@ -1,6 +1,9 @@
 package tetrisRunner.model.menu;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class HighScore extends Menu{
     String name;
@@ -26,10 +29,37 @@ public class HighScore extends Menu{
     public void setName(String name) {
         this.name = name;
     }
-    public void updateLeaderboardClassic(){
-
+    public boolean isClassic(){
+        return this.isClassic;
+    }
+    public void updateLeaderboardClassic() throws IOException {
+        int counter = 0;
+        boolean changed = false;
+        BufferedReader br = new BufferedReader(new FileReader("docs/leaderboard/classicLeaderboard.txt"));
+        String line = br.readLine();
+        List<String> newLeaderboard = new ArrayList<>();
+        while (line != null) {
+            String[] parts = line.split("-");
+            String leaderText = parts[1];
+            leaderText = leaderText.trim();
+            int leaderScore = Integer.parseInt(leaderText);
+            if (score >= leaderScore && !changed) {
+                newLeaderboard.add(this.name + " - " + (int) this.score); counter++;
+                counter++;
+                changed = true;
+            }
+            if (counter<=8)
+                newLeaderboard.add(line);
+            counter++;
+            line = br.readLine();
+        }
+        br.close();
+        PrintWriter writer = new PrintWriter("docs/leaderboard/classicLeaderboard.txt");
+        for (String leader: newLeaderboard){
+            writer.println(leader);
+        }
+        writer.close();
     }
     public void updateLeaderboardClimbing(){
-
     }
 }
