@@ -5,6 +5,7 @@ import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.menu.Instruction;
 import tetrisRunner.model.menu.StartMenu;
+import tetrisRunner.states.InstructionState;
 import tetrisRunner.states.StartMenuState;
 
 import java.io.IOException;
@@ -24,7 +25,26 @@ public class InstructionController extends Controller<Instruction> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedReturn()) game.setState(new StartMenuState(new StartMenu()));
+                if(getModel().getMenu() > 0 && getModel().isSelectedReturn() && getModel().getMenu() < 4)
+                    game.setState(new InstructionState(new Instruction()));
+                if(getModel().isSelectedShape()) {
+                    getModel().setMenu(2);
+                    getModel().changeInstruction();
+                }
+                if(getModel().isSelectedJacob()) {
+                    getModel().setMenu(1);
+                    getModel().changeInstruction();
+                }
+                if(getModel().isSelectedGameModes()){
+                    getModel().setMenu(3);
+                    getModel().changeInstruction();
+                }
+                if (getModel().isSelectedReturn()){
+                    if(getModel().getMenu() == 0)
+                        game.setState(new StartMenuState(new StartMenu()));
+                }
+
+
         }
     }
 }

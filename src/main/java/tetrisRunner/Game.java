@@ -1,5 +1,6 @@
 package tetrisRunner;
 
+import tetrisRunner.gui.GUI;
 import tetrisRunner.gui.LanternaGUI;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.music.Music;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Game {
-    private final LanternaGUI gui;
+    private LanternaGUI gui;
     private State state;
     private Music music;
 
@@ -24,6 +25,7 @@ public class Game {
     public int getFPS() {
         return FPS;
     }
+
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
 

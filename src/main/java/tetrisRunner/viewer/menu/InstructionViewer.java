@@ -28,7 +28,7 @@ public class InstructionViewer extends Viewer<Instruction> {
                 color = gui.getStringColor(GUI.COLOR.CYAN);
             }
             gui.drawText(
-                    new Position(5, 16 + i),
+                    new Position(5, 7 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE),
                     gui.getStringColor(GUI.COLOR.BLACK));

@@ -21,6 +21,9 @@ public abstract class Menu {
     public String getEntry(int i) {
         return entries.get(i);
     }
+    public void resetCurrentEntry(){
+        currentEntry = 0;
+    }
 
     public boolean isSelected(int i) {
         return currentEntry == i;
