@@ -5,8 +5,10 @@ import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.menu.GameOver;
+import tetrisRunner.model.menu.HighScore;
 import tetrisRunner.model.menu.Pause;
 import tetrisRunner.states.GameOverState;
+import tetrisRunner.states.HighScoreState;
 import tetrisRunner.states.PauseState;
 
 import java.io.IOException;
@@ -31,7 +33,7 @@ public class LayoutController extends GameController{
             else if (block.getPosition().getY() < y) block.setPosition(block.getPosition().fall());
         }
         getModel().removeBlocks(blocksToGo);
-        if(getModel().scoreOrTimer()) {shapeController.goFaster();}
+        if(getModel().isClassic()) shapeController.goFaster();
 
     }
 
@@ -77,14 +79,16 @@ public class LayoutController extends GameController{
         if (action == GUI.ACTION.ESCAPE) {
             game.setState(new PauseState(new Pause(game.getState())));
         }
-        else if (getModel().gameOverStatus(this,time))
-            game.setState(new GameOverState(new GameOver(getModel().getGameOverBehavior())));
-
+        else if (getModel().gameOverWin(this)){
+            if(getModel().checkLeaderboardUpdate())
+                game.setState(new HighScoreState(new HighScore(getModel().isClassic(), getModel().getScoreNumber())));
+            else game.setState(new GameOverState(new GameOver()));
+        }
+        else if (getModel().gameOverStatus(this))
+            game.setState(new GameOverState(new GameOver()));
         int linesCompleted = transform();
-
-        if(getModel().scoreOrTimer()) updateScore(linesCompleted);
+        if(getModel().isClassic()) updateScore(linesCompleted);
         else getModel().incrementScore(1.0/game.getFPS());
-
         jacobController.step(game, action, time);
         shapeController.step(game, action, time);
     }

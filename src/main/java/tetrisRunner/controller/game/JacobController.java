@@ -77,9 +77,9 @@ public class JacobController extends GameController{
             lastMovementJacob = time;
         }
         switch (action) {
-            case UP -> jumpJacob();
-            case JACOB_LEFT -> moveJacobLeft();
-            case JACOB_RIGHT -> moveJacobRight();
+            case ARROW_UP -> jumpJacob();
+            case ARROW_LEFT -> moveJacobLeft();
+            case ARROW_RIGHT -> moveJacobRight();
         }
 
     }

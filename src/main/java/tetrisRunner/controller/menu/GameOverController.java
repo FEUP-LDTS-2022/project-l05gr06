@@ -19,8 +19,8 @@ public class GameOverController extends Controller<GameOver> {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
-            case UP -> getModel().previousEntry();
-            case DOWN -> getModel().nextEntry();
+            case ARROW_UP -> getModel().previousEntry();
+            case ARROW_DOWN -> getModel().nextEntry();
             case SELECT -> {
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedPlayAgain()) game.setState(new SelectModeState(new SelectMode()));

@@ -64,11 +64,13 @@ public class Layout {
         for(Block block : blocksList){blocks.remove(block);}
     }
 
-    public String getScore() {
-        return this.gameBehavior.getScore();
+    public String getScoreString() {
+        return this.gameBehavior.getScoreString();
     }
 
-
+    public double getScoreNumber(){
+        return this.gameBehavior.getScoreNumber();
+    }
     public void incrementScore(double num) {
         this.gameBehavior.incrementScore(num);
     }
@@ -133,16 +135,17 @@ public class Layout {
         this.gameBehavior = gameBehavior;
     }
 
-    public boolean gameOverStatus(LayoutController layoutController, long time){
-        return this.gameBehavior.gameOverStatus(layoutController, time);
+    public boolean gameOverStatus(LayoutController layoutController){
+        return this.gameBehavior.gameOverStatus(layoutController);
+    }
+    public boolean gameOverWin(LayoutController layoutController){
+        return this.gameBehavior.gameOverWin(layoutController);
     }
 
-    public boolean scoreOrTimer(){
-        return this.gameBehavior.scoreOrTimer();
+    public boolean isClassic(){
+        return this.gameBehavior.isClassic();
     }
-
-
-    public GameBehavior getGameOverBehavior() {
-        return gameBehavior;
+    public boolean checkLeaderboardUpdate(){
+        return this.gameBehavior.checkLeaderboardUpdate();
     }
 }

@@ -27,7 +27,7 @@ public class GameViewer extends Viewer<Layout> {
 
         gui.drawText(
                 new Position(1, getModel().getHeight()-1),
-                getModel().getScore(),
+                getModel().getScoreString(),
                 gui.getStringColor(GUI.COLOR.WHITE),
                 gui.getStringColor(GUI.COLOR.BRICK));
 

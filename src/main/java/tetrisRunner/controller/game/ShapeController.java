@@ -210,13 +210,12 @@ public class ShapeController extends GameController{
         else shape.setImpact(true);
 
         switch (action) {
-            case SHAPE_RIGHT -> moveShapeRight();
-            case SHAPE_LEFT -> moveShapeLeft();
-            case SHAPE_ROTATE_ANTI_CLOCK_WISE -> shapeRotateAntiClockWise();
-            case SHAPE_ROTATE_CLOCK_WISE -> shapeRotateClockWise();
+            case D -> moveShapeRight();
+            case A -> moveShapeLeft();
+            case S -> shapeRotateAntiClockWise();
+            case W -> shapeRotateClockWise();
             case SPACE -> instaDrop();
-
-        }
+            }
             if (time - maneuvering > maneuverTime) {
 
                 transformShapeToBlock();

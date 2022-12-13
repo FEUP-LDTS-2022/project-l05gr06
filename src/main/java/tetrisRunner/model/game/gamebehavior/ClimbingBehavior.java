@@ -2,15 +2,21 @@ package tetrisRunner.model.game.gamebehavior;
 
 import tetrisRunner.controller.game.LayoutController;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class ClimbingBehavior implements GameBehavior {
     private double score;
     @Override
-    public boolean gameOverStatus(LayoutController layoutController, long time) {
+    public boolean gameOverStatus(LayoutController layoutController) {
         return ((!layoutController.getJacobController().jacobIsAlive() &&
                 !layoutController.getJacobController().isFalling())
-
-                || layoutController.getModel().checkOver()
-                || layoutController.getJacobController().hasReachedTop());
+                || layoutController.getModel().checkOver());
+    }
+    @Override
+    public boolean gameOverWin(LayoutController layoutController){
+        return layoutController.getJacobController().hasReachedTop();
     }
 
     @Override
@@ -19,7 +25,7 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
-    public boolean scoreOrTimer() {
+    public boolean isClassic() {
         return false;
     }
 
@@ -29,7 +35,7 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
-    public String getScore() {
+    public String getScoreString() {
         StringBuilder stringBuilder = new StringBuilder();
         int minutes = (int) score/60;
         int seconds = (int) score%60;
@@ -48,8 +54,28 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
-    public void leaderboardUpdate() {
+    public double getScoreNumber() {
+        return this.score;
+    }
 
+    @Override
+    public boolean checkLeaderboardUpdate() {
+        try(BufferedReader br = new BufferedReader(new FileReader("docs/leaderboard/climbingLeaderboard.txt"))) {
+            String line = br.readLine();
+            while (line != null) {
+                String[] parts = line.split("-");
+                String leaderText = parts[1];
+                leaderText = leaderText.trim();
+                String[] times = leaderText.split(":");
+                int minutes = Integer.parseInt(times[0]);
+                int seconds = Integer.parseInt(times[1]);
+                if (score<=minutes*60+seconds) return true;
+                line = br.readLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
     }
 
 

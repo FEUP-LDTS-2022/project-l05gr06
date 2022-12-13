@@ -3,12 +3,13 @@ package tetrisRunner.model.game.gamebehavior;
 import tetrisRunner.controller.game.LayoutController;
 
 public interface GameBehavior {
-    boolean gameOverStatus(LayoutController layoutController, long time);
-    boolean scoreOrTimer();
-
+    boolean gameOverStatus(LayoutController layoutController);
+    boolean gameOverWin(LayoutController layoutController);
+    boolean isClassic();
     boolean instaDropAvailable();
     void incrementScore(double num);
-    String getScore();
-    void leaderboardUpdate();
+    String getScoreString();
+    double getScoreNumber();
+    boolean checkLeaderboardUpdate();
 
 }

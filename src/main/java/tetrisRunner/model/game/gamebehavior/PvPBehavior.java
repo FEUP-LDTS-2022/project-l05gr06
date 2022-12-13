@@ -5,15 +5,17 @@ import tetrisRunner.controller.game.LayoutController;
 public class PvPBehavior implements GameBehavior {
     private double score;
     @Override
-    public boolean gameOverStatus(LayoutController layoutController, long time) {
+    public boolean gameOverStatus(LayoutController layoutController) {
         return ((!layoutController.getJacobController().jacobIsAlive() &&
                 !layoutController.getJacobController().isFalling())
-
                 || layoutController.getModel().checkOver());
     }
-
     @Override
-    public boolean scoreOrTimer() {
+    public boolean gameOverWin(LayoutController layoutController){
+        return score>60;
+    }
+    @Override
+    public boolean isClassic() {
         return false;
     }
 
@@ -26,8 +28,9 @@ public class PvPBehavior implements GameBehavior {
     public boolean instaDropAvailable() {
         return false;
     }
+    
     @Override
-    public String getScore() {
+    public String getScoreString() {
         StringBuilder stringBuilder = new StringBuilder();
         int minutes = (int) score/60;
         int seconds = (int) score%60;
@@ -46,7 +49,12 @@ public class PvPBehavior implements GameBehavior {
     }
 
     @Override
-    public void leaderboardUpdate() {
+    public boolean checkLeaderboardUpdate() {
+        return false;
+    }
 
+    @Override
+    public double getScoreNumber() {
+        return this.score;
     }
 }

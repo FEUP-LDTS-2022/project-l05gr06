@@ -71,15 +71,38 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'a' || keyStroke.getCharacter() == 'A' )) return ACTION.SHAPE_LEFT;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'd' || keyStroke.getCharacter() == 'D' )) return ACTION.SHAPE_RIGHT;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'w' || keyStroke.getCharacter() == 'W' )) return ACTION.SHAPE_ROTATE_CLOCK_WISE;
-        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 's' || keyStroke.getCharacter() == 'S' )) return ACTION.SHAPE_ROTATE_ANTI_CLOCK_WISE;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'a' || keyStroke.getCharacter() == 'A' )) return ACTION.A;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'b' || keyStroke.getCharacter() == 'B' )) return ACTION.B;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'c' || keyStroke.getCharacter() == 'C' )) return ACTION.C;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'd' || keyStroke.getCharacter() == 'D' )) return ACTION.D;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'e' || keyStroke.getCharacter() == 'E' )) return ACTION.E;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'f' || keyStroke.getCharacter() == 'F' )) return ACTION.F;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'g' || keyStroke.getCharacter() == 'G' )) return ACTION.G;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'h' || keyStroke.getCharacter() == 'H' )) return ACTION.H;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'i' || keyStroke.getCharacter() == 'I' )) return ACTION.I;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'j' || keyStroke.getCharacter() == 'J' )) return ACTION.J;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'k' || keyStroke.getCharacter() == 'K' )) return ACTION.K;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'l' || keyStroke.getCharacter() == 'L' )) return ACTION.L;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'm' || keyStroke.getCharacter() == 'M' )) return ACTION.M;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'n' || keyStroke.getCharacter() == 'N' )) return ACTION.N;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'o' || keyStroke.getCharacter() == 'O' )) return ACTION.O;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'p' || keyStroke.getCharacter() == 'P' )) return ACTION.P;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'q' || keyStroke.getCharacter() == 'Q' )) return ACTION.Q;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'r' || keyStroke.getCharacter() == 'R' )) return ACTION.R;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 's' || keyStroke.getCharacter() == 'S' )) return ACTION.S;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 't' || keyStroke.getCharacter() == 'T' )) return ACTION.T;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'u' || keyStroke.getCharacter() == 'U' )) return ACTION.U;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'v' || keyStroke.getCharacter() == 'V' )) return ACTION.V;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'w' || keyStroke.getCharacter() == 'W' )) return ACTION.W;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'x' || keyStroke.getCharacter() == 'X' )) return ACTION.X;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'y' || keyStroke.getCharacter() == 'Y' )) return ACTION.Y;
+        if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == 'z' || keyStroke.getCharacter() == 'Z' )) return ACTION.Z;
+        if (keyStroke.getKeyType() == KeyType.Backspace) return ACTION.BACKSPACE;
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.JACOB_RIGHT;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.JACOB_LEFT;
+        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.ARROW_UP;
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.ARROW_RIGHT;
+        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.ARROW_DOWN;
+        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.ARROW_LEFT;
         if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
         if (keyStroke.getKeyType() == KeyType.Character && (keyStroke.getCharacter() == ' ')) return ACTION.SPACE;
@@ -149,6 +172,9 @@ public class LanternaGUI implements GUI {
             }
             case LEADERBOARD -> {
                 return "Leaderboard";
+            }
+            case HIGHSCORE -> {
+                return "HighScore!";
             }
             default -> {
                 return "";
