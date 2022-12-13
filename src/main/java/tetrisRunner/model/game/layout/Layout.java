@@ -3,6 +3,7 @@ package tetrisRunner.model.game.layout;
 import tetrisRunner.controller.game.LayoutController;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.game.elements.Coin;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
 import tetrisRunner.model.game.gamebehavior.GameBehavior;
@@ -19,16 +20,22 @@ public class Layout {
 
     private List<Wall> walls;
     private Shape fallingShape;
-
+    private List<Coin> coins;
     private List<Block> blocks;
     public Layout(int width,int height){
         this.width = width;
         this.height = height;
     }
+    public void setCoins(List<Coin> coins) {
+        this.coins = coins;
+    }
+
+    public List<Coin> getCoins() {
+        return coins;
+    }
     public Jacob getJacob(){
         return jacob;
     }
-
     public void setJacob(Jacob jacob) {
         this.jacob = jacob;
     }
