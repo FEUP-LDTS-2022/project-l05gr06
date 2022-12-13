@@ -15,6 +15,9 @@ public class Game {
     private State state;
     private Music music;
 
+
+
+
     public int FPS = 40;
 
     public Music getMusic() {

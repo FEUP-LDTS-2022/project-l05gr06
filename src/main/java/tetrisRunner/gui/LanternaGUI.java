@@ -170,6 +170,12 @@ public class LanternaGUI implements GUI {
             case GAME_OVER -> {
                 return "GameOver";
             }
+            case PLAYER1 -> {
+                return "Player1 WON!";
+            }
+            case PLAYER2 -> {
+                return "Player2 WON!";
+            }
             case LEADERBOARD -> {
                 return "Leaderboard";
             }

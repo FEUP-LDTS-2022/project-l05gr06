@@ -15,6 +15,8 @@ public class Layout {
     private final int width;
     private final int height;
 
+
+
     private GameBehavior gameBehavior;
     private Jacob jacob;
 
@@ -152,6 +154,10 @@ public class Layout {
 
     public boolean isClassic(){
         return this.gameBehavior.isClassic();
+    }
+
+    public boolean isPvP(){
+        return this.gameBehavior.isPvP();
     }
     public boolean checkLeaderboardUpdate(){
         return this.gameBehavior.checkLeaderboardUpdate();

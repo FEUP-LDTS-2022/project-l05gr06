@@ -9,16 +9,20 @@ public class PvPBehavior implements GameBehavior {
     @Override
     public boolean gameOverStatus(LayoutController layoutController) {
         return ((!layoutController.getJacobController().jacobIsAlive() &&
-                !layoutController.getJacobController().isFalling())
-                || layoutController.getModel().checkOver());
+                !layoutController.getJacobController().isFalling()));
     }
     @Override
     public boolean gameOverWin(LayoutController layoutController){
-        return score>gameOverTime;
+        return score>gameOverTime || layoutController.getModel().checkOver();
     }
     @Override
     public boolean isClassic() {
         return false;
+    }
+
+    @Override
+    public boolean isPvP() {
+        return true;
     }
 
     @Override
