@@ -31,18 +31,15 @@ public class ShapeController extends GameController{
 
     public void instaDrop(){
         if (getModel().instaDropAvailable()) {
-
             while (isFalling(getModel().getShape())) {
-                if(getModel().scoreOrTimer()) getModel().incrementScore(2);
+                if(getModel().isClassic()) getModel().incrementScore(2);
                 getModel().getShape().fall();
             }
-
         }
     }
 
 
     public void goFaster(){
-
         if(fallTimeBlock>100) {
             this.fallTimeBlock = fallTimeBlock - 25;
             this.maneuverTime = maneuverTime - 25;
