@@ -38,9 +38,7 @@ public class JacobController extends GameController{
         }
     }
     public void fallJacob(){
-        if (getModel().getJacob().getPosition().getY() < (ground-1)){
-            moveJacob(getModel().getJacob().getPosition().fall());
-        }
+        moveJacob(getModel().getJacob().getPosition().fall());
     }
     public boolean isFalling() {
         Position position = getModel().getJacob().getPosition();
