@@ -29,6 +29,14 @@ public class GameViewer extends Viewer<Layout> {
                 gui.getStringColor(GUI.COLOR.WHITE),
                 gui.getStringColor(GUI.COLOR.BRICK));
 
+        if(getModel().isPvP())
+            gui.drawText(
+                    new Position(getModel().getWidth()-5, getModel().getHeight()-1),
+                    getModel().getScoreMatch(),
+                    gui.getStringColor(GUI.COLOR.WHITE),
+                    gui.getStringColor(GUI.COLOR.BRICK));
+
+
 
         drawShape(gui,getModel().getShape(),new ShapeViewer());
     }

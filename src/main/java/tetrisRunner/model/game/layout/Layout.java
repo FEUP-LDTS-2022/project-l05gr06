@@ -16,6 +16,29 @@ public class Layout {
     private final int height;
 
 
+    //TEMPORARY NOT GOOD PATTERN
+    private int jacobPoints;
+    private int shaperPoints;
+    public void setJacobPoints(int jacobPoints) {
+        this.jacobPoints = jacobPoints;
+    }
+    public void setShaperPoints(int shaperPoints) {
+        this.shaperPoints = shaperPoints;
+    }
+    public String getScoreMatch(){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if(shaperPoints < 10) {
+            stringBuilder.append(' ');
+        }
+        stringBuilder.append(shaperPoints);
+        stringBuilder.append("-");
+
+        stringBuilder.append(jacobPoints);
+
+        return stringBuilder.toString();
+    }
+    // temporary not good pattern
 
     private GameBehavior gameBehavior;
     private Jacob jacob;

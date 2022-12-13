@@ -15,7 +15,22 @@ public class Game {
     private State state;
     private Music music;
 
+    //TEMPORARY NOT GOOD PATTERN
+    private int jacobPoints;
+    private int shaperPoints;
 
+    public void jacobWon() {this.jacobPoints = jacobPoints + 1;}
+    public void shaperWon() {this.shaperPoints = jacobPoints + 1;}
+
+    public int getJacobPoints() {
+        return jacobPoints;
+    }
+
+    public int getShaperPoints() {
+        return shaperPoints;
+    }
+
+    // TEMPORARY NOT GOOD PATTERN
 
 
     public int FPS = 40;
