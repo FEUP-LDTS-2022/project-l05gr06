@@ -57,6 +57,7 @@ public class ShapeController extends GameController{
     public void moveShapeLeft(){
         Shape shape = getModel().getShape();
         if(canMoveLeft(shape)){
+            jacobPush("left");
             shape.moveLeft();
         }
     }
@@ -64,7 +65,24 @@ public class ShapeController extends GameController{
     public void moveShapeRight(){
         Shape shape = getModel().getShape();
         if(canMoveRight(shape)){
-          shape.moveRight();
+            jacobPush("right");
+            shape.moveRight();
+        }
+    }
+
+    public void jacobPush(String direction){
+        Position jacobPos = getModel().getJacob().getPosition();
+        Shape shape = getModel().getShape();
+
+        if(direction == "right"){
+                if(shape.getShapePos().contains(jacobPos.getLeft()))
+                    getModel().getJacob().setPosition(getModel().getJacob().getPosition().getRight());
+        }
+
+        if(direction == "left") {
+            if (shape.getShapePos().contains(jacobPos.getRight()))
+                getModel().getJacob().setPosition(getModel().getJacob().getPosition().getLeft());
+
         }
     }
 
@@ -220,6 +238,7 @@ public class ShapeController extends GameController{
                 if (time - lastMovementBlock > fallTimeBlock) {
                     fallShape();
                     lastMovementBlock = time;
+
                 }
             }
         }
