@@ -27,6 +27,20 @@ public class InstructionController extends Controller<Instruction> {
             case SELECT:
                 if(getModel().getMenu() > 0 && getModel().isSelectedReturn() && getModel().getMenu() < 4)
                     game.setState(new InstructionState(new Instruction()));
+                if(getModel().getMenu() == 3){
+                    if(getModel().isSelectedClassic()){
+                        getModel().setMenu(5);
+                        getModel().changeInstruction();
+                    }
+                    if(getModel().isSelectedClimbing()){
+                        getModel().setMenu(6);
+                        getModel().changeInstruction();
+                    }
+                    if(getModel().isSelectedPvP()){
+                        getModel().setMenu(7);
+                        getModel().changeInstruction();
+                    }
+                }
                 if(getModel().isSelectedShape()) {
                     getModel().setMenu(2);
                     getModel().changeInstruction();
