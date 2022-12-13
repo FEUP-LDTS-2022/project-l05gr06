@@ -6,6 +6,7 @@ public interface GameBehavior {
     boolean gameOverStatus(LayoutController layoutController);
     boolean gameOverWin(LayoutController layoutController);
     boolean isClassic();
+    boolean instaDropAvailable();
     void incrementScore(double num);
     String getScoreString();
     double getScoreNumber();

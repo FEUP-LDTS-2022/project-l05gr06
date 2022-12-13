@@ -26,6 +26,11 @@ public class ClassicBehavior implements GameBehavior {
     }
 
     @Override
+    public boolean instaDropAvailable() {
+        return true;
+    }
+
+    @Override
     public void incrementScore(double num) {
         this.score = this.score + num;
     }

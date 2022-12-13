@@ -20,6 +20,11 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
+    public boolean instaDropAvailable() {
+        return true;
+    }
+
+    @Override
     public boolean isClassic() {
         return false;
     }

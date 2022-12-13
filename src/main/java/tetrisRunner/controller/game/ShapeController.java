@@ -17,8 +17,8 @@ public class ShapeController extends GameController{
     private long lastMovementBlock;
     private long maneuvering;
 
-    static final long fallTimeBlock = 400;
-    static final long maneuverTime = 700;
+    private long fallTimeBlock = 400;
+    private long maneuverTime = 700;
 
     final int ground;
 
@@ -29,6 +29,27 @@ public class ShapeController extends GameController{
         this.ground  = getModel().getHeight()-2;
     }
 
+    public void instaDrop(){
+        if (getModel().instaDropAvailable()) {
+
+            while (isFalling(getModel().getShape())) {
+                if(getModel().scoreOrTimer()) getModel().incrementScore(2);
+                getModel().getShape().fall();
+            }
+
+        }
+    }
+
+
+    public void goFaster(){
+
+        if(fallTimeBlock>100) {
+            this.fallTimeBlock = fallTimeBlock - 25;
+            this.maneuverTime = maneuverTime - 25;
+        }
+
+
+    }
     public void fallShape(){
         Shape shape = getModel().getShape();
         if (isFalling(shape)){
@@ -181,7 +202,9 @@ public class ShapeController extends GameController{
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
 
+
         Shape shape = getModel().getShape();
+
         if (!isFalling(shape))
             startManeuver(shape, time);
         else shape.setImpact(true);
@@ -191,16 +214,16 @@ public class ShapeController extends GameController{
             case A -> moveShapeLeft();
             case S -> shapeRotateAntiClockWise();
             case W -> shapeRotateClockWise();
+            case SPACE -> instaDrop();
             }
+            if (time - maneuvering > maneuverTime) {
 
-        if (time-maneuvering>maneuverTime){
-
-            transformShapeToBlock();
-            createShape(getModel().getShape());
-            if (time - lastMovementBlock > fallTimeBlock) {
-                fallShape();
-                lastMovementBlock = time;
+                transformShapeToBlock();
+                createShape(getModel().getShape());
+                if (time - lastMovementBlock > fallTimeBlock) {
+                    fallShape();
+                    lastMovementBlock = time;
+                }
             }
         }
     }
-}
