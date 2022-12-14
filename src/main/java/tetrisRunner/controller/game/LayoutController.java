@@ -60,11 +60,11 @@ public class LayoutController extends GameController{
         for (Coin coin: getModel().getCoins()){
             if ((getModel().getJacob().getPosition().getX() == coin.getPosition().getX())
             && (getModel().getJacob().getPosition().getY() == coin.getPosition().getY())){
-                getModel().incrementScore(200);
+                getModel().incrementScore(125);
             }
             else if(!coinUnderBlock(coin)) coins.add(coin);
         }
-        for (int i=0; i<2-coins.size();i++){
+        for (int i=0; i<3-coins.size();i++){
             coins.add(factory.createElement());
         }
         return coins;
