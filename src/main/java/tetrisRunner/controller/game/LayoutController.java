@@ -123,7 +123,7 @@ public class LayoutController extends GameController{
             updateScore(linesCompleted);
             getModel().setCoins(manageCoins());
         }
-        else getModel().incrementScore(4.0/game.getFPS());
+        else getModel().incrementScore(1.0/game.getFPS());
 
 
         jacobController.step(game, action, time);
