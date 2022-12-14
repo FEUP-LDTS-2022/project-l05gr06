@@ -31,7 +31,7 @@ public class StartMenuControllerTest {
         music = Mockito.mock(Music.class);
         Mockito.when(game.getMusic()).thenReturn(music);
         Mockito.when(music.isMuted()).thenReturn(true);
-        guiActions = Arrays.asList(GUI.ACTION.UP, GUI.ACTION.DOWN, GUI.ACTION.SELECT);
+        guiActions = Arrays.asList(GUI.ACTION.ARROW_UP, GUI.ACTION.ARROW_DOWN, GUI.ACTION.SELECT);
     }
 
     @Test

@@ -14,7 +14,7 @@ public class HighScoreViewer extends Viewer<HighScore> {
     protected void drawElements(GUI gui) {
         gui.drawText(
                 new Position(5, 5),
-                gui.getMenuName(GUI.NAME_STATES.HIGHSCORE),
+                gui.getMenuName(GUI.NAME_STATES.HIGH_SCORE),
                 gui.getStringColor(GUI.COLOR.WHITE),
                 gui.getStringColor(GUI.COLOR.BLACK));
 
