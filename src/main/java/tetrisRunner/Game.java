@@ -39,7 +39,7 @@ public class Game {
         this.state = new StartMenuState(new StartMenu());
 
         this.music = new Music("./src/main/resources/music/theme.wav");
-        //music.runMusic();
+        music.runMusic();
 
     }
 
