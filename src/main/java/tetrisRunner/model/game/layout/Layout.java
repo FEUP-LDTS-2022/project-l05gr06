@@ -15,6 +15,9 @@ public class Layout {
     private final int width;
     private final int height;
 
+    private int jacobPoints;
+    private int shaperPoints;
+
     private GameBehavior gameBehavior;
     private Jacob jacob;
 
@@ -82,6 +85,25 @@ public class Layout {
         this.gameBehavior.incrementScore(num);
     }
 
+    public void setJacobPoints(int jacobPoints) {
+        this.jacobPoints = jacobPoints;
+    }
+    public void setShaperPoints(int shaperPoints) {
+        this.shaperPoints = shaperPoints;
+    }
+    public String getScoreMatch(){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if(shaperPoints < 10) {
+            stringBuilder.append(' ');
+        }
+        stringBuilder.append(shaperPoints);
+        stringBuilder.append("-");
+
+        stringBuilder.append(jacobPoints);
+
+        return stringBuilder.toString();
+    }
 
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)
@@ -152,6 +174,10 @@ public class Layout {
 
     public boolean isClassic(){
         return this.gameBehavior.isClassic();
+    }
+
+    public boolean isPvP(){
+        return this.gameBehavior.isPvP();
     }
     public boolean checkLeaderboardUpdate(){
         return this.gameBehavior.checkLeaderboardUpdate();

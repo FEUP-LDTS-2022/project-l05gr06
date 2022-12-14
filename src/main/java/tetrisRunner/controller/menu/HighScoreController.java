@@ -68,7 +68,7 @@ public class HighScoreController extends Controller<HighScore> {
                 if (getModel().isSelectedNext() && nameSize == 3){
                     if (getModel().isClassic()) getModel().updateLeaderboardClassic();
                     else getModel().updateLeaderboardClimbing();
-                    game.setState(new GameOverState(new GameOver()));
+                    game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.GAME_OVER)));
                 }
         }
     }

@@ -14,6 +14,7 @@ public abstract class LayoutBuilder {
 
     public Layout createLayout(){
         Layout layout = new Layout(getWidth(),getHeight());
+        //layout.set
         layout.setGameOverBehavior(typeGameOver());
         layout.setJacob(createJacob());
         layout.setWalls(createWalls());

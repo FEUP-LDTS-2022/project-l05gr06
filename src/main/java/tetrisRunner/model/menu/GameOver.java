@@ -1,13 +1,22 @@
 package tetrisRunner.model.menu;
 
+import tetrisRunner.gui.GUI;
 import tetrisRunner.model.game.gamebehavior.GameBehavior;
 
 import java.util.Arrays;
 
 public class GameOver extends Menu {
-    public GameOver() {
+
+    GUI.NAME_STATES title;
+    public GameOver(GUI.NAME_STATES title) {
+        this.title = title;
         super.entries = Arrays.asList("Play Again","Main Menu","Exit");
     }
+
+    public GUI.NAME_STATES getTitle() {
+        return title;
+    }
+
     public boolean isSelectedPlayAgain() {
         return isSelected(0);
     }
