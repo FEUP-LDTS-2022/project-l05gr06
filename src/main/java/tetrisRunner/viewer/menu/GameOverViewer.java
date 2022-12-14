@@ -12,7 +12,7 @@ public class GameOverViewer extends Viewer<GameOver> {
     @Override
     public void drawElements(GUI gui) {
         gui.drawText(new Position(5, 5),
-                gui.getMenuName(GUI.NAME_STATES.GAME_OVER),
+                gui.getMenuName(getModel().getTitle()),
                 gui.getStringColor(GUI.COLOR.WHITE),
                 gui.getStringColor(GUI.COLOR.BLACK));
 

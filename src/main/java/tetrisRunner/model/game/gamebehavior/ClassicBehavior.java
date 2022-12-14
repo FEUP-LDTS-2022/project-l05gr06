@@ -26,6 +26,11 @@ public class ClassicBehavior implements GameBehavior {
     }
 
     @Override
+    public boolean isPvP() {
+        return false;
+    }
+
+    @Override
     public boolean instaDropAvailable() {
         return true;
     }

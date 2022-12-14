@@ -30,6 +30,11 @@ public class ClimbingBehavior implements GameBehavior {
     }
 
     @Override
+    public boolean isPvP() {
+        return false;
+    }
+
+    @Override
     public void incrementScore(double num) {
         this.score = this.score + num;
     }
