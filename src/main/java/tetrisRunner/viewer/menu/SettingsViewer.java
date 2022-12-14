@@ -11,26 +11,27 @@ public class SettingsViewer extends Viewer<Settings> {
     }
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Settings", "#FFFFFF");
+        gui.drawText(
+                new Position(5, 5),
+                gui.getMenuName(GUI.NAME_STATES.SETTINGS),
+                gui.getStringColor(GUI.COLOR.WHITE),
+                gui.getStringColor(GUI.COLOR.BLACK));
 
         String color;
         for (int i = 0; i < getModel().getNumberEntries() ; i++) {
 
-            switch (getModel().getEntry(i)) {
-                case "Mute":
-                    color = "#FF0000"; break;
-                case "Unmute":
-                    color = "#00FF00"; break;
-                case "Return":
-                    color = "#E47200"; break;
-                default:
-                    color = "#00FFFF";
-            }
+            color = switch (getModel().getEntry(i)) {
+                case "Mute" -> gui.getStringColor(GUI.COLOR.RED);
+                case "Unmute" -> gui.getStringColor(GUI.COLOR.GREEN);
+                case "Return" -> gui.getStringColor(GUI.COLOR.ORANGE);
+                default -> gui.getStringColor(GUI.COLOR.CYAN);
+            };
 
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? color : "#FFFFFF");
+                    getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE),
+                    gui.getStringColor(GUI.COLOR.BLACK));
         }
     }
 }

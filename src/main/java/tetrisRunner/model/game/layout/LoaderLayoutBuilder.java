@@ -1,8 +1,9 @@
 package tetrisRunner.model.game.layout;
 
-import tetrisRunner.model.game.elements.Block;
-import tetrisRunner.model.game.elements.Jacob;
-import tetrisRunner.model.game.elements.Wall;
+import tetrisRunner.model.game.elements.*;
+import tetrisRunner.model.game.shapes.Shape;
+import tetrisRunner.model.game.shapes.*;
+import tetrisRunner.model.game.gamebehavior.GameBehavior;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,12 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     private final int startPosX;
     private final int startPosY;
 
-    public LoaderLayoutBuilder() {
+    private final GameBehavior gameBehavior;
+
+    public LoaderLayoutBuilder(GameBehavior gameBehavior) {
         this.startPosX = getWidth()/2;
         this.startPosY = getHeight()-3;
+        this.gameBehavior = gameBehavior;
     }
 
     @Override
@@ -29,22 +33,30 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
         return new Jacob(startPosX,startPosY);
     }
     @Override
-    protected List<Block> createBlocks(){
-        List<Block> blocks = new ArrayList<>();
-        blocks.add(new Block(15,getHeight()-3));
-        blocks.add(new Block(16,getHeight()-3));
-        blocks.add(new Block(17,getHeight()-3));
-        blocks.add(new Block(15,getHeight()-4));
-
-        blocks.add(new Block(9,6));
-        blocks.add(new Block(10,6));
-        blocks.add(new Block(11,6));
-        blocks.add(new Block(10,5));
-
-
-
-        return blocks;
+    protected Shape createShape(){
+        ShapeFactory factory = new RandomShapeFactory();
+        return factory.createShape();
     }
+    @Override
+    protected List<Coin> createCoins() {
+        ElementFactory<Coin> factory = new CoinFactory();
+        List<Coin> coins = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            coins.add(factory.createElement());
+        }
+        return coins;
+    }
+
+    @Override
+    protected List<Block> initializeBlocks() {
+        return  new ArrayList<>();
+    }
+
+    @Override
+    protected GameBehavior typeGameOver() {
+        return this.gameBehavior;
+    }
+
     @Override
     protected List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();

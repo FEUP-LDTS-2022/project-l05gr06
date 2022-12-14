@@ -1,35 +1,50 @@
 package tetrisRunner;
 
+import tetrisRunner.gui.GUI;
 import tetrisRunner.gui.LanternaGUI;
+import tetrisRunner.model.game.layout.MatchScore;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.music.Music;
 import tetrisRunner.states.StartMenuState;
 import tetrisRunner.states.State;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Game {
-    private final LanternaGUI gui;
+    private LanternaGUI gui;
     private State state;
     private Music music;
+
+    private MatchScore matchScore = new MatchScore();
+    public MatchScore getMatchScore() {
+        return matchScore;
+    }
+
+
+    public int FPS = 40;
 
     public Music getMusic() {
         return music;
     }
 
+    public int getFPS() {
+        return FPS;
+    }
+
+
     public Game() throws FontFormatException, IOException, URISyntaxException {
 
-        //window
+
         this.gui = new LanternaGUI(20, 20);
         this.state = new StartMenuState(new StartMenu());
         this.music = new Music("./src/main/resources/music/theme.wav");
-        //Music
+
+       //Music
         music.runMusic();
+
+
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
@@ -38,13 +53,16 @@ public class Game {
 
     }
 
+    public State getState() {
+        return state;
+    }
 
     public void setState(State state) {
         this.state = state;
     }
 
     private void start() throws IOException {
-        int FPS = 40;
+
         int frameTime = 1000 / FPS;
 
         while (this.state != null) {

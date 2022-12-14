@@ -1,27 +1,29 @@
 package tetrisRunner.model.menu;
 
-import tetrisRunner.music.Music;
+import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.states.State;
 
 import java.util.Arrays;
 
 public class Settings extends Menu{
 
-    private static boolean playing = false;
+    private State gameState;
 
-    public static boolean isPlaying(){
-        return playing;
-    }
-
-    public static void setPlaying(boolean val){
-        playing = val;
+    public State getGameState() {
+        return gameState;
     }
 
     public Settings(boolean ismuted) {
         super.entries = Arrays.asList(!ismuted ? "Mute" : "Unmute", "Volume UP", "Volume DOWN", "Return");
     }
 
+    public Settings(boolean ismuted, State<Layout> gameState){
+        super.entries = Arrays.asList(!ismuted ? "Mute" : "Unmute", "Volume UP", "Volume DOWN", "Return");
+        this.gameState = gameState;
+    }
+
     public void switchMute() {
-        if (super.entries.get(0) == "Mute") super.entries.set(0, "Unmute");
+        if (super.entries.get(0).equals("Mute")) super.entries.set(0, "Unmute");
         else super.entries.set(0, "Mute");
     }
     public boolean isSelectedMute() {

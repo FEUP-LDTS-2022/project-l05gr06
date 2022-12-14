@@ -7,7 +7,6 @@ import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.menu.SelectMode;
 import tetrisRunner.states.GameState;
-import tetrisRunner.states.SelectModeState;
 import tetrisRunner.states.StartMenuState;
 
 import java.io.IOException;

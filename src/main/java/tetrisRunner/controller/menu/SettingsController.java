@@ -6,7 +6,6 @@ import tetrisRunner.gui.GUI;
 import tetrisRunner.model.menu.Pause;
 import tetrisRunner.model.menu.Settings;
 import tetrisRunner.model.menu.StartMenu;
-import tetrisRunner.music.Music;
 import tetrisRunner.states.PauseState;
 import tetrisRunner.states.StartMenuState;
 
@@ -21,26 +20,21 @@ public class SettingsController extends Controller<Settings> {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
-            case UP:
-                getModel().previousEntry();
-                break;
-            case DOWN:
-                getModel().nextEntry();
-                break;
-            case SELECT:
-                if (getModel().isSelectedMute()){
+            case ARROW_UP -> getModel().previousEntry();
+            case ARROW_DOWN -> getModel().nextEntry();
+            case SELECT -> {
+                if (getModel().isSelectedMute()) {
                     getModel().switchMute();
                     game.getMusic().volumeMute();
                 }
                 if (getModel().isSelectedVolumeUp()) game.getMusic().volumeUp();
                 if (getModel().isSelectedVolumeDown()) game.getMusic().volumeDown();
                 if (getModel().isSelectedReturn()) {
-                    if(Settings.isPlaying()){
-                        Settings.setPlaying(false);
-                        game.setState(new PauseState(new Pause()));
-                    }
+                    if (getModel().getGameState() != null)
+                        game.setState(new PauseState(new Pause(getModel().getGameState())));
                     else game.setState(new StartMenuState(new StartMenu()));
                 }
+            }
         }
     }
 }

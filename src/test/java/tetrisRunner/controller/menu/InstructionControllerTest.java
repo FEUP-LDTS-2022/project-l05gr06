@@ -1,14 +1,11 @@
 package tetrisRunner.controller.menu;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import tetrisRunner.Game;
-import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.menu.Instruction;
-import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.states.StartMenuState;
 
 import java.io.IOException;

@@ -15,12 +15,10 @@ public class StartMenuTest {
     @Test
     public void isSelectedGameModeTest() {
         Assertions.assertTrue(menu.isSelectedGameMode());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedGameMode());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedGameMode());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedGameMode());
+        for (int i=0; i<4;i++){
+            menu.nextEntry();
+            Assertions.assertFalse(menu.isSelectedGameMode());
+        }
         menu.nextEntry();
         Assertions.assertTrue(menu.isSelectedGameMode());
     }
@@ -30,16 +28,28 @@ public class StartMenuTest {
         Assertions.assertFalse(menu.isSelectedInstructions());
         menu.nextEntry();
         Assertions.assertTrue(menu.isSelectedInstructions());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedInstructions());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedInstructions());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedInstructions());
+        for (int i=0;i<3;i++){
+            menu.nextEntry();
+            Assertions.assertFalse(menu.isSelectedInstructions());
+        }
     }
 
     @Test
+    public void isSelectedLeaderboardTest() {
+        Assertions.assertFalse(menu.isSelectedLeaderboard());
+        menu.nextEntry();
+        Assertions.assertFalse(menu.isSelectedLeaderboard());
+        menu.nextEntry();
+        Assertions.assertTrue(menu.isSelectedLeaderboard());
+        for (int i=0;i<3;i++){
+            menu.nextEntry();
+            Assertions.assertFalse(menu.isSelectedLeaderboard());
+        }
+    }
+    @Test
     public void isSelectedSettingsTest() {
+        Assertions.assertFalse(menu.isSelectedSettings());
+        menu.nextEntry();
         Assertions.assertFalse(menu.isSelectedSettings());
         menu.nextEntry();
         Assertions.assertFalse(menu.isSelectedSettings());
@@ -53,12 +63,10 @@ public class StartMenuTest {
 
     @Test
     public void isSelectedExitTest() {
-        Assertions.assertFalse(menu.isSelectedExit());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedExit());
-        menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedExit());
-        menu.nextEntry();
+        for (int i=0; i<4;i++){
+            Assertions.assertFalse(menu.isSelectedExit());
+            menu.nextEntry();
+        }
         Assertions.assertTrue(menu.isSelectedExit());
         menu.nextEntry();
         Assertions.assertFalse(menu.isSelectedExit());

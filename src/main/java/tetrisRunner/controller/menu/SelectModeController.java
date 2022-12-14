@@ -3,16 +3,12 @@ package tetrisRunner.controller.menu;
 import tetrisRunner.Game;
 import tetrisRunner.controller.Controller;
 import tetrisRunner.gui.GUI;
-import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.model.game.gamebehavior.ClassicBehavior;
+import tetrisRunner.model.game.gamebehavior.ClimbingBehavior;
+import tetrisRunner.model.game.gamebehavior.PvPBehavior;
 import tetrisRunner.model.game.layout.LoaderLayoutBuilder;
-import tetrisRunner.model.menu.Instruction;
-import tetrisRunner.model.menu.Pause;
-import tetrisRunner.model.menu.SelectMode;
-import tetrisRunner.model.menu.StartMenu;
+import tetrisRunner.model.menu.*;
 import tetrisRunner.states.GameState;
-import tetrisRunner.states.InstructionState;
-import tetrisRunner.states.PauseState;
-import tetrisRunner.states.SelectModeState;
 import tetrisRunner.states.StartMenuState;
 
 import java.io.IOException;
@@ -24,17 +20,15 @@ public class SelectModeController extends Controller<SelectMode> {
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
         switch (action) {
-            case UP:
-                getModel().previousEntry();
-                break;
-            case DOWN:
-                getModel().nextEntry();
-                break;
-            case SELECT:
+            case ARROW_UP -> getModel().previousEntry();
+            case ARROW_DOWN -> getModel().nextEntry();
+            case SELECT -> {
                 if (getModel().isSelectedReturn()) game.setState(new StartMenuState(new StartMenu()));
-                if (getModel().isSelectedClassic())  game.setState(new GameState(new LoaderLayoutBuilder().createLayout()));
-                if (getModel().isSelectedCoOp())  game.setState(new GameState(new LoaderLayoutBuilder().createLayout()));
-                if (getModel().isSelected1v1()) game.setState(new GameState(new LoaderLayoutBuilder().createLayout()));
+                if (getModel().isSelectedClassic())
+                    game.setState(new GameState(new LoaderLayoutBuilder(new ClassicBehavior()).createLayout()));
+                if (getModel().isSelectedCoOp()) game.setState(new GameState(new LoaderLayoutBuilder(new ClimbingBehavior()).createLayout()));
+                if (getModel().isSelected1v1()) game.setState(new GameState(new LoaderLayoutBuilder(new PvPBehavior()).createLayout()));
+            }
         }
     }
 }

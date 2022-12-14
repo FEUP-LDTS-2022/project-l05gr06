@@ -1,10 +1,14 @@
 package tetrisRunner.model.menu;
 
+import tetrisRunner.states.State;
+
 import java.util.Arrays;
 
 public class Pause extends Menu{
-    public Pause() {
+    private final State gameState;
+    public Pause(State gameState) {
         super.entries = Arrays.asList("Return to Game", "Main Menu", "Settings", "Exit");
+        this.gameState = gameState;
     }
 
     public boolean isSelectedGame() {
@@ -21,6 +25,10 @@ public class Pause extends Menu{
 
     public boolean isSelectedExit() {
         return isSelected(3);
+    }
+
+    public State getGameState() {
+        return gameState;
     }
 }
 

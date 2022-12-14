@@ -3,11 +3,9 @@ package tetrisRunner.controller.game;
 import tetrisRunner.Game;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.game.elements.Block;
 import tetrisRunner.model.game.layout.Layout;
 
 import java.io.IOException;
-import java.util.List;
 
 public class JacobController extends GameController{
     private long lastMovementJacob;
@@ -32,15 +30,22 @@ public class JacobController extends GameController{
     public void jumpJacob(){
         int x = getModel().getJacob().getPosition().getX();
         int y = getModel().getJacob().getPosition().getY();
-        Position position = new Position(x,y+1);
-        if (!getModel().isEmpty(position) ){
-            moveJacob(getModel().getJacob().getPosition().jump());
+        for(int i=0;i<2;i++){
+            Position position = new Position(x,y+1);
+            if (!getModel().isEmpty(position) ) {
+                moveJacob(getModel().getJacob().getPosition().jump());
+            }
         }
     }
     public void fallJacob(){
-        if (getModel().getJacob().getPosition().getY() < (ground-1)){
-            moveJacob(getModel().getJacob().getPosition().fall());
-        }
+        moveJacob(getModel().getJacob().getPosition().fall());
+    }
+    public boolean isFalling() {
+        Position position = getModel().getJacob().getPosition();
+        if (!getModel().isEmpty(position.fall()))
+            return false;
+
+        return true;
     }
 
 
@@ -49,6 +54,19 @@ public class JacobController extends GameController{
             getModel().getJacob().setPosition(position);
         }
     }
+    public boolean jacobIsAlive(){
+        Position position = getModel().getJacob().getPosition();
+        return getModel().isEmpty(position);
+    }
+
+    public boolean hasReachedTop(){
+
+        if(getModel().getJacob().getPosition().getY() == -1 &&
+          (getModel().getJacob().getPosition().getX() == 0 ||
+           getModel().getJacob().getPosition().getX() == getModel().getWidth()-1)) return true;
+
+        return false;
+    }
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
@@ -56,18 +74,10 @@ public class JacobController extends GameController{
             fallJacob();
             lastMovementJacob = time;
         }
-        switch (action){
-
-            case UP:
-                jumpJacob();
-                break;
-            case LEFT:
-                moveJacobLeft();
-                break;
-            case RIGHT:
-                moveJacobRight();
-                break;
-
+        switch (action) {
+            case ARROW_UP -> jumpJacob();
+            case ARROW_LEFT -> moveJacobLeft();
+            case ARROW_RIGHT -> moveJacobRight();
         }
 
     }

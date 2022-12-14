@@ -14,19 +14,17 @@ public class Position {
     }
 
 
-
     public Position getRight() {
         return new Position(x + 1, y);
     }
 
-    public Position jump() {return new Position(x,y-2);}
+    public Position jump() {return new Position(x,y-1);}
 
     public Position fall() {return new Position(x,y+1);}
 
     public int getX() {
         return x;
     }
-
 
     public int getY() {
         return y;
