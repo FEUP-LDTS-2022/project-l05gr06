@@ -1,6 +1,7 @@
 package tetrisRunner;
 
 import tetrisRunner.gui.LanternaGUI;
+import tetrisRunner.model.game.layout.MatchScore;
 import tetrisRunner.model.menu.StartMenu;
 import tetrisRunner.music.Music;
 import tetrisRunner.states.StartMenuState;
@@ -15,22 +16,10 @@ public class Game {
     private State state;
     private Music music;
 
-    //TEMPORARY NOT GOOD PATTERN
-    private int jacobPoints;
-    private int shaperPoints;
-
-    public void jacobWon() {this.jacobPoints = jacobPoints + 1;}
-    public void shaperWon() {this.shaperPoints = jacobPoints + 1;}
-
-    public int getJacobPoints() {
-        return jacobPoints;
+    private MatchScore matchScore = new MatchScore();
+    public MatchScore getMatchScore() {
+        return matchScore;
     }
-
-    public int getShaperPoints() {
-        return shaperPoints;
-    }
-
-    // TEMPORARY NOT GOOD PATTERN
 
 
     public int FPS = 40;
@@ -45,14 +34,13 @@ public class Game {
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
 
-        //window
+
         this.gui = new LanternaGUI(20, 20);
         this.state = new StartMenuState(new StartMenu());
+
         this.music = new Music("./src/main/resources/music/theme.wav");
+        //music.runMusic();
 
-        //Music
-
-        music.runMusic();
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {

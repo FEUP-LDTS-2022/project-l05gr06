@@ -100,8 +100,8 @@ public class LayoutController extends GameController{
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        getModel().setJacobPoints(game.getJacobPoints());
-        getModel().setShaperPoints(game.getShaperPoints());
+        getModel().setJacobPoints(game.getMatchScore().getJacobPoints());
+        getModel().setShaperPoints(game.getMatchScore().getShapesPoints());
 
         if (action == GUI.ACTION.ESCAPE) {
             game.setState(new PauseState(new Pause(game.getState())));
@@ -110,12 +110,12 @@ public class LayoutController extends GameController{
             if(getModel().checkLeaderboardUpdate())
                 game.setState(new HighScoreState(new HighScore(getModel().isClassic(), getModel().getScoreNumber())));
             else if (!getModel().isPvP()) game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.GAME_OVER)));
-            else {game.jacobWon(); game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.PLAYER2)));}
+            else {game.getMatchScore().jacobWon(); game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.PLAYER2)));}
         }
         else if (!getModel().isPvP() && getModel().gameOverStatus(this))
             game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.GAME_OVER)));
         else if (getModel().gameOverStatus(this)){
-            game.shaperWon();game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.PLAYER1)));}
+            game.getMatchScore().shapesWon();game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.PLAYER1)));}
 
 
         int linesCompleted = transform();
@@ -123,7 +123,7 @@ public class LayoutController extends GameController{
             updateScore(linesCompleted);
             getModel().setCoins(manageCoins());
         }
-        else getModel().incrementScore(1.0/game.getFPS());
+        else getModel().incrementScore(4.0/game.getFPS());
 
 
         jacobController.step(game, action, time);
