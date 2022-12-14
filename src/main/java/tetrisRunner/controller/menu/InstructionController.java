@@ -25,7 +25,7 @@ public class InstructionController extends Controller<Instruction> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().getMenu() > 0 && getModel().isSelectedReturn() && getModel().getMenu() < 4)
+                if(getModel().getMenu() > 3 && getModel().isSelectedReturn() && getModel().getMenu() < 7)
                     game.setState(new InstructionState(new Instruction()));
                 if(getModel().getMenu() == 3){
                     if(getModel().isSelectedClassic()){

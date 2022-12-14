@@ -3,31 +3,31 @@ package tetrisRunner.model.menu;
 import java.util.Arrays;
 
 public class Instruction extends Menu{
-   private int Menu;
+   private int menu;
 
     public int getMenu() {
-        return Menu;
+        return menu;
     }
 
     public void setMenu(int menu) {
-        Menu = menu;
+        this.menu = menu;
     }
 
     public Instruction() {
         super.entries = Arrays.asList("Jacob","Shape","Game Modes","Return");
-        this.Menu = 0;
+        this.menu = 0;
 
     }
     public void changeInstruction(){
-        if (Menu != 0 && Menu != 3){
+        if(menu == 0){
+            super.entries = Arrays.asList("Jacob","Shape","Game Modes","Return");
+        }
+        if (menu != 0 && menu != 3){
             super.entries=  Arrays.asList("Return");
         }
 
-        if (Menu == 3){
-            super.entries.set(0, "Classic");
-            super.entries.set(1, "Climbing");
-            super.entries.set(2, "PvP");
-            super.entries.set(3, "Return");
+        if (menu == 3){
+            super.entries = Arrays.asList("Classic","Climbing","PvP","Return");
         }
 
         resetCurrentEntry();
@@ -37,17 +37,17 @@ public class Instruction extends Menu{
         return isSelected(1);
     }
     public boolean isSelectedPvP(){
-        if(Menu == 3)
+        if(menu == 3)
             return isSelected(2);
         return false;
     }
     public boolean isSelectedClimbing(){
-        if(Menu == 3)
+        if(menu == 3)
             return isSelected(1);
         return false;
     }
     public boolean isSelectedClassic(){
-        if(Menu == 3)
+        if(menu == 3)
             return isSelected(0);
         return false;
     }
@@ -56,7 +56,7 @@ public class Instruction extends Menu{
     }
     public boolean isSelectedGameModes(){ return isSelected(2);}
     public boolean isSelectedReturn() {
-        if(Menu == 0 || Menu == 3) return isSelected(3);
+        if(menu == 0 || menu == 3) return isSelected(3);
         else return isSelected(0);
     }
 }

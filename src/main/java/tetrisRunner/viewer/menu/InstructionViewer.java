@@ -36,7 +36,14 @@ public class InstructionViewer extends Viewer<Instruction> {
                     "Sh231ap312e",
                     gui.getStringColor(GUI.COLOR.WHITE),
                     gui.getStringColor(GUI.COLOR.BLACK));
-        }
+        }/*
+        else if(getModel().getMenu() == 3){
+            gui.drawText(
+                    new Position(4, 4),
+                    "Game Modes",
+                    gui.getStringColor(GUI.COLOR.WHITE),
+                    gui.getStringColor(GUI.COLOR.BLACK));
+        }*/
         String color;
         if(getModel().getMenu() != 0 && getModel().getMenu() != 3){
             x = 4;  y = 15;
