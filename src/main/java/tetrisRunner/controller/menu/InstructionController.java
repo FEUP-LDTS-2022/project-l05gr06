@@ -25,40 +25,58 @@ public class InstructionController extends Controller<Instruction> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if(getModel().getMenu() > 3 && getModel().isSelectedReturn() && getModel().getMenu() < 7)
-                    game.setState(new InstructionState(new Instruction()));
-                if(getModel().getMenu() == 3){
-                    if(getModel().isSelectedClassic()){
+                if (getModel().getMenu() > 0 && getModel().getMenu() < 4 && getModel().isSelectedReturn()) {
+                    getModel().setMenu(0);
+                    getModel().changeInstruction();
+                    break;
+                }
+                if (getModel().getMenu() == 0) {
+                    if (getModel().isSelectedJacob()) {
+                        getModel().setMenu(1);
+                        getModel().changeInstruction();
+                        break;
+                    }
+                    else if (getModel().isSelectedShape()) {
+                        getModel().setMenu(2);
+                        getModel().changeInstruction();
+                        break;
+                    }
+                    else if (getModel().isSelectedGameModes()) {
+                        getModel().setMenu(3);
+                        getModel().changeInstruction();
+                        break;
+                    }
+                    else if (getModel().isSelectedReturn()) {
+                        game.setState(new StartMenuState(new StartMenu()));
+                    }
+                }
+                if (getModel().getMenu() == 3) {
+                    if (getModel().isSelectedClassic()) {
                         getModel().setMenu(4);
                         getModel().changeInstruction();
+                        break;
                     }
-                    if(getModel().isSelectedClimbing()){
+                    if (getModel().isSelectedClimbing()) {
                         getModel().setMenu(5);
                         getModel().changeInstruction();
+                        break;
                     }
-                    if(getModel().isSelectedPvP()){
+                    if (getModel().isSelectedPvP()) {
                         getModel().setMenu(6);
                         getModel().changeInstruction();
+                        break;
                     }
                 }
-                if(getModel().isSelectedShape()) {
-                    getModel().setMenu(2);
-                    getModel().changeInstruction();
-                }
-                if(getModel().isSelectedJacob()) {
-                    getModel().setMenu(1);
-                    getModel().changeInstruction();
-                }
-                if(getModel().isSelectedGameModes()){
+
+                if (getModel().getMenu() > 3 && getModel().isSelectedReturn()) {
                     getModel().setMenu(3);
                     getModel().changeInstruction();
-                }
-                if (getModel().isSelectedReturn()){
-                    if(getModel().getMenu() == 0)
-                        game.setState(new StartMenuState(new StartMenu()));
+                    break;
                 }
 
+
+            }
 
         }
     }
-}
+

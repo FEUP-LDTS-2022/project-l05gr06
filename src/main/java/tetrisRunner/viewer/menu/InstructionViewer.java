@@ -15,42 +15,15 @@ public class InstructionViewer extends Viewer<Instruction> {
 
     @Override
     public void drawElements(GUI gui) {
-
-        if(getModel().getMenu() == 0){
-            gui.drawText(
-                    new Position(4, 4),
-                    "Shape",
-                    gui.getStringColor(GUI.COLOR.WHITE),
-                    gui.getStringColor(GUI.COLOR.BLACK));
-        }
-        else if(getModel().getMenu() == 1){
-            gui.drawText(
-                    new Position(4, 4),
-                    "Sh231ape",
-                    gui.getStringColor(GUI.COLOR.WHITE),
-                    gui.getStringColor(GUI.COLOR.BLACK));
-        }
-        else if(getModel().getMenu() == 2){
-            gui.drawText(
-                    new Position(4, 4),
-                    "Sh231ap312e",
-                    gui.getStringColor(GUI.COLOR.WHITE),
-                    gui.getStringColor(GUI.COLOR.BLACK));
-        }/*
-        else if(getModel().getMenu() == 3){
-            gui.drawText(
-                    new Position(4, 4),
-                    "Game Modes",
-                    gui.getStringColor(GUI.COLOR.WHITE),
-                    gui.getStringColor(GUI.COLOR.BLACK));
-        }*/
-        String color;
+        int x,y;
         if(getModel().getMenu() != 0 && getModel().getMenu() != 3){
-            x = 4;  y = 15;
+            x = 5; y = 16;
         }
         else{
-            x = 4; y = 7;
+            x = 5; y = 7;
         }
+
+        String color;
         for (int i = 0; i < getModel().getNumberEntries(); i++){
             if ("Return".equals(getModel().getEntry(i))) {
                 color = gui.getStringColor(GUI.COLOR.ORANGE);
@@ -63,6 +36,175 @@ public class InstructionViewer extends Viewer<Instruction> {
                     getModel().isSelected(i) ? color : gui.getStringColor(GUI.COLOR.WHITE),
                     gui.getStringColor(GUI.COLOR.BLACK));
         }
+
+        switch (getModel().getMenu()){
+            case 0:
+                gui.drawText(
+                        new Position(4, 5),
+                        gui.getMenuName(GUI.NAME_STATES.INSTRUCTION),
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                break;
+            case 1:
+                gui.drawText(
+                        new Position(3, 3),
+                        "Jacob",
+                        gui.getStringColor(GUI.COLOR.RED),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 7),
+                        "Move sideways",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 8),
+                        "and jump using",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 9),
+                        "the arrows!",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                break;
+            case 2:
+                gui.drawText(new Position(3, 3),
+                        "Shape",
+                        gui.getStringColor(GUI.COLOR.RED),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(6, 5),
+                        "Rotate",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 6),
+                        "W: Clockwise",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 7),
+                        "S: AntiClockwise",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(6, 9),
+                        "Move",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 10),
+                        "A: Left",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 11),
+                        "D: Right",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 13),
+                        "Space: Drop",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 14),
+                        "(not in PvP)",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+
+                break;
+            case 3:
+                gui.drawText(new Position(5, 4),
+                        "Game Modes",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                break;
+            case 4:
+                gui.drawText(new Position(3, 3),
+                        "Classic",
+                        gui.getStringColor(GUI.COLOR.RED),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 6),
+                        "Tetris as we",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 7),
+                        "all know it...",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 8),
+                        "bonus points",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 9),
+                        "if Jacob grabs",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 10),
+                        "floating coins!",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 12),
+                        "(1/2 Players)",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+
+                break;
+            case 5:
+                gui.drawText(new Position(3, 3),
+                        "Climbing",
+                        gui.getStringColor(GUI.COLOR.RED),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 6),
+                        "Shapes and Jacob",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 7),
+                        "must cooperate",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 8),
+                        "because he is",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 9),
+                        "on a rush to",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 10),
+                        "get to the Top!",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 12),
+                        "(1/2 Players)",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                break;
+            case 6:
+                gui.drawText(new Position(3, 3),
+                        "PvP",
+                        gui.getStringColor(GUI.COLOR.RED),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 7),
+                        "Run Jacob!",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 8),
+                        "The pieces are",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 9),
+                        "out to get ya!",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(new Position(3, 11),
+                        "(2 Players)",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                break;
+        }
+
     }
 }
 
