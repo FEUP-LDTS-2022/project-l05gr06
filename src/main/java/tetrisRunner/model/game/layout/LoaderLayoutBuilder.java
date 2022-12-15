@@ -41,7 +41,7 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     protected List<Coin> createCoins() {
         ElementFactory<Coin> factory = new CoinFactory();
         List<Coin> coins = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             coins.add(factory.createElement());
         }
         return coins;

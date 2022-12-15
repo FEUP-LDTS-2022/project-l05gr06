@@ -60,11 +60,11 @@ public class LayoutController extends GameController{
         for (Coin coin: getModel().getCoins()){
             if ((getModel().getJacob().getPosition().getX() == coin.getPosition().getX())
             && (getModel().getJacob().getPosition().getY() == coin.getPosition().getY())){
-                getModel().incrementScore(200);
+                getModel().incrementScore(125);
             }
             else if(!coinUnderBlock(coin)) coins.add(coin);
         }
-        for (int i=0; i<2-coins.size();i++){
+        for (int i=0; i<3-coins.size();i++){
             coins.add(factory.createElement());
         }
         return coins;
@@ -110,12 +110,12 @@ public class LayoutController extends GameController{
             if(getModel().checkLeaderboardUpdate())
                 game.setState(new HighScoreState(new HighScore(getModel().isClassic(), getModel().getScoreNumber())));
             else if (!getModel().isPvP()) game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.GAME_OVER)));
-            else {game.getMatchScore().jacobWon(); game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.PLAYER2)));}
+            else {game.getMatchScore().jacobWon(); game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.JACOB_WON)));}
         }
         else if (!getModel().isPvP() && getModel().gameOverStatus(this))
             game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.GAME_OVER)));
         else if (getModel().gameOverStatus(this)){
-            game.getMatchScore().shapesWon();game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.PLAYER1)));}
+            game.getMatchScore().shapesWon();game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.SHAPES_WON)));}
 
 
         int linesCompleted = transform();
