@@ -25,7 +25,7 @@ public class InstructionControllerTest {
         inst = Mockito.mock(Instruction.class);
         instController = new InstructionController(inst);
         game = Mockito.mock(Game.class);
-        guiActions = Arrays.asList(GUI.ACTION.UP, GUI.ACTION.DOWN, GUI.ACTION.SELECT);
+        guiActions = Arrays.asList(GUI.ACTION.ARROW_UP, GUI.ACTION.ARROW_DOWN, GUI.ACTION.SELECT);
     }
 
     @Test
@@ -38,13 +38,5 @@ public class InstructionControllerTest {
     public void stepDownTest() throws IOException {
         instController.step(game, guiActions.get(1),0);
         Mockito.verify(inst, Mockito.times(1)).nextEntry();
-    }
-
-    @Test
-    public void stepSelectReturnTest() throws IOException {
-        Mockito.when(inst.isSelectedReturn()).thenReturn(true);
-        instController.step(game, guiActions.get(2),0);
-        Mockito.verify(game, Mockito.times(1)).setState(any(StartMenuState.class));
-
     }
 }

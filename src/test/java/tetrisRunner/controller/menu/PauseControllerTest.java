@@ -35,7 +35,7 @@ public class PauseControllerTest {
         Mockito.when(pauseController.getModel().getGameState()).thenReturn(new GameState(new Layout(10,10)));
         Mockito.when(game.getMusic()).thenReturn(music);
         Mockito.when(music.isMuted()).thenReturn(true);
-        guiActions = Arrays.asList(GUI.ACTION.UP, GUI.ACTION.DOWN, GUI.ACTION.SELECT);
+        guiActions = Arrays.asList(GUI.ACTION.ARROW_UP, GUI.ACTION.ARROW_DOWN, GUI.ACTION.SELECT);
     }
 
     @Test

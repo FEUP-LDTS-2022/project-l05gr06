@@ -40,7 +40,7 @@ public class SettingsControllerTest {
         Mockito.doNothing().when(music).volumeMute();
         Mockito.doNothing().when(music).volumeUp();
         Mockito.doNothing().when(music).volumeDown();
-        guiActions = Arrays.asList(GUI.ACTION.UP, GUI.ACTION.DOWN, GUI.ACTION.SELECT);
+        guiActions = Arrays.asList(GUI.ACTION.ARROW_UP, GUI.ACTION.ARROW_DOWN, GUI.ACTION.SELECT);
     }
 
     @Test

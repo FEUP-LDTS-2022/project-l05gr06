@@ -12,10 +12,4 @@ public class InstructionTest {
         menu = new Instruction();
     }
 
-    @Test
-    public void isSelectedReturnTest(){
-        Assertions.assertTrue(menu.isSelectedReturn());
-        menu.nextEntry();
-        Assertions.assertTrue(menu.isSelectedReturn());
-    }
 }
