@@ -11,13 +11,13 @@ public class LeaderboardTest {
         leaderboard = new Leaderboard();
     }
     @Test
-    public void isSelectedChangeLeaderboard(){
+    public void isSelectedChangeLeaderboardTest(){
         Assertions.assertTrue(leaderboard.isSelectedChangeLeaderboard());
         leaderboard.nextEntry();
         Assertions.assertFalse(leaderboard.isSelectedChangeLeaderboard());
     }
     @Test
-    public void isSelectedReturn() {
+    public void isSelectedReturnTest() {
         Assertions.assertFalse(leaderboard.isSelectedReturn());
         leaderboard.nextEntry();
         Assertions.assertTrue(leaderboard.isSelectedReturn());

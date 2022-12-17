@@ -65,9 +65,11 @@ public class ClimbingBehavior implements GameBehavior {
 
     @Override
     public boolean checkLeaderboardUpdate() {
+        int countLines = 0;
         try(BufferedReader br = new BufferedReader(new FileReader("docs/leaderboard/climbingLeaderboard.txt"))) {
             String line = br.readLine();
             while (line != null) {
+                countLines++;
                 String[] parts = line.split("-");
                 String leaderText = parts[1];
                 leaderText = leaderText.trim();
@@ -80,6 +82,7 @@ public class ClimbingBehavior implements GameBehavior {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        if (countLines<8) return true;
         return false;
     }
 
