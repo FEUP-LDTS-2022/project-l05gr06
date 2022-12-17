@@ -21,7 +21,7 @@ public class GameOverTest {
         Assertions.assertEquals(GUI.NAME_STATES.SHAPES_WON, go3.getTitle());
     }
     @Test
-    public void isSelectedPlayAgain() {
+    public void isSelectedPlayAgainTest() {
         Assertions.assertTrue(go1.isSelectedPlayAgain());
         go1.nextEntry();
         Assertions.assertFalse(go1.isSelectedPlayAgain());
@@ -29,7 +29,7 @@ public class GameOverTest {
         Assertions.assertFalse(go1.isSelectedPlayAgain());
     }
     @Test
-    public void isSelectedMainMenu() {
+    public void isSelectedMainMenuTest() {
         Assertions.assertFalse(go1.isSelectedMainMenu());
         go1.nextEntry();
         Assertions.assertTrue(go1.isSelectedMainMenu());
@@ -37,7 +37,7 @@ public class GameOverTest {
         Assertions.assertFalse(go1.isSelectedMainMenu());
     }
     @Test
-    public void isSelectedExit() {
+    public void isSelectedExitTest() {
         Assertions.assertFalse(go1.isSelectedExit());
         go1.nextEntry();
         Assertions.assertFalse(go1.isSelectedExit());
