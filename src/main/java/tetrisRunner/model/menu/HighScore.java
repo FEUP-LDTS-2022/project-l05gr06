@@ -54,6 +54,7 @@ public class HighScore extends Menu{
             line = br.readLine();
         }
         br.close();
+        if (!changed) newLeaderboard.add(this.name + " - " + (int) this.score);
         PrintWriter writer = new PrintWriter("docs/leaderboard/classicLeaderboard.txt");
         for (String leader: newLeaderboard){
             writer.println(leader);
@@ -84,6 +85,7 @@ public class HighScore extends Menu{
             line = br.readLine();
         }
         br.close();
+        if (!changed) newLeaderboard.add(this.name + " - " + (int) this.score/60 + ":" + (int) this.score%60);
         PrintWriter writer = new PrintWriter("docs/leaderboard/climbingLeaderboard.txt");
         for (String leader: newLeaderboard){
             writer.println(leader);
