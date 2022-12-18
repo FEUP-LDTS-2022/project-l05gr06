@@ -68,48 +68,53 @@ public class InstructionViewer extends Viewer<Instruction> {
                         gui.getStringColor(GUI.COLOR.BLACK));
                 break;
             case 2:
-                gui.drawText(new Position(3, 3),
+                gui.drawText(new Position(3, 1),
                         "Shape",
                         gui.getStringColor(GUI.COLOR.RED),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(6, 5),
+                        new Position(6, 3),
                         "Rotate",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(3, 6),
+                        new Position(3, 4),
                         "W: Clockwise",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(3, 7),
+                        new Position(3, 5),
                         "S: AntiClockwise",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(6, 9),
+                        new Position(6, 7),
                         "Move",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(3, 10),
+                        new Position(3, 8),
                         "A: Left",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(3, 11),
+                        new Position(3, 9),
                         "D: Right",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(3, 13),
+                        new Position(3, 11),
                         "Space: Drop",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
                 gui.drawText(
-                        new Position(3, 14),
+                        new Position(3, 12),
                         "(not in PvP)",
+                        gui.getStringColor(GUI.COLOR.WHITE),
+                        gui.getStringColor(GUI.COLOR.BLACK));
+                gui.drawText(
+                        new Position(3, 14),
+                        "R: PvP-Resign",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
 
