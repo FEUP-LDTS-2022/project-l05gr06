@@ -53,6 +53,10 @@ public abstract class Shape {
         return direction;
     }
 
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
     public GUI.COLOR getColor() {
         return color;
     }

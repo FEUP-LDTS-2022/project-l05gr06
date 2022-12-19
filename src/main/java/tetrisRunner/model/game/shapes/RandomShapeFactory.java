@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class RandomShapeFactory extends ShapeFactory{
-    private int generateRandomInt(){
+    public int generateRandomInt(){
         Random rand = new Random();
         int numShapes = 7;
         return rand.nextInt(numShapes);
