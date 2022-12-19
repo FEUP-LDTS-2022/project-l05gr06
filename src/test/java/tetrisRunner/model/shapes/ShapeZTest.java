@@ -17,11 +17,11 @@ public class ShapeZTest {
     private List<Position> case3;
     @BeforeEach
     public void helper(){
-        startPositions = Arrays.asList(new Position(9,9), new Position(10,9), new Position(10,8), new Position(11,8));
-        case0 = Arrays.asList(new Position(9,9), new Position(10,9), new Position(10,8), new Position(11,8));
-        case1 = Arrays.asList(new Position(10,8), new Position(10,9), new Position(11,9), new Position(11,10));
-        case2 = Arrays.asList(new Position(11,9), new Position(10,9), new Position(10,10), new Position(9,10));
-        case3 = Arrays.asList(new Position(10,10), new Position(10,9), new Position(9,9), new Position(9,8));
+        startPositions = Arrays.asList(new Position(5,2), new Position(6,2), new Position(6,3), new Position(7,3));
+        case0 = Arrays.asList(new Position(5,1), new Position(6,2), new Position(6,1), new Position(7,2));
+        case1 = Arrays.asList(new Position(7,1), new Position(6,2), new Position(7,2), new Position(6,3));
+        case2 = Arrays.asList(new Position(7,3), new Position(6,2), new Position(6,3), new Position(5,2));
+        case3 = Arrays.asList(new Position(5,3), new Position(6,2), new Position(5,2), new Position(6,1));
     }
     @Test
     public void rotateCase0Test(){
