@@ -66,8 +66,8 @@ public class HighScoreController extends Controller<HighScore> {
                 break;
             case SELECT:
                 if (getModel().isSelectedNext() && nameSize == 3){
-                    if (getModel().isClassic()) getModel().updateLeaderboardClassic();
-                    else getModel().updateLeaderboardClimbing();
+                    if (getModel().isClassic()) getModel().updateLeaderboardClassic("docs/leaderboard/classicLeaderboard.txt");
+                    else getModel().updateLeaderboardClimbing("docs/leaderboard/climbingLeaderboard.txt");
                     game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.GAME_OVER)));
                 }
         }
