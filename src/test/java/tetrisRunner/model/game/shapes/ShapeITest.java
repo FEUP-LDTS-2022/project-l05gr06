@@ -1,15 +1,19 @@
-package tetrisRunner.model.shapes;
+package tetrisRunner.model.game.shapes;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.game.shapes.ShapeL;
+import tetrisRunner.model.PositionTest;
+import tetrisRunner.model.game.shapes.ShapeI;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ShapeLTest {
+
+
+public class ShapeITest {
     private List<Position> startPositions ;
     private List<Position> case0;
     private List<Position> case1;
@@ -17,15 +21,15 @@ public class ShapeLTest {
     private List<Position> case3;
     @BeforeEach
     public void helper(){
-        startPositions = Arrays.asList(new Position(9,5), new Position(10,5), new Position(11,5), new Position(11,4));
-        case0 = Arrays.asList(new Position(9,5),new Position(10,5),new Position(11,5),new Position(11,4));
-        case1 = Arrays.asList(new Position(10,4),new Position(10,5),new Position(10,6),new Position(11,6));
-        case2 = Arrays.asList(new Position(11,5),new Position(10,5), new Position(9,5), new Position(9,6));
-        case3 = Arrays.asList(new Position(10,6),new Position(10,5), new Position(10,4), new Position(9,4));
+        startPositions = Arrays.asList(new Position(10,9), new Position(10,8), new Position(10,7), new Position(10,6));
+        case0 = Arrays.asList(new Position(9,8),new Position(10,8),new Position(11,8),new Position(12,8));
+        case1 = Arrays.asList(new Position(10,7),new Position(10,8),new Position(10,9),new Position(10,10));
+        case2 = Arrays.asList(new Position(11,8),new Position(10,8), new Position(9,8), new Position(8,8));
+        case3 = Arrays.asList(new Position(10,9),new Position(10,8), new Position(10,7), new Position(10,6));
     }
     @Test
     public void rotateCase0Test(){
-        ShapeL shape = new ShapeL(startPositions);
+        ShapeI shape = new ShapeI(startPositions);
         shape.setDirection(0);
         int i = 0;
         for(Position position: shape.rotate(startPositions)){
@@ -37,7 +41,7 @@ public class ShapeLTest {
 
     @Test
     public void rotateCase1Test(){
-        ShapeL shape = new ShapeL(startPositions);
+        ShapeI shape = new ShapeI(startPositions);
         shape.setDirection(1);
         int i = 0;
         for(Position position: shape.rotate(startPositions)){
@@ -48,7 +52,7 @@ public class ShapeLTest {
     }
     @Test
     public void rotateCase2Test(){
-        ShapeL shape = new ShapeL(startPositions);
+        ShapeI shape = new ShapeI(startPositions);
         shape.setDirection(2);
         int i = 0;
         for(Position position: shape.rotate(startPositions)){
@@ -59,7 +63,7 @@ public class ShapeLTest {
     }
     @Test
     public void rotateCase3Test(){
-        ShapeL shape = new ShapeL(startPositions);
+        ShapeI shape = new ShapeI(startPositions);
         shape.setDirection(3);
         int i = 0;
         for(Position position: shape.rotate(startPositions)){

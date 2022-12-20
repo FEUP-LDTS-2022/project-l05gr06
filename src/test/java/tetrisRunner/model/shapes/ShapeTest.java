@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.shapes.Shape;
-import tetrisRunner.model.menu.Menu;
-import tetrisRunner.model.menu.MenuTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -81,7 +79,6 @@ public class ShapeTest {
         ShapeTestAbstract(){
             super(Arrays.asList(new Position(5,5),new Position(5,6), new Position(5,7),new Position(5,8)), GUI.COLOR.WHITE);
         }
-
         @Override
         public List<Position> rotate(List<Position> positions1) {
             return new ArrayList<>();

@@ -8,6 +8,8 @@ import tetrisRunner.model.game.layout.Layout;
 import tetrisRunner.model.game.shapes.RandomShapeFactory;
 import tetrisRunner.model.game.shapes.Shape;
 import tetrisRunner.model.game.shapes.ShapeFactory;
+import tetrisRunner.model.menu.GameOver;
+import tetrisRunner.states.GameOverState;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -214,6 +216,15 @@ public class ShapeController extends GameController{
             this.maneuvering = time;
         shape.setImpact(false);
     }
+
+    private void resign1v1(Game game){
+        if (getModel().isPvP()) {
+            game.getMatchScore().jacobWon();
+            game.setState(new GameOverState(new GameOver(GUI.NAME_STATES.JACOB_WON)));
+        }
+    }
+
+
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
 
@@ -230,6 +241,7 @@ public class ShapeController extends GameController{
             case S -> shapeRotateAntiClockWise();
             case W -> shapeRotateClockWise();
             case SPACE -> instaDrop();
+            case R -> resign1v1(game);
             }
             if (time - maneuvering > maneuverTime) {
 
