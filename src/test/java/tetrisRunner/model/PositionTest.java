@@ -45,5 +45,29 @@ public class PositionTest {
         assertEquals(x4 - 1, position4.getLeft().getX());
         assertEquals(y4, position4.getY());
     }
+
+    @Test
+    public void jump(){
+        assertEquals(x1, position1.getX());
+        assertEquals(y1-1, position1.jump().getY());
+        assertEquals(x2, position2.getX());
+        assertEquals(y2-1, position2.jump().getY());
+        assertEquals(x3, position3.getX());
+        assertEquals(y3-1, position3.jump().getY());
+        assertEquals(x4, position4.getX());
+        assertEquals(y4-1, position4.jump().getY());
+    }
+
+    @Test
+    public void fall(){
+        assertEquals(x1, position1.getX());
+        assertEquals(y1+1, position1.fall().getY());
+        assertEquals(x2, position2.getX());
+        assertEquals(y2+1, position2.fall().getY());
+        assertEquals(x3, position3.getX());
+        assertEquals(y3+1, position3.fall().getY());
+        assertEquals(x4, position4.getX());
+        assertEquals(y4+1, position4.fall().getY());
+    }
 }
 
