@@ -72,33 +72,33 @@ public class ClassicBehaviorTest {
         Assertions.assertFalse(classicBehavior.gameOverWin(layoutController));
     }
     @Test
-    public void isPvP() {
+    public void isPvPTest() {
         Assertions.assertFalse(classicBehavior.isPvP());
     }
 
     @Test
-    public void instaDropAvailable() {
+    public void instaDropAvailableTest() {
         Assertions.assertTrue(classicBehavior.instaDropAvailable());
     }
 
     @Test
-    public void incrementScore() {
+    public void incrementScoreTest() {
         classicBehavior.incrementScore(1);
         Assertions.assertEquals(1,classicBehavior.getScoreNumber());
     }
 
     @Test
-    public void getScoreString() {
+    public void getScoreStringTest() {
         Assertions.assertEquals("0",classicBehavior.getScoreString());
     }
 
     @Test
-    public void getScoreNumber() {
+    public void getScoreNumberTest() {
         Assertions.assertEquals(0,classicBehavior.getScoreNumber());
     }
 
     @Test
-    public void checkLeaderboardUpdate() throws FileNotFoundException {
+    public void checkLeaderboardUpdateTest() throws FileNotFoundException {
         List<String> newLeaderboard = Arrays.asList("AAA - 5000", "BBB - 4000", "CCC - 3000");
         PrintWriter writer = new PrintWriter(file);
         for (String leader: newLeaderboard){

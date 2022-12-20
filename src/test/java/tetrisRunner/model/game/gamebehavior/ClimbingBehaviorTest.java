@@ -78,23 +78,23 @@ public class ClimbingBehaviorTest {
         Assertions.assertTrue(climbingBehavior.gameOverWin(layoutController));
     }
     @Test
-    public void isPvP() {
+    public void isPvPTest() {
         Assertions.assertFalse(climbingBehavior.isPvP());
     }
 
     @Test
-    public void instaDropAvailable() {
+    public void instaDropAvailableTest() {
         Assertions.assertTrue(climbingBehavior.instaDropAvailable());
     }
 
     @Test
-    public void incrementScore() {
+    public void incrementScoreTest() {
         climbingBehavior.incrementScore(1);
         Assertions.assertEquals(1,climbingBehavior.getScoreNumber());
     }
 
     @Test
-    public void getScoreString() {
+    public void getScoreStringTest() {
         Assertions.assertEquals("00:00",climbingBehavior.getScoreString());
         climbingBehavior.incrementScore(34);
         Assertions.assertEquals("00:34",climbingBehavior.getScoreString());
@@ -103,12 +103,12 @@ public class ClimbingBehaviorTest {
     }
 
     @Test
-    public void getScoreNumber() {
+    public void getScoreNumberTest() {
         Assertions.assertEquals(0,climbingBehavior.getScoreNumber());
     }
 
     @Test
-    public void checkLeaderboardUpdate() throws FileNotFoundException {
+    public void checkLeaderboardUpdateTest() throws FileNotFoundException {
         List<String> newLeaderboard = Arrays.asList("AAA - 00:30", "BBB - 04:12", "CCC - 40:00");
         PrintWriter writer = new PrintWriter(file);
         for (String leader: newLeaderboard){
