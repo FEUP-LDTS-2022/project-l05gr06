@@ -8,11 +8,19 @@ import java.io.IOException;
 
 public class ClimbingBehavior implements GameBehavior {
     private double score;
+    private String file;
+
+    public ClimbingBehavior() {
+        file = "docs/leaderboard/climbingLeaderboard.txt";
+        score = 0;
+    }
+
     @Override
     public boolean gameOverStatus(LayoutController layoutController) {
-        return ((!layoutController.getJacobController().jacobIsAlive() &&
-                !layoutController.getJacobController().isFalling())
-                || layoutController.getModel().checkOver());
+        boolean jacobDied = !layoutController.getJacobController().jacobIsAlive() &&
+                !layoutController.getJacobController().isFalling();
+        boolean shapesOverLimit = layoutController.getModel().checkOver();
+        return jacobDied || shapesOverLimit;
     }
     @Override
     public boolean gameOverWin(LayoutController layoutController){
@@ -66,7 +74,7 @@ public class ClimbingBehavior implements GameBehavior {
     @Override
     public boolean checkLeaderboardUpdate() {
         int countLines = 0;
-        try(BufferedReader br = new BufferedReader(new FileReader("docs/leaderboard/climbingLeaderboard.txt"))) {
+        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = br.readLine();
             while (line != null) {
                 countLines++;
@@ -86,7 +94,7 @@ public class ClimbingBehavior implements GameBehavior {
         return false;
     }
 
-
-
-
+    public void setFile(String file) {
+        this.file = file;
+    }
 }
