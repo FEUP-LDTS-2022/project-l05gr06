@@ -1,8 +1,10 @@
 package tetrisRunner.model.game.gamebehavior;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tetrisRunner.controller.game.LayoutController;
 import tetrisRunner.model.game.layout.Layout;
+import tetrisRunner.model.game.layout.LoaderLayoutBuilder;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,5 +21,12 @@ public class ClassicBehaviorTest {
         file = File.createTempFile("testClassic",".txt");
         String path = file.getAbsolutePath();
         classicBehavior.setFile(path);
+        layout = new Layout(20,20);
+        layoutController = new LayoutController(layout);
+    }
+
+    @Test
+    public void gameOverStatusTest(){
+
     }
 }

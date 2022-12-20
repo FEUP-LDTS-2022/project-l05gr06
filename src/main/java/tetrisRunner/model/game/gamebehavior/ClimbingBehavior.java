@@ -17,9 +17,10 @@ public class ClimbingBehavior implements GameBehavior {
 
     @Override
     public boolean gameOverStatus(LayoutController layoutController) {
-        return ((!layoutController.getJacobController().jacobIsAlive() &&
-                !layoutController.getJacobController().isFalling())
-                || layoutController.getModel().checkOver());
+        boolean jacobDied = !layoutController.getJacobController().jacobIsAlive() &&
+                !layoutController.getJacobController().isFalling();
+        boolean shapesOverLimit = layoutController.getModel().checkOver();
+        return jacobDied || shapesOverLimit;
     }
     @Override
     public boolean gameOverWin(LayoutController layoutController){
