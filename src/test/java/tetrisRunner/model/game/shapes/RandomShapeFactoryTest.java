@@ -1,4 +1,4 @@
-package tetrisRunner.model.shapes;
+package tetrisRunner.model.game.shapes;
 
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
