@@ -116,6 +116,19 @@ public class LayoutControllerTest {
 
         controller.updateScore(4);
         assertEquals(layout.getScoreNumber(),800);
+        layout.incrementScore(-800);
+
+        controller.updateScore(1);
+        assertEquals(layout.getScoreNumber(),100);
+
+        controller.updateScore(2);
+        assertEquals(layout.getScoreNumber(),400);
+
+        controller.updateScore(3);
+        assertEquals(layout.getScoreNumber(),900);
+
+        controller.updateScore(4);
+        assertEquals(layout.getScoreNumber(),1700);
     }
 
 
