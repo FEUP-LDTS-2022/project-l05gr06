@@ -28,14 +28,6 @@ public class JacobControllerTest {
     void setUp() {
         layout = new Layout(20, 20);
 
-        List<Wall> walls = new ArrayList<>();
-        for (int c = 0; c < layout.getWidth(); c++) {
-            walls.add(new Wall(c, layout.getHeight()-2));
-        }
-        for (int r = 0; r < layout.getHeight() - 1 ; r++) {
-            walls.add(new Wall(0, r));
-            walls.add(new Wall(layout.getWidth() - 1, r));
-        }
 
         ShapeFactory factory = new RandomShapeFactory();
 
@@ -44,7 +36,7 @@ public class JacobControllerTest {
         layout.setJacob(jacob);
 
         layout.setBlocks(Arrays.asList());
-        layout.setWalls(walls);
+        layout.setWalls(Arrays.asList(new Wall(10,18)));
         layout.setShape(factory.createShape());
 
         controller = new JacobController(layout);
@@ -62,6 +54,10 @@ public class JacobControllerTest {
         layout.setBlocks(Arrays.asList(new Block(11, 17, GUI.COLOR.RED)));
         controller.moveJacobRight();
         assertEquals(new Position(10, 17), jacob.getPosition());
+
+        jacob= new Jacob(18,17);
+        controller.moveJacobRight();
+        assertEquals(new Position(18, 17), jacob.getPosition());
     }
 
     @Test
@@ -75,6 +71,10 @@ public class JacobControllerTest {
         layout.setBlocks(Arrays.asList(new Block(9, 17, GUI.COLOR.RED)));
         controller.moveJacobLeft();
         assertEquals(new Position(10, 17), jacob.getPosition());
+
+        jacob= new Jacob(1,17);
+        controller.moveJacobLeft();
+        assertEquals(new Position(1, 17), jacob.getPosition());
     }
 
     @Test
@@ -100,6 +100,8 @@ public class JacobControllerTest {
 
     @Test
     void fallJacobNotEmpty() {
+        controller.fallJacob();
+        assertEquals(new Position(10, 17), jacob.getPosition());
         layout.setBlocks(Arrays.asList(new Block(10, 14, GUI.COLOR.RED)));
         jacob = new Jacob(10, 13);
         layout.setJacob(jacob);
