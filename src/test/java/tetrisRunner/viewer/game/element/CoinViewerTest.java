@@ -6,20 +6,21 @@ import org.mockito.Mockito;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.game.elements.Coin;
 
-public class BlockViewerTest {
-    private Block block;
+public class CoinViewerTest {
+    private Coin coin;
     private GUI gui;
-    private BlockViewer viewer;
+    private CoinViewer viewer;
     @BeforeEach
     public void helper(){
-        block = new Block(7,4, GUI.COLOR.YELLOW);
+        coin = new Coin(1,2);
         gui = Mockito.mock(GUI.class);
-        viewer = new BlockViewer();
+        viewer = new CoinViewer();
     }
     @Test
     public void drawTest(){
-        viewer.draw(block,gui);
-        Mockito.verify(gui,Mockito.times(1)).drawBlock(new Position(7,4), GUI.COLOR.YELLOW);
+        viewer.draw(coin,gui);
+        Mockito.verify(gui,Mockito.times(1)).drawCoin(new Position(1,2));
     }
 }

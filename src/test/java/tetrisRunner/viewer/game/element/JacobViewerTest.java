@@ -6,20 +6,21 @@ import org.mockito.Mockito;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.game.elements.Jacob;
 
-public class BlockViewerTest {
-    private Block block;
+public class JacobViewerTest {
+    private Jacob jacob;
     private GUI gui;
-    private BlockViewer viewer;
+    private JacobViewer viewer;
     @BeforeEach
     public void helper(){
-        block = new Block(7,4, GUI.COLOR.YELLOW);
+        jacob = new Jacob(0,1);
         gui = Mockito.mock(GUI.class);
-        viewer = new BlockViewer();
+        viewer = new JacobViewer();
     }
     @Test
     public void drawTest(){
-        viewer.draw(block,gui);
-        Mockito.verify(gui,Mockito.times(1)).drawBlock(new Position(7,4), GUI.COLOR.YELLOW);
+        viewer.draw(jacob,gui);
+        Mockito.verify(gui,Mockito.times(1)).drawJacob(new Position(0,1));
     }
 }
