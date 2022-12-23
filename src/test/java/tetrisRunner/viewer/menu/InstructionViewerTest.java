@@ -177,32 +177,33 @@ public class InstructionViewerTest {
     }
     @Test
     public void drawElementsMenu3Test() throws IOException {
+        instruction.setMenu(3);
+        instruction.changeInstruction();
         viewer.draw(gui);
-        Mockito.verify(gui,Mockito.times(1)).getMenuName(GUI.NAME_STATES.INSTRUCTION);
         Mockito.verify(gui,Mockito.times(3)).getStringColor(GUI.COLOR.CYAN);
         Mockito.verify(gui,Mockito.times(1)).getStringColor(GUI.COLOR.ORANGE);
         Mockito.verify(gui,Mockito.times(4)).getStringColor(GUI.COLOR.WHITE);
         Mockito.verify(gui,Mockito.times(5)).getStringColor(GUI.COLOR.BLACK);
         Mockito.verify(gui,Mockito.times(1)).drawText(
-                new Position(4, 5),
-                "Instructions",
+                new Position(5, 5),
+                "Game Modes",
                 "#FFFFFF",
                 "#000000");
         Mockito.verify(gui,Mockito.times(1)).drawText(
                 new Position(5,7),
-                "Jacob",
+                "Classic",
                 "#40E0D0",
                 "#000000"
         );
         Mockito.verify(gui,Mockito.times(1)).drawText(
                 new Position(5,8),
-                "Shape",
+                "Climbing",
                 "#FFFFFF",
                 "#000000"
         );
         Mockito.verify(gui,Mockito.times(1)).drawText(
                 new Position(5,9),
-                "Game Modes",
+                "PvP",
                 "#FFFFFF",
                 "#000000"
         );
