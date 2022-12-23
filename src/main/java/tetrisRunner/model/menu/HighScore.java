@@ -32,10 +32,10 @@ public class HighScore extends Menu{
     public boolean isClassic(){
         return this.isClassic;
     }
-    public void updateLeaderboardClassic() throws IOException {
+    public void updateLeaderboardClassic(String file) throws IOException {
         int counter = 0;
         boolean changed = false;
-        BufferedReader br = new BufferedReader(new FileReader("docs/leaderboard/classicLeaderboard.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(file));
         String line = br.readLine();
         List<String> newLeaderboard = new ArrayList<>();
         while (line != null) {
@@ -54,16 +54,17 @@ public class HighScore extends Menu{
             line = br.readLine();
         }
         br.close();
-        PrintWriter writer = new PrintWriter("docs/leaderboard/classicLeaderboard.txt");
+        if (!changed) newLeaderboard.add(this.name + " - " + (int) this.score);
+        PrintWriter writer = new PrintWriter(file);
         for (String leader: newLeaderboard){
             writer.println(leader);
         }
         writer.close();
     }
-    public void updateLeaderboardClimbing() throws IOException {
+    public void updateLeaderboardClimbing(String file) throws IOException {
         int counter = 0;
         boolean changed = false;
-        BufferedReader br = new BufferedReader(new FileReader("docs/leaderboard/climbingLeaderboard.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(file));
         String line = br.readLine();
         List<String> newLeaderboard = new ArrayList<>();
         while (line != null) {
@@ -84,7 +85,8 @@ public class HighScore extends Menu{
             line = br.readLine();
         }
         br.close();
-        PrintWriter writer = new PrintWriter("docs/leaderboard/climbingLeaderboard.txt");
+        if (!changed) newLeaderboard.add(this.name + " - " + (int) this.score/60 + ":" + (int) this.score%60);
+        PrintWriter writer = new PrintWriter(file);
         for (String leader: newLeaderboard){
             writer.println(leader);
         }

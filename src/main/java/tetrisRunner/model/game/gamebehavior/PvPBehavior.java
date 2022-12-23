@@ -4,7 +4,12 @@ import tetrisRunner.controller.game.LayoutController;
 
 public class PvPBehavior implements GameBehavior {
     private double score;
-    private final double gameOverTime = 60;
+    private final double gameOverTime;
+
+    public PvPBehavior() {
+        score = 0;
+        gameOverTime = 60;
+    }
 
     @Override
     public boolean gameOverStatus(LayoutController layoutController) {

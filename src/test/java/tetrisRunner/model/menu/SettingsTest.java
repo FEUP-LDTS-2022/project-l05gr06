@@ -71,4 +71,13 @@ public class SettingsTest {
         menu.nextEntry();
         Assertions.assertFalse(menu.isSelectedReturn());
     }
+
+    @Test
+    public void switchMuteTest() {
+        Assertions.assertEquals("Mute", menu.entries.get(0));
+        menu.switchMute();
+        Assertions.assertEquals("Unmute", menu.entries.get(0));
+        menu.switchMute();
+        Assertions.assertEquals("Mute", menu.entries.get(0));
+    }
 }

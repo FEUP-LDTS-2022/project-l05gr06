@@ -28,6 +28,10 @@ import static com.googlecode.lanterna.Symbols.FACE_BLACK;
 public class LanternaGUI implements GUI {
     private final Screen screen;
 
+    public Screen getScreen() {
+        return screen;
+    }
+
     public LanternaGUI(int width, int height) throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
         Terminal terminal = createTerminal(width, height, fontConfig);

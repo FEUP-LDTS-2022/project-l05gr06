@@ -27,7 +27,7 @@ public class SelectModeControllerTest {
         selectMode = Mockito.mock(SelectMode.class);
         modeController = new SelectModeController(selectMode);
         game = Mockito.mock(Game.class);
-        guiActions = Arrays.asList(GUI.ACTION.UP, GUI.ACTION.DOWN, GUI.ACTION.SELECT);
+        guiActions = Arrays.asList(GUI.ACTION.ARROW_UP, GUI.ACTION.ARROW_DOWN, GUI.ACTION.SELECT);
     }
 
     @Test

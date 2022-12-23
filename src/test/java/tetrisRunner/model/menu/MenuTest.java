@@ -44,7 +44,22 @@ public class MenuTest {
         Assertions.assertTrue(menuTest.isSelected(1));
     }
 
-    class TestMenuAbstract extends Menu{
+    @Test
+    public void resetCurrentEntryTest(){
+        Assertions.assertTrue(menuTest.isSelected(0));
+        for (int i=0; i<10;i++) menuTest.previousEntry();
+        menuTest.resetCurrentEntry();
+        Assertions.assertTrue(menuTest.isSelected(0));
+    }
+
+    @Test
+    public void getNumberEntriesTest(){
+        Assertions.assertEquals(3, menuTest.getNumberEntries());
+        menuTest.entries = Arrays.asList("1", "2", "3", "4");
+        Assertions.assertEquals(4, menuTest.getNumberEntries());
+    }
+
+    static class TestMenuAbstract extends Menu{
         TestMenuAbstract(){
             super.entries = Arrays.asList("Test1", "Test2", "Test3");
         }

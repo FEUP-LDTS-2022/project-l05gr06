@@ -30,19 +30,19 @@ public class Instruction extends Menu{
         }
         resetCurrentEntry();
     }
+    public boolean isSelectedJacob(){
+        if(menu==0)
+            return isSelected(0);
+        return false;
+    }
     public boolean isSelectedShape(){
         if(menu==0)
             return isSelected(1);
         return false;
     }
-    public boolean isSelectedPvP(){
-        if(menu == 3)
+    public boolean isSelectedGameModes(){
+        if(menu==0)
             return isSelected(2);
-        return false;
-    }
-    public boolean isSelectedClimbing(){
-        if(menu == 3)
-            return isSelected(1);
         return false;
     }
     public boolean isSelectedClassic(){
@@ -50,14 +50,14 @@ public class Instruction extends Menu{
             return isSelected(0);
         return false;
     }
-    public boolean isSelectedJacob(){
-        if(menu==0)
-           return isSelected(0);
+    public boolean isSelectedClimbing(){
+        if(menu == 3)
+            return isSelected(1);
         return false;
     }
-    public boolean isSelectedGameModes(){
-        if(menu==0)
-          return isSelected(2);
+    public boolean isSelectedPvP(){
+        if(menu == 3)
+            return isSelected(2);
         return false;
     }
     public boolean isSelectedReturn() {
