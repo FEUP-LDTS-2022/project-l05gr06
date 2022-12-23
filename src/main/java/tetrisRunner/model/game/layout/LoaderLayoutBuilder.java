@@ -39,7 +39,7 @@ public class LoaderLayoutBuilder extends LayoutBuilder{
     }
     @Override
     protected List<Coin> createCoins() {
-        ElementFactory<Coin> factory = new CoinFactory();
+        CoinFactory factory = new CoinFactory();
         List<Coin> coins = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             coins.add(factory.createElement());

@@ -77,13 +77,57 @@ You can find the classes used in the Design Pattern in the following package:
 The use of the Factory Method Pattern in the current design allows the following benefits:
 
 - Factory methods eliminate the need to bind application-specific classes into our code
+- Allows the `ShapeFactory` to be extended in the future, to create other factories (which can create Shapes in other way
+rather than randomly)
+- Avoids code smells, since we just need to call the factory, and run the command which creates the coins
 
 Therefore, we considered this to be the best pattern to create new shapes easily, and the best pattern to solve
 the problem described above.
 
-------
+---
 
-#### PROBLEM OF TRAVERSAL THROUGHOUT THE CODE
+#### RANDOMIZE COINS IN CLASSIC MODE
+
+**Problem in Context**
+
+As it was explained in the game features, the Classic Mode has coins, which gives points to the player(s) if caught.
+They can spawn randomly on the map (only not under static elements, such as blocks and Walls, or on top of other coins).
+We want to generate those coins randomly (as said before), but we don't want to explicitly call the `Coin` constructor.
+So, we need to find a solution that allows us to delegate de construction to other components.
+
+**The Pattern**
+
+To accomplish this, we decided to use the **Factory Method** pattern. We created an abstract class `ElementFactory`, which
+is extended by the class `CoinFactory`. This factory will then produce the coins in random positions.
+
+**Implementation**
+
+As you can see in the following UML, this is how we implemented the pattern described above:
+
+![](images/factory-method-coin.png)
+
+You can find the classes used in the Design Pattern in the following files:
+
+- [ElementFactory](../src/main/java/tetrisRunner/model/game/elements/ElementFactory.java)
+- [CoinFactory](../src/main/java/tetrisRunner/model/game/elements/CoinFactory.java)
+- [Element](../src/main/java/tetrisRunner/model/game/elements/Element.java)
+- [Coin](../src/main/java/tetrisRunner/model/game/elements/Coin.java)
+
+**Consequences**
+
+The use of the Factory Method Pattern in the current design allows the following benefits:
+
+- Factory methods eliminate the need to bind application-specific classes into our code
+- Allows the `ElementFactory` to be extended in the future, to create other factories (which can create different elements,
+or allow other ways to create coins)
+- Avoids code smells, since we just need to call the factory, and run the command which creates the coins
+
+Therefore, we considered this to be the best pattern to create coins randomly, and the best pattern to solve
+the problem described above.
+
+---
+
+#### TRAVERSAL THROUGH THE GAME STATES
 
 **Problem in Context**
 
