@@ -181,13 +181,35 @@ practices, and making it easier to implement the state diagram shown above.
 
 #### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
 
-The biggest code smell we encountered during this first phase of the project was the usage of a static element in the class `Setting`, used
-on another class `Pause`. We decided to do that to solve the conflict between the return of the `Settings` to either `Pause` 
-or `StartMenu`. We expect to solve this problem until the final delivery of the project, by using the **Strategy Pattern** to
-improve our code.
+There are some code smells in our code, and we are totally aware of them:
 
-We also are aware that there are other code smells in our project, but since they are minor ones, due to time constrains we are
-not going to talk about them in this delivery, and we expect to have them solved until the release of the demo.
+- Switch Statements:
+We also have some over complex if/switch statements over the code, with the function step in LayoutController being the
+most complicated one. To fix this, the easiest way would be to reorganize the code by breaking the function into smaller,
+easier to read functions. We decided not to change it, since we can still read the code and creating more layoutController functions
+would be a bit of an overkill.
+
+- Long Class:
+Regarding the long class code smell, we would say that the instruction's classes are the ones that would maybe be too long. We
+could fix that by extracting methods or creating new states for each specific instruction, but we decided to go with a more complex
+Instructions State so there wouldn't be too much more states, each needing a viewer and a controller.
+
+- Duplicated Code:
+We have some duplicated code in, for example, the ShapeController Class, regarding the rotates in different directions. We decided to keep
+it that way, considering that each rotate is supposed to act differently. Therefore, if we want to change one we don't have to change the other one.
+
+- Lazy Class: 
+Lazy classes are present, for example, in the element models. Most of those only have a constructor, but these make the code more organized
+and more respecting of the MVC architecture.
+
+- Temporary Field:
+There are some instances in which we initiate new variables only for them to be worked around within a function which are considered
+code smells of the temporary field kind. We decided to keep it that way so those functions would be easier to read (for example
+initiating a new object equal to a getter, so we wouldn't need to use getModel().getSomething()) each time we needed to address the object.
+
+- Refused Bequest:
+Some subclasses, specially the different shapes classes, have methods that they don't implement and/or implement but don't do anything. We decided
+to keep it that way, so the code would be more organized and easier to read the project as a whole.
 
 ### TESTING
 
