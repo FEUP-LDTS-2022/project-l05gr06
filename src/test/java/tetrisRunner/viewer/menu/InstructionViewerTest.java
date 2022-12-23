@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.menu.Instruction;
-import tetrisRunner.model.menu.SelectMode;
 
 import java.io.IOException;
 
@@ -320,6 +319,52 @@ public class InstructionViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawText(
                 new Position(3, 12),
                 "(1/2 Players)",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui,Mockito.times(1)).drawText(
+                new Position(5,16),
+                "Return",
+                "#FFAC1C",
+                "#000000"
+        );
+    }
+    @Test
+    public void drawElementsMenu6Test() throws IOException {
+        instruction.setMenu(6);
+        instruction.changeInstruction();
+        viewer.draw(gui);
+        Mockito.verify(gui,Mockito.times(1)).getStringColor(GUI.COLOR.RED);
+        Mockito.verify(gui,Mockito.times(1)).getStringColor(GUI.COLOR.ORANGE);
+        Mockito.verify(gui,Mockito.times(4)).getStringColor(GUI.COLOR.WHITE);
+        Mockito.verify(gui,Mockito.times(6)).getStringColor(GUI.COLOR.BLACK);
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 3),
+                "PvP",
+                "#D22B2B",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 7),
+                "Run Jacob!",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 8),
+                "The pieces are",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 9),
+                "out to get ya!",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 11),
+                "(2 Players)",
                 "#FFFFFF",
                 "#000000"
         );
