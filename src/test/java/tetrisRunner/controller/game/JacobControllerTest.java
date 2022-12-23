@@ -27,18 +27,12 @@ public class JacobControllerTest {
     @BeforeEach
     void setUp() {
         layout = new Layout(20, 20);
-
-
         ShapeFactory factory = new RandomShapeFactory();
-
-
         jacob = new Jacob(10, 17);
         layout.setJacob(jacob);
-
         layout.setBlocks(Arrays.asList());
         layout.setWalls(Arrays.asList(new Wall(10,18)));
         layout.setShape(factory.createShape());
-
         controller = new JacobController(layout);
     }
 
