@@ -216,6 +216,32 @@ public class ShapeControllerTest {
     }
 
     @Test
+    public void tryRotateTest(){
+        ShapeToTest shape =new ShapeToTest(Arrays.asList(new Position(5, 3), new Position(6, 3)));
+        shape.setDirection(3);
+        layout.setShape(shape);
+        List<Position> exp = Arrays.asList(new Position(6, 3), new Position(6, 2));
+        Assertions.assertEquals(true,shapeController.tryRotate(layout.getShape(),layout.getShape().getShapePos()));
+        int i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp.get(i).getY(), position.getY());
+            i++;
+        }
+        shape = new ShapeToTest(Arrays.asList(new Position(10, 3), new Position(10, 4)));
+        shape.setDirection(2);
+        layout.setShape(shape);
+        List<Position> exp1 = Arrays.asList(new Position(11, 3), new Position(10, 3));
+        Assertions.assertEquals(true,shapeController.tryRotate(layout.getShape(),layout.getShape().getShapePos()));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp1.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp1.get(i).getY(), position.getY());
+            i++;
+        }
+
+    }
+    @Test
     public void shapeRotateClockWiseTest(){
 
     }
