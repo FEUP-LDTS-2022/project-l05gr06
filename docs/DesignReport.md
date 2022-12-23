@@ -131,10 +131,11 @@ the problem described above.
 
 **Problem in Context**
 
-We need to know how are we going to achieve the different states of the game. What usually happens (and is a bad programming
-practice in OOP) is the usage of if-else clauses to achieve different stages of the game. However, that just makes
-the code harder to decipher in the future, and harder to modify (because we would have to search all the if-else clauses)
-to find the change we need to do.
+We need to know how are we going to achieve the different states of the game (the different submenus, the game with its different
+ modes, ...). What often happens (and is a bad programming practice in OOP) is the usage of if-else clauses to achieve 
+different stages of the game. However, that just makes the code harder to decipher in the future, and harder to modify 
+to find the change we need to do (since we would have to search all the if-else clauses). So, we need a way to traverse
+through these different states, while maintaining the code organize, readable and implemented in a logical way.
 
 **The Pattern**
 
@@ -144,8 +145,17 @@ program that need to be achieved (Menu States, Game States, ...), then this patt
 
 **Implementation**
 
-The UML presented at the beginning of the report shows how we organized our code by that model (creation of an abstract class
-State<T>, that takes as arguments the different states we wish to achieve).
+The following UML shows how the different states were created: we implemented an abstract class
+State<T>, that takes as arguments the different models of the states we wish to achieve. Then, in the different controllers,
+the different states could be accessed one through another: 
+> Example: if the A Controller calls the B State, then from
+the A State we could achieve the B State
+
+![](images/state-design.png)
+
+You can find the classes used in the Design Pattern in the following package:
+
+- [States](../src/main/java/tetrisRunner/states)
 
 **Consequences**
 
@@ -158,4 +168,4 @@ The use of the State Pattern in the current design allows the following benefits
 - There are now more classes and instances to manage, but still in a reasonable number.
 
 Therefore, we considered this to be the best pattern to achieve different sections of our game, keeping a good OOP
-practices, and making it easier to implement the state diagram shown above.
+practices, and making it easier to implement the game traversal logic like one of a state diagram.
