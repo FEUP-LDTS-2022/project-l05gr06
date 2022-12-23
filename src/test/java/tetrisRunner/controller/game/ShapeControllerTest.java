@@ -105,6 +105,33 @@ public class ShapeControllerTest {
             Assertions.assertEquals(exp.get(i).getY(), position.getY());
             i++;
         }
+        layout.setShape(new ShapeToTest(Arrays.asList(new Position(10, 10), new Position(11, 10))));
+        shapeController.moveShapeLeft();
+        List<Position> exp1 = Arrays.asList(new Position(9, 10), new Position(10, 10));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp1.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp1.get(i).getY(), position.getY());
+            i++;
+        }
+        layout.setShape(new ShapeToTest(Arrays.asList(new Position(0, 5), new Position(1, 5))));
+        shapeController.moveShapeLeft();
+        List<Position> exp2 = Arrays.asList(new Position(0, 5), new Position(1, 5));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp2.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp2.get(i).getY(), position.getY());
+            i++;
+        }
+        layout.setShape(new ShapeToTest(Arrays.asList(new Position(18, 5), new Position(19, 5))));
+        shapeController.moveShapeLeft();
+        List<Position> exp3 = Arrays.asList(new Position(17,5), new Position(18, 5));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp3.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp3.get(i).getY(), position.getY());
+            i++;
+        }
     }
     @Test
     public void transformShapeToBlockTest(){
