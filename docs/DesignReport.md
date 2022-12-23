@@ -23,7 +23,14 @@ model data, we use the controller.
 
 The UML presented at the beginning of the report shows how we organized our code by that model.
 
-![](imagens/mvc-architecture.png)
+However, to see a simpler way of the implementation of the MVC Architectural Pattern, you can check
+the following diagram, or the packages that contain the Model, Controller and Viewer classes.
+
+![MVC Diagram](images/mvc.png)
+
+- [Model](../src/main/java/tetrisRunner/model)
+- [Viewer](../src/main/java/tetrisRunner/viewer)
+- [Controller](../src/main/java/tetrisRunner/controller)
 
 **Consequences**
 
@@ -31,7 +38,8 @@ The use of the MVC Architectural Pattern in the current design allows the follow
 
 - Organize our code logically by its 3 main components: behaviour control, data and media visualization.
 - We achieve a more Object-Oriented Programming, by dividing the classes on what they do, rather than how they do it
-- There are now more classes and instances to manage, but still in a reasonable number.
+- There are now more classes and instances to manage, but still in a reasonable number
+- In the long term, this model allows us to make the maintenance of the project easier
 
 Therefore, we considered this to be the best pattern to organize our code.
 
