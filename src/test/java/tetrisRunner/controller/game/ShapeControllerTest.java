@@ -95,7 +95,7 @@ public class ShapeControllerTest {
         Assertions.assertEquals(true,shapeController.canMoveLeft(layout.getShape()));
     }
     @Test
-    public void moveShapeLeft(){
+    public void moveShapeLeftTest(){
         layout.setShape(new ShapeToTest(Arrays.asList(new Position(5, 5), new Position(6, 5))));
         shapeController.moveShapeLeft();
         List<Position> exp = Arrays.asList(new Position(4, 5), new Position(5, 5));
@@ -133,6 +133,46 @@ public class ShapeControllerTest {
             i++;
         }
     }
+    @Test
+    public void moveShapeRightTest(){
+        layout.setShape(new ShapeToTest(Arrays.asList(new Position(5, 5), new Position(6, 5))));
+        shapeController.moveShapeRight();
+        List<Position> exp = Arrays.asList(new Position(6, 5), new Position(7, 5));
+        int i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp.get(i).getY(), position.getY());
+            i++;
+        }
+        layout.setShape(new ShapeToTest(Arrays.asList(new Position(10, 10), new Position(11, 10))));
+        shapeController.moveShapeRight();
+        List<Position> exp1 = Arrays.asList(new Position(11, 10), new Position(12, 10));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp1.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp1.get(i).getY(), position.getY());
+            i++;
+        }
+        layout.setShape(new ShapeToTest(Arrays.asList(new Position(0, 5), new Position(1, 5))));
+        shapeController.moveShapeRight();
+        List<Position> exp2 = Arrays.asList(new Position(1, 5), new Position(2, 5));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp2.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp2.get(i).getY(), position.getY());
+            i++;
+        }
+        layout.setShape(new ShapeToTest(Arrays.asList(new Position(19, 5), new Position(20, 5))));
+        shapeController.moveShapeRight();
+        List<Position> exp3 = Arrays.asList(new Position(19,5), new Position(20, 5));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp3.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp3.get(i).getY(), position.getY());
+            i++;
+        }
+    }
+
     @Test
     public void transformShapeToBlockTest(){
         layout.setShape(new ShapeToTest(Arrays.asList(new Position(5, -1), new Position(6, -1))));
