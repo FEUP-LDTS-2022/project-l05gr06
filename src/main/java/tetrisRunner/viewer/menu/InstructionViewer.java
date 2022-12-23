@@ -120,7 +120,7 @@ public class InstructionViewer extends Viewer<Instruction> {
 
                 break;
             case 3:
-                gui.drawText(new Position(5, 4),
+                gui.drawText(new Position(5, 5),
                         "Game Modes",
                         gui.getStringColor(GUI.COLOR.WHITE),
                         gui.getStringColor(GUI.COLOR.BLACK));
