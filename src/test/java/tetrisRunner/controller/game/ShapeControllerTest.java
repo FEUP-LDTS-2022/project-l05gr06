@@ -20,28 +20,14 @@ import java.util.List;
 public class ShapeControllerTest {
     private ShapeController shapeController;
     private Layout layout;
-    List<Position> shapeIPos;
-    List<Position> shapeJPos;
-    List<Position> shapeLPos;
-    List<Position> shapeOPos;
-    List<Position> shapeSPos;
-    List<Position> shapeTPos;
-    List<Position> shapeZPos;
 
     @BeforeEach
     void setUp() {
-        layout = Mockito.mock(Layout.class);
         layout = new Layout(20,20);
         layout.setBlocks(Arrays.asList());
+        layout.setJacob(new Jacob(19,19));
         layout.setWalls(Arrays.asList(new Wall(10, 18)));
         shapeController = new ShapeController(layout);
-        shapeIPos = Arrays.asList(new Position(10, 10), new Position(11, 10), new Position(12, 10), new Position(13, 10));
-        shapeJPos = Arrays.asList(new Position(5, 5), new Position(6, 5), new Position(7, 5), new Position(5, 4));
-        shapeLPos = Arrays.asList(new Position(9, 5), new Position(10, 5), new Position(11, 5), new Position(11, 4));
-        shapeOPos = Arrays.asList(new Position(10, 10), new Position(11, 10), new Position(10, 11), new Position(11, 11));
-        shapeSPos = Arrays.asList(new Position(9, 9), new Position(10, 9), new Position(10, 8), new Position(11, 8));
-        shapeTPos = Arrays.asList(new Position(9, 1), new Position(10, 1), new Position(11, 1), new Position(10, 0));
-        shapeZPos = Arrays.asList(new Position(5, 2), new Position(6, 2), new Position(6, 3), new Position(7, 3));
     }
 
     @Test
@@ -112,8 +98,13 @@ public class ShapeControllerTest {
     public void moveShapeLeft(){
         layout.setShape(new ShapeToTest(Arrays.asList(new Position(5, 5), new Position(6, 5))));
         shapeController.moveShapeLeft();
-
-
+        List<Position> exp = Arrays.asList(new Position(4, 5), new Position(5, 5));
+        int i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp.get(i).getY(), position.getY());
+            i++;
+        }
     }
     @Test
     public void transformShapeToBlockTest(){
