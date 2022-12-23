@@ -307,7 +307,44 @@ public class ShapeControllerTest {
     }
     @Test
     public void shapeRotateAntiClockWiseTest(){
-
+        ShapeToTest shape = new ShapeToTest(Arrays.asList(new Position(5, 6), new Position(6, 6)));
+        layout.setShape(shape);
+        shapeController.shapeRotateAntiClockWise();
+        List<Position> exp = Arrays.asList(new Position(6, 6), new Position(6, 5));
+        Assertions.assertEquals(3,layout.getShape().getDirection());
+        int i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp.get(i).getY(), position.getY());
+            i++;
+        }
+        shapeController.shapeRotateAntiClockWise();
+        List<Position> exp1 = Arrays.asList(new Position(7, 6), new Position(6, 6));
+        Assertions.assertEquals(2,layout.getShape().getDirection());
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp1.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp1.get(i).getY(), position.getY());
+            i++;
+        }
+        shapeController.shapeRotateAntiClockWise();
+        List<Position> exp2 = Arrays.asList(new Position(6, 6), new Position(6, 7));
+        Assertions.assertEquals(1,layout.getShape().getDirection());
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp2.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp2.get(i).getY(), position.getY());
+            i++;
+        }
+        shapeController.shapeRotateAntiClockWise();
+        List<Position> exp3 = Arrays.asList(new Position(5, 6), new Position(6, 6));
+        Assertions.assertEquals(0,layout.getShape().getDirection());
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp3.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp3.get(i).getY(), position.getY());
+            i++;
+        }
     }
     class ShapeToTest extends Shape {
         ShapeToTest(List<Position> positions) {
