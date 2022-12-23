@@ -2,7 +2,10 @@ package tetrisRunner.gui;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,6 +16,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.googlecode.lanterna.Symbols.*;
@@ -115,8 +119,32 @@ public class LanternaGUITest {
     }
 
     @Test
-    void getNextActionTest(){
+    void getNextActionTest() throws IOException {
+        List<String> letters = Arrays.asList("a","b","c","d","e","f","g","h","i","j","k","l","m",
+                "n","o","p","q","r","s","t","u","v","w","x","y","z",
+                "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U",
+                "V","W","X","Y","Z");
+        List<GUI.ACTION> letterActions = Arrays.asList(GUI.ACTION.A, GUI.ACTION.B, GUI.ACTION.C, GUI.ACTION.D,
+                GUI.ACTION.E, GUI.ACTION.F, GUI.ACTION.G, GUI.ACTION.H, GUI.ACTION.I, GUI.ACTION.J,
+                GUI.ACTION.K, GUI.ACTION.L, GUI.ACTION.M, GUI.ACTION.N, GUI.ACTION.O, GUI.ACTION.P,
+                GUI.ACTION.Q, GUI.ACTION.R, GUI.ACTION.S, GUI.ACTION.T, GUI.ACTION.U, GUI.ACTION.V,
+                GUI.ACTION.W, GUI.ACTION.X, GUI.ACTION.Y, GUI.ACTION.Z);
+        for (int i=0; i<26*2;i++){
+            Mockito.when(screen.pollInput()).thenReturn(KeyStroke.fromString(letters.get(i)));
+            Assertions.assertEquals(gui.getNextAction(), letterActions.get(i%26));
+        }
 
+        Mockito.when(screen.pollInput()).thenReturn(KeyStroke.fromString(" "));
+        Assertions.assertEquals(gui.getNextAction(), GUI.ACTION.SPACE);
+
+        List<KeyType> keyTypes = Arrays.asList(KeyType.Backspace, KeyType.EOF, KeyType.ArrowUp, KeyType.ArrowRight,
+                KeyType.ArrowDown, KeyType.ArrowLeft, KeyType.Escape, KeyType.Enter);
+        List<GUI.ACTION> keyTypeActions = Arrays.asList(GUI.ACTION.BACKSPACE, GUI.ACTION.QUIT, GUI.ACTION.ARROW_UP,
+                GUI.ACTION.ARROW_RIGHT, GUI.ACTION.ARROW_DOWN, GUI.ACTION.ARROW_LEFT, GUI.ACTION.ESCAPE, GUI.ACTION.SELECT);
+        for (int i=0; i<8; i++){
+            Mockito.when(screen.pollInput()).thenReturn(new KeyStroke(keyTypes.get(i)));
+            Assertions.assertEquals(gui.getNextAction(), keyTypeActions.get(i));
+        }
     }
 
     @Test
