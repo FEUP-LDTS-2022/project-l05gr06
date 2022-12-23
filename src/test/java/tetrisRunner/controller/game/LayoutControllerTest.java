@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
 import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.game.elements.Coin;
 import tetrisRunner.model.game.elements.Jacob;
 import tetrisRunner.model.game.elements.Wall;
 import tetrisRunner.model.game.gamebehavior.ClassicBehavior;
@@ -17,6 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class LayoutControllerTest {
 
@@ -53,6 +55,7 @@ public class LayoutControllerTest {
 
         assertEquals(layout.getBlocks(),new ArrayList<>());
     }
+
 
     @Test
     void transformTest(){
@@ -96,6 +99,37 @@ public class LayoutControllerTest {
 
         assertEquals(layout.getBlocks(),new ArrayList<>());
         assertEquals(lines,4);
+
+    }
+
+    @Test
+    void JacobCoinsTest(){
+
+        layout.setCoins(Arrays.asList(new Coin(10,18),new Coin(15,15)));
+        Jacob jacob = new Jacob(10,18);
+        layout.setJacob(jacob);
+
+        controller= new LayoutController(layout);
+        List<Coin> coins = controller.manageCoins();
+
+
+        for (Coin coin : coins){
+            assertNotEquals(coin.getPosition(),new Position(10,18));
+        }
+
+    }
+
+    @Test
+    void BlockCoinsTest(){
+        layout.setCoins(Arrays.asList(new Coin(10,18),new Coin(15,15)));
+        layout.setBlocks(Arrays.asList(new Block(10,18, GUI.COLOR.RED)));
+        controller= new LayoutController(layout);
+        List<Coin> coins = controller.manageCoins();
+
+
+        for (Coin coin : coins){
+            assertNotEquals(coin.getPosition(),new Position(10,18));
+        }
 
     }
 
