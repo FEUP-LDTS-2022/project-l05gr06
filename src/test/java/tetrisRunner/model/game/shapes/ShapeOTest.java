@@ -13,7 +13,7 @@ public class ShapeOTest {
     private List<Position> startPositions ;
     @BeforeEach
     public void helper(){
-        startPositions = Arrays.asList(new Position(10,9), new Position(10,8), new Position(10,7), new Position(10,6));
+        startPositions = Arrays.asList(new Position(10,9), new Position(11,9), new Position(10,8), new Position(11,8));
     }
     @Test
     public void rotateTest(){

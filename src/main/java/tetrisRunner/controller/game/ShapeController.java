@@ -24,6 +24,13 @@ public class ShapeController extends GameController{
 
     final int ground;
 
+    public long getFallTimeBlock() {
+        return fallTimeBlock;
+    }
+
+    public void setFallTimeBlock(long fallTimeBlock) {
+        this.fallTimeBlock = fallTimeBlock;
+    }
     public ShapeController(Layout model) {
         super(model);
         this.lastMovementBlock = 0;
@@ -110,20 +117,14 @@ public class ShapeController extends GameController{
         }
         return true;
     }
-    public boolean canShapeRotateClockWise(Shape shape,List<Position> positions){
+    public boolean canShapeRotate(Shape shape,List<Position> positions){
         for (Position pos: shape.rotate(positions)) {
             if(!getModel().isEmpty(pos) && !positions.contains(pos))
                 return  false;
         }
         return true;
     }
-    public boolean canShapeRotateAntiClockWise(Shape shape,List<Position> positions){
-        for (Position pos: shape.rotate(positions)) {
-            if(!getModel().isEmpty(pos) && !positions.contains(pos))
-                return  false;
-        }
-        return true;
-    }
+
 
     public void shapeRotateClockWise(){
         Shape shape = getModel().getShape();
@@ -145,14 +146,18 @@ public class ShapeController extends GameController{
     }
     public List<Position> newShapePosTest(List<Position> positions, int i){
         List<Position> retPos = new ArrayList<>();
-        retPos.add(positions.get(0));
-        retPos.add(new Position(positions.get(1).getX()+i,positions.get(1).getY()));
-        retPos.add(positions.get(2));
-        retPos.add(positions.get(3));
+        for(int h = 0; h < positions.size();h++){
+            if(h == 1){
+                retPos.add(new Position(positions.get(h).getX()+i,positions.get(h).getY()));
+            }
+            else{
+                retPos.add(positions.get(h));
+            }
+        }
         return retPos;
     }
     public boolean tryRotateAntiClockWise(Shape shape,List<Position> positions){
-        if(canShapeRotateAntiClockWise(shape,positions)){
+        if(canShapeRotate(shape,positions)){
             int x = shape.getShapePos().get(1).getX();
             shape.setShapePos(shape.rotate(positions));
             while(shape.getShapePos().get(1).getX() > x && canMoveLeft(shape)){
@@ -166,7 +171,7 @@ public class ShapeController extends GameController{
         return false;
     }
     public boolean tryRotateClockWise(Shape shape,List<Position> positions){
-        if(canShapeRotateClockWise(shape,positions)){
+        if(canShapeRotate(shape,positions)){
             int x = shape.getShapePos().get(1).getX();
             shape.setShapePos(shape.rotate(positions));
             while(shape.getShapePos().get(1).getX() > x && canMoveLeft(shape)){
