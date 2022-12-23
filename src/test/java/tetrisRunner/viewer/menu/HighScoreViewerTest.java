@@ -5,11 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.game.gamebehavior.ClassicBehavior;
-import tetrisRunner.model.game.layout.LoaderLayoutBuilder;
 import tetrisRunner.model.menu.HighScore;
-import tetrisRunner.model.menu.Pause;
-import tetrisRunner.states.GameState;
 
 import java.io.IOException;
 
