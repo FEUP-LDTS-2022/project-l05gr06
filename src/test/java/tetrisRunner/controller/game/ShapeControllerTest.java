@@ -239,13 +239,42 @@ public class ShapeControllerTest {
             Assertions.assertEquals(exp1.get(i).getY(), position.getY());
             i++;
         }
+        shape = new ShapeToTest(Arrays.asList(new Position(-1, 6), new Position(0, 7)));
+        shape.setDirection(1);
+        layout.setShape(shape);
+        List<Position> exp2 = Arrays.asList(new Position(-1, 6), new Position(0, 7));
+        Assertions.assertEquals(false,shapeController.tryRotate(layout.getShape(),layout.getShape().getShapePos()));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp2.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp2.get(i).getY(), position.getY());
+            i++;
+        }
+
+        shape = new ShapeToTest(Arrays.asList(new Position(19, 3), new Position(20, 4)));
+        shape.setDirection(0);
+        layout.setShape(shape);
+        List<Position> exp3 = Arrays.asList(new Position(19, 3), new Position(20, 4));
+        Assertions.assertEquals(false,shapeController.tryRotate(layout.getShape(),layout.getShape().getShapePos()));
+        i = 0;
+        for(Position position: layout.getShape().getShapePos()){
+            Assertions.assertEquals(exp3.get(i).getX(), position.getX());
+            Assertions.assertEquals(exp3.get(i).getY(), position.getY());
+            i++;
+        }
 
     }
     @Test
     public void shapeRotateClockWiseTest(){
+        ShapeToTest shape = new ShapeToTest(Arrays.asList(new Position(5, 6), new Position(6, 6)));
+        layout.setShape(shape);
+        shapeController.shapeRotateClockWise();
 
     }
+    @Test
+    public void shapeRotateAntiClockWiseTest(){
 
+    }
     class ShapeToTest extends Shape {
         ShapeToTest(List<Position> positions) {
             super(positions, GUI.COLOR.WHITE);
