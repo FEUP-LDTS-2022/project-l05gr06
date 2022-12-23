@@ -129,14 +129,14 @@ public class ShapeController extends GameController{
     public void shapeRotateClockWise(){
         Shape shape = getModel().getShape();
         shape.rotateClockwise(); boolean rotate;
-        rotate = tryRotateClockWise(shape,shape.getShapePos());
+        rotate = tryRotate(shape,shape.getShapePos());
         if(!rotate){
             for(int i = 1; i < 4;i++){
                 List<Position> positionsTest = newShapePosTest(shape.getShapePos(),i);
-                rotate = tryRotateClockWise(shape,positionsTest);
+                rotate = tryRotate(shape,positionsTest);
                 if(rotate) break;
                 List<Position> positionsTest1 = newShapePosTest(shape.getShapePos(),-i);
-                rotate = tryRotateClockWise(shape,positionsTest1);
+                rotate = tryRotate(shape,positionsTest1);
                 if(rotate) break;
             }
         }
@@ -156,7 +156,7 @@ public class ShapeController extends GameController{
         }
         return retPos;
     }
-    public boolean tryRotateAntiClockWise(Shape shape,List<Position> positions){
+    public boolean tryRotate(Shape shape,List<Position> positions){
         if(canShapeRotate(shape,positions)){
             int x = shape.getShapePos().get(1).getX();
             shape.setShapePos(shape.rotate(positions));
@@ -170,31 +170,18 @@ public class ShapeController extends GameController{
         }
         return false;
     }
-    public boolean tryRotateClockWise(Shape shape,List<Position> positions){
-        if(canShapeRotate(shape,positions)){
-            int x = shape.getShapePos().get(1).getX();
-            shape.setShapePos(shape.rotate(positions));
-            while(shape.getShapePos().get(1).getX() > x && canMoveLeft(shape)){
-                shape.moveLeft();
-            }
-            while(shape.getShapePos().get(1).getX() < x && canMoveRight(shape)){
-                shape.moveRight();
-            }
-            return true;
-        }
-        return false;
-    }
+
     public void shapeRotateAntiClockWise(){
         Shape shape = getModel().getShape();
         shape.rotateAntiClockwise(); boolean rotate;
-        rotate = tryRotateAntiClockWise(shape,shape.getShapePos());
+        rotate = tryRotate(shape,shape.getShapePos());
         if(!rotate){
             for(int i = 1; i < 4;i++){
                 List<Position> positionsTest = newShapePosTest(shape.getShapePos(),i);
-                rotate = tryRotateAntiClockWise(shape,positionsTest);
+                rotate = tryRotate(shape,positionsTest);
                 if(rotate) break;
                 List<Position> positionsTest1 = newShapePosTest(shape.getShapePos(),-i);
-                rotate = tryRotateAntiClockWise(shape,positionsTest1);
+                rotate = tryRotate(shape,positionsTest1);
                 if(rotate) break;
             }
         }

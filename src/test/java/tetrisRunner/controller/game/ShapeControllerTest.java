@@ -213,6 +213,10 @@ public class ShapeControllerTest {
         shape = new ShapeToTest(Arrays.asList(new Position(0, 0), new Position(0, 0)));
         shape.setDirection(1);
         Assertions.assertEquals(false,shapeController.canShapeRotate(layout.getShape(),layout.getShape().getShapePos()));
+    }
+
+    @Test
+    public void shapeRotateClockWiseTest(){
 
     }
 
