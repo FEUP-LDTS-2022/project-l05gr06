@@ -5,21 +5,22 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import tetrisRunner.gui.GUI;
 import tetrisRunner.model.Position;
-import tetrisRunner.model.game.elements.Block;
+import tetrisRunner.model.game.elements.Coin;
+import tetrisRunner.model.game.elements.Wall;
 
-public class BlockViewerTest {
-    private Block block;
+public class WallViewerTest {
+    private Wall wall;
     private GUI gui;
-    private BlockViewer viewer;
+    private WallViewer viewer;
     @BeforeEach
     public void helper(){
-        block = new Block(7,4, GUI.COLOR.YELLOW);
+        wall = new Wall(10,-1);
         gui = Mockito.mock(GUI.class);
-        viewer = new BlockViewer();
+        viewer = new WallViewer();
     }
     @Test
     public void drawTest(){
-        viewer.draw(block,gui);
-        Mockito.verify(gui,Mockito.times(1)).drawBlock(new Position(7,4), GUI.COLOR.YELLOW);
+        viewer.draw(wall,gui);
+        Mockito.verify(gui,Mockito.times(1)).drawWall(new Position(10,-1));
     }
 }
