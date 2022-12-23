@@ -45,23 +45,32 @@ Therefore, we considered this to be the best pattern to organize our code.
 
 ------
 
-#### IMPLEMENTATION OF SEVERAL MENUS
+#### RANDOMIZE SHAPES FALLING
 
 **Problem in Context**
 
-We need to implement a lot of menus in our game. That is because, as we said above, want the user to select different
-options before he can start the game. It can be the Game Mode, or he maybe doesn't want to hear the music playing, so
-he wishes to mute it, or hen doesn't want to play the game at all, and he wishes to quit. Therefore, it is necessary that
-we provide different Menus, according to the user wishes.
+For the game to work correctly, we need to set a random Shape to fall toward the ground,
+and after it reached the ground level (plus some extra time to maneuver the piece), we want
+another random shape to be set in the initial position (high above the ground), and continue
+this game throughout the game loop. However, we don't want to explicitly call the constructor
+of a certain shape (we want to keep the abstraction). To do that, we want to find a way to generate
+the shapes in a structured and efficient way.
 
 **The Pattern**
 
-To accomplish this, we decided to use the **Factory** pattern. We created an abstract class Menu, which is then extended
-by the other sub-classes (other sub-menus).
+To accomplish this, we decided to use the **Factory Method** pattern. We created an abstract class `ShapeFactory`, which
+is extended by the class `RandomShapeFactory`. This factory will then produce the different
+shapes that extend the class `Shape`.
 
 **Implementation**
 
-As it can be seen in the UML, there is a Menu that is being extended by other sub-menus.
+As you can see in the following UML, this is how we implemented the pattern described above:
+
+![](images/factory-method-shape.png)
+
+You can find the classes used in the Design Pattern in the following package:
+
+- [Shapes](../src/main/java/tetrisRunner/model/game/shapes)
 
 **Consequences**
 
@@ -69,8 +78,8 @@ The use of the Factory Method Pattern in the current design allows the following
 
 - Factory methods eliminate the need to bind application-specific classes into our code
 
-Therefore, we considered this to be the best pattern to implement new sub-menus easily, since they share a lot of features
-with each other.
+Therefore, we considered this to be the best pattern to create new shapes easily, and the best pattern to solve
+the problem described above.
 
 ------
 
