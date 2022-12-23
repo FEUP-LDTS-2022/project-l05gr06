@@ -214,4 +214,62 @@ public class InstructionViewerTest {
                 "#000000"
         );
     }
+    @Test
+    public void drawElementsMenu4Test() throws IOException {
+        instruction.setMenu(4);
+        instruction.changeInstruction();
+        viewer.draw(gui);
+        Mockito.verify(gui,Mockito.times(1)).getStringColor(GUI.COLOR.RED);
+        Mockito.verify(gui,Mockito.times(1)).getStringColor(GUI.COLOR.ORANGE);
+        Mockito.verify(gui,Mockito.times(6)).getStringColor(GUI.COLOR.WHITE);
+        Mockito.verify(gui,Mockito.times(8)).getStringColor(GUI.COLOR.BLACK);
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 3),
+                "Classic",
+                "#D22B2B",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 6),
+                "Tetris as we",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 7),
+                "all know it...",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 8),
+                "bonus points",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 9),
+                "if Jacob grabs",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 10),
+                "floating coins!",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui, Mockito.times(1)).drawText(
+                new Position(3, 12),
+                "(1/2 Players)",
+                "#FFFFFF",
+                "#000000"
+        );
+        Mockito.verify(gui,Mockito.times(1)).drawText(
+                new Position(5,16),
+                "Return",
+                "#FFAC1C",
+                "#000000"
+        );
+    }
 }
