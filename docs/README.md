@@ -2,24 +2,27 @@
 
 ### Game Description
 
-In this new exciting multiplayer version of a game we all are familiar with - tetris - there's a vast sea of fun ways to play it.
-The game is basically the tetris everyone knows, but there's a little man down there, where the pieces fall, trying to avoid them. 
+In this new exciting version of a game we all are familiar with - tetris - there's a vast sea of fun ways to play it.
+The game is basically the tetris everyone knows, but there's a little man - Jacob - down there, where the shapes fall, trying to avoid them.
 
-This makes it so there's a lot of options for the users - let's call the user controlling the pieces player1 and the other one
-player2 - to choose:
+This makes it so there's a lot of options for the users - let's call the user controlling the shapes player1 and the one controlling
+Jacob player2- to choose:
 
-- **"Classic"** - While player1 is playing normal tetris, player2 is just avoiding the falling pieces;
-- **Co-op** - Player1 is trying to get player2 up top as fast as possible;
-- **1v1** - Player1 is purposefully trying to make player2 loose.
+- **"Classic"** - While player1 is playing normal tetris, player2 is collecting floating coins while avoiding the falling shapes. They are
+both trying to get as many points are possible, and that can be accomplished by clearing lines and catching coins;
+- **Climbing** - The speedrun variant. Player1 needs to get player2 up top as fast as possible;
+- **1v1** - Player1 is purposefully trying to make player2 loose. He has 1 minute to do it.
 
-This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João Figueiredo* (*up202108829*@up.pt) and *João Longras* (*up202108780*@up.pt) for LDTS 2022⁄23.
+Note that the game doesn't need to be multiplayer, with the right coordination it is possible for someone to control both the shapes
+and Jacob. The only game mode exclusively multiplayer is 1v1.
+
 
 ### Screenshots / Gifs
 
 The following gif illustrates a little of the concept we
 want to implement in this game (that is runnable in the code).
 
-![](imagens/gif.gif)
+![](../imagens/gif.gif)
 
 
 ### State Diagram
@@ -27,7 +30,7 @@ want to implement in this game (that is runnable in the code).
 This Diagram shows how we want to implement the state-logic behind the game,
 and how the user can access one state through another.
 
-![](imagens/state.png)
+![](../imagens/state.png)
 
 
 ### UML Diagram
@@ -35,41 +38,49 @@ and how the user can access one state through another.
 The following UML Diagram showcases the most important classes in our game,
 and how they interact with each other
 
-![](imagens/UML.png)
+![](../imagens/UML.png)
 
 
 ### IMPLEMENTED FEATURES
 
-**Menu**: Working menu with multiple options, such as 'Game Mode', to select the intended variant of the game and 'Instructions', to read the instructions of each
-mode. We also implemented the tetris theme song running on the background, therefore there's an additional option 'Settings' in which you can mute and change the music's volume.
+**Menus**: Working menu with multiple options, such as 'Game Mode', to select the intended variant of the game, 'Instructions', to read the instructions of each
+mode and, finally, 'Leaderboard', to track the high scores of each game mode. We also implemented the tetris theme song running on the background,
+therefore there's an additional option 'Settings' in which you can mute and change the music's volume.
 
-Although the pause menu isn't working totally by now, it's already possible to pause the game by pressing ESC. 
+When in game, when pressing 'ESC', there's an additional menu - the pause menu, that, as it suggests, pauses the game and gives you the options
+to close the game, return to main menu, change settings or return to the paused game.
 
+When a game ends, it's always going to a GameOver menu. In 1v1, this menu will say who won the round. In the other two game modes,
+there's an additional HighScore menu (if you get a good enough score) for the user to write its name (name is a string such as "XXX"). The Leaderboard will then be updated.
 
-**Player2**:
+**Jacob**:
 
 - **Jumping** - The game character will jump when the arrow-up key is pressed.
 - **Moving** - The player will move, sideways, when the user presses arrow-left or arrow-right.
 
-
-
-### PLANNED FEATURES
-
-Currently, there's a block class implemented, which is 100% temporary and its purpose is to test player2's dynamics 
-regarding the shapes. In the future, we will implement, instead, the shapes itself (you can get an idea of what we planned
-observing the UML). Shape will be an abstract class with ShapeSquare, ShapeT, ShapeS, ShapeZ, ShapeL, ShapeJ and ShapeLine extending it.
-
-As pause isn't yet returning to the game, we will need some form of saving the game state when pausing, we will do that with a specific pattern, more on that later.
-
-We also need to implement Player1's inputs.
-
-**Player1**:
+**Shapes**:
 
 - **Moving the shape** - The shape will move, sideways, when the user presses 'A' or 'D' (left or right, respectively).
 - **Rotating the shape** - The shape will rotate, when the user presses 'W' or 'S' (clockwise or anti-clockwise, respectively).
+- **Instantly dropping the shape** - The shape will drop to the ground, when the user presses the space bar (not in 1v1 mode).
+- **Resigning** - While in 1v1, if player1 sees that it's impossible for them to win (Jacob is protected and there's no way for the 
+shapes to kill him), they can resign if they press 'R', giving a point to Jacob.
 
-We also need to create the GameOverState, which will differ from game mode to game mode. Each game mode, mechanically speaking, is exactly the same, therefore
-the GameState is the same, but who wins and the leaderboards change according to the chosen mode. For this we will also need to implement a new pattern, maybe the same as the pause one.
+
+**Score**: The score is kept track differently for each game mode.
+
+- **Classic** - The score (in the bottom left corner) starts at zero and goes up indefinitely. For the score to go up, there are
+three different ways:
+   - **Clearing lines** - Clearing lines will give the player(s) 100, 300, 500 or 800 points, if they clear
+  1, 2, 3 or 4 lines, respectively. (Be careful! The game will get faster as each line is cleared.)
+   - **Getting Coins** - Each Coin that Jacob grabs gives the player(s) 125 points.
+   - **Instantly Dropping** - Like in original tetris, pressing the space bar will give the player(s) points equal
+  to the double of the distance left to the ground.
+
+- **Climbing** - The score (in the bottom left corner) is a timer starting at 0. The score is better the lower the final time is.
+
+- **1v1** - The score is kept in the bottom right corner. For example if the layout displays "3-1" shapes are beating Jacob by 3 to 1.
+There is also a countdown timer running in the bottom left corner, starting at 1 minute.
 
 
 ### DESIGN
@@ -160,7 +171,7 @@ The use of the State Pattern in the current design allows the following benefits
 
 - Localizes and partitions behavior for different states.
 - Makes state transitions explicit.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
+- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polymorphism is used to activate the right behavior.
 - There are now more classes and instances to manage, but still in a reasonable number.
 
 Therefore, we considered this to be the best pattern to achieve different sections of our game, keeping a good OOP
@@ -180,7 +191,7 @@ not going to talk about them in this delivery, and we expect to have them solved
 
 ### TESTING
 
-![](imagens/coverage.png)
+![](../imagens/coverage.png)
 
 
 ### SELF-EVALUATION
