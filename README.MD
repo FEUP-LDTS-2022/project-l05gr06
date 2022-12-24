@@ -19,6 +19,30 @@ This project was developed by *Francisco Campos* (*up202108735*@up.pt), *João F
 
 ### Gameplay 
 
+Here are some GIFs to showcase the gameplay:
+
+Menus:
+![](docs/gifs/Menus.gif)
+
+Pause:
+![](docs/gifs/PauseMenu.gif)
+
+
+HighScore:
+![](docs/gifs/HighScore.gif)
+
+
+Classic:
+![](docs/gifs/ClassicMode.gif)
+
+
+Climbing:
+![](docs/gifs/ClimbingHigh.gif)
+
+
+1v1:
+![](docs/gifs/PvPMode.gif)
+
 
 
 
