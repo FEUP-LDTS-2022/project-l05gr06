@@ -234,7 +234,7 @@ The use of the State Pattern in the current design allows the following benefits
 
 - Localizes and partitions behavior for different states.
 - Makes state transitions explicit.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
+- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polymorphism is used to activate the right behavior.
 - There are now more classes and instances to manage, but still in a reasonable number.
 
 Therefore, we considered this to be the best pattern to achieve different sections of our game, keeping a good OOP
