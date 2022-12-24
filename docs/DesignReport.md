@@ -1,3 +1,7 @@
+### IMPLEMENTATION - UML
+
+![](images/uml-final.png)
+
 ### DESIGN
 
 #### PROBLEM OF ORGANIZATION OF CODE
