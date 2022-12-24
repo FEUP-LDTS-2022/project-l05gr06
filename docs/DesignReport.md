@@ -43,7 +43,7 @@ The use of the MVC Architectural Pattern in the current design allows the follow
 
 Therefore, we considered this to be the best pattern to organize our code.
 
-------
+---
 
 #### RANDOMIZE SHAPES FALLING
 
@@ -146,15 +146,14 @@ program that need to be achieved (Menu States, Game States, ...), then this patt
 **Implementation**
 
 The following UML shows how the different states were created: we implemented an abstract class
-State<T>, that takes as arguments the different models of the states we wish to achieve. Then, in the different controllers,
-the different states could be accessed one through another: 
-> Example: if the A Controller calls the B State, then from
-the A State we could achieve the B State
+State<T>, that takes as arguments the different models of the states we wish to achieve. Then, in the different state controllers,
+these states can be accessed one through another, being the new State used in the Game.
 
-![](images/state-design.png)
+![](images/state-pattern.png)
 
-You can find the classes used in the Design Pattern in the following package:
+You can find the classes used in the Design Pattern in the following file and package:
 
+- [Game](../src/main/java/tetrisRunner/Game.java)
 - [States](../src/main/java/tetrisRunner/states)
 
 **Consequences**
@@ -169,3 +168,47 @@ The use of the State Pattern in the current design allows the following benefits
 
 Therefore, we considered this to be the best pattern to achieve different sections of our game, keeping a good OOP
 practices, and making it easier to implement the game traversal logic like one of a state diagram.
+
+---
+
+#### DECIDING WHAT GAME IS THE USER PLAYING
+
+**Problem in Context**
+
+The game mode in this game is, essentially, the different ways the player(s) can enjoy the same game mechanics.
+That is, we want to have the same game features described in the beginning of the report, but have different win, lose and
+leaderboard update conditions, according to each game mode.
+
+**The Pattern**
+
+To solve this problem, we decided to use the **Strategy** pattern. This design pattern is very useful when
+the desired new classes only differ in their behavior. Therefore, instead of creating a new class with repeated
+information (or one that needs to call other classes, and therefore, increase dependencies), we instead let the client
+decide, for each object of the class, which behavior he would like to see implemented.
+For these reasons, we decided that this pattern was a better option, ratter than pursue the naive implementation of
+creating new states for each different mode.
+
+**Implementation**
+
+The following UML shows how we implemented the Strategy Pattern: the `Layout` (built when the game starts), has as a parameter
+a `GameBehavior`, which can be set by the client (by choosing in the SelectModeMenu which Game Mode he wants) for one of
+the specific implementations: `ClassicBehavior`, `ClimbingBehavior` and `PvPBehavior`
+
+
+![](images/strattegy-pattern.png)
+
+You can find the classes used in the Design Pattern in the following file and package:
+
+- [Layout](../src/main/java/tetrisRunner/model/game/layout/Layout.java)
+- [GameBehavior](../src/main/java/tetrisRunner/model/game/gamebehavior)
+
+**Consequences**
+
+The use of the Strategy Pattern in the current design allows the following benefits:
+
+- Eliminates conditional statements
+- Avoids the duplicate code smell
+- One class can express multiple behaviors, while maintaining some core methods general to all behaviors
+
+Therefore, we think that the Strategy pattern is the best pattern to solve the problem in question, since we can maintain
+all the core methods common to all behaviors, and insert key methods specific to each behavior, all in the same class.
