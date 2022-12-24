@@ -209,7 +209,7 @@ initiating a new object equal to a getter, so we wouldn't need to use getModel()
 
 - Refused Bequest:
 Some subclasses, specially the different shapes classes, have methods that they don't implement and/or implement but don't do anything. We decided
-to keep it that way, so the code would be more organized and easier to read the project as a whole.
+to keep it that way, so the code would be more organized and the project easier to read as a whole.
 
 ### TESTING
 
