@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>GameState.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package tetrisRunner.states;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import tetrisRunner.controller.Controller;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import tetrisRunner.controller.game.LayoutController;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import tetrisRunner.model.game.layout.Layout;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import tetrisRunner.viewer.Viewer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import tetrisRunner.viewer.game.GameViewer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class GameState extends State&#60;Layout&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public GameState(Layout model) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(model);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected Viewer&#60;Layout&#62; getViewer() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_16'>1</a>
+<span>
+
+1. getViewer : replaced return value with null for tetrisRunner/states/GameState::getViewer &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new GameViewer(getModel());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected Controller&#60;Layout&#62; getController() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_21'>1</a>
+<span>
+
+1. getController : replaced return value with null for tetrisRunner/states/GameState::getController &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new LayoutController(getModel());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@751f445a_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@751f445a_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getViewer<br/><b>Killed by : </b>tetrisRunner.states.GameStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.GameStateTest]/[method:getViewerTest()]</span></span> replaced return value with null for tetrisRunner/states/GameState::getViewer &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@751f445a_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@751f445a_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getController<br/><b>Killed by : </b>tetrisRunner.states.GameStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.GameStateTest]/[method:getControllerTest()]</span></span> replaced return value with null for tetrisRunner/states/GameState::getController &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepDownTest()] (4 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedGameTest()] (3 ms)</li><li>tetrisRunner.states.GameStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.GameStateTest]/[method:getViewerTest()] (2 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepUpTest()] (5 ms)</li><li>tetrisRunner.viewer.menu.SettingsViewerTest.[engine:junit-jupiter]/[class:tetrisRunner.viewer.menu.SettingsViewerTest]/[method:drawElementsMutedTest()] (6 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectedReturnMenuTest()] (4 ms)</li><li>tetrisRunner.viewer.menu.PauseViewerTest.[engine:junit-jupiter]/[class:tetrisRunner.viewer.menu.PauseViewerTest]/[method:drawElementsTest()] (4 ms)</li><li>tetrisRunner.states.PauseStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.PauseStateTest]/[method:getViewerTest()] (2 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepSelectedSettings()] (5 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepUpTest()] (5 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepSelectedExit()] (5 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepReturnToGame()] (5 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepSelectedClassicTest()] (4 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectMuteTest()] (4 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedSettingsTest()] (5 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:fallJacobEmpty()] (11 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectedReturnPauseTest()] (5 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectVolumeDownTest()] (3 ms)</li><li>tetrisRunner.states.GameStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.GameStateTest]/[method:getControllerTest()] (1 ms)</li><li>tetrisRunner.viewer.menu.SettingsViewerTest.[engine:junit-jupiter]/[class:tetrisRunner.viewer.menu.SettingsViewerTest]/[method:drawElementsUnmutedTest()] (8 ms)</li><li>tetrisRunner.states.PauseStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.PauseStateTest]/[method:getControllerTest()] (1 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepSelectedCoOpTest()] (4 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedMenuTest()] (3 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedExitTest()] (3 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectVolumeUpTest()] (3 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepSelected1v1Test()] (4 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepDownTest()] (4 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepSelectedMenu()] (6 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.0
+
+</body>
+</html>

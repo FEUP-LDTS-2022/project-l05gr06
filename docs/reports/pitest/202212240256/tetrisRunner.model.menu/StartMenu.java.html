@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>StartMenu.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package tetrisRunner.model.menu;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class StartMenu extends Menu{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public StartMenu() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super.entries = Arrays.asList(&#34;Game Mode&#34;, &#34;Instructions&#34;, &#34;Leaderboard&#34;, &#34;Settings&#34;,&#34;Exit&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedGameMode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_11'/>
+11
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_11'>2</a>
+<span>
+
+1. isSelectedGameMode : replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedGameMode &rarr; KILLED<br/>
+
+2. isSelectedGameMode : replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedGameMode &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedInstructions() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_16'>2</a>
+<span>
+
+1. isSelectedInstructions : replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedInstructions &rarr; KILLED<br/>
+
+2. isSelectedInstructions : replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedInstructions &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedLeaderboard() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_19'>2</a>
+<span>
+
+1. isSelectedLeaderboard : replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedLeaderboard &rarr; KILLED<br/>
+
+2. isSelectedLeaderboard : replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedLeaderboard &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(2);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedSettings() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_22'/>
+22
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_22'>2</a>
+<span>
+
+1. isSelectedSettings : replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedSettings &rarr; KILLED<br/>
+
+2. isSelectedSettings : replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedSettings &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(3);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSelectedExit() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_25'>2</a>
+<span>
+
+1. isSelectedExit : replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedExit &rarr; KILLED<br/>
+
+2. isSelectedExit : replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedExit &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isSelected(4);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_11'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedGameMode<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedGameModeTest()]</span></span> replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedGameMode &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedGameMode<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedGameModeTest()]</span></span> replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedGameMode &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedInstructions<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedInstructionsTest()]</span></span> replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedInstructions &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedInstructions<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedInstructionsTest()]</span></span> replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedInstructions &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedLeaderboard<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedLeaderboardTest()]</span></span> replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedLeaderboard &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedLeaderboard<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedLeaderboardTest()]</span></span> replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedLeaderboard &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_22'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedSettings<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedSettingsTest()]</span></span> replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedSettings &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedSettings<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedSettingsTest()]</span></span> replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedSettings &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4a9a0d9d_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSelectedExit<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedExitTest()]</span></span> replaced boolean return with false for tetrisRunner/model/menu/StartMenu::isSelectedExit &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isSelectedExit<br/><b>Killed by : </b>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedExitTest()]</span></span> replaced boolean return with true for tetrisRunner/model/menu/StartMenu::isSelectedExit &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedGameModeTest()] (2 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:fallJacobEmpty()] (11 ms)</li><li>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedSettingsTest()] (2 ms)</li><li>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedExitTest()] (4 ms)</li><li>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedLeaderboardTest()] (2 ms)</li><li>tetrisRunner.model.menu.StartMenuTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.StartMenuTest]/[method:isSelectedInstructionsTest()] (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.0
+
+</body>
+</html>

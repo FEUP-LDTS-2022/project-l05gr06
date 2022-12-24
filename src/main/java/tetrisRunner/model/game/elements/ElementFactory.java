@@ -1,5 +1,5 @@
 package tetrisRunner.model.game.elements;
 
-public abstract class ElementFactory<T extends Element> {
-    public abstract T createElement();
+public abstract class ElementFactory {
+    public abstract Element createElement();
 }

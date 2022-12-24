@@ -2,7 +2,7 @@ package tetrisRunner.model.game.elements;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CoinFactory extends ElementFactory<Coin>{
+public class CoinFactory extends ElementFactory{
     @Override
     public Coin createElement() {
         int width = 20;

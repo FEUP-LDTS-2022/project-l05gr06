@@ -56,7 +56,7 @@ public class LayoutController extends GameController{
     }
     public List<Coin> manageCoins(){
         List<Coin> coins = new ArrayList<>();
-        ElementFactory<Coin> factory = new CoinFactory();
+        CoinFactory factory = new CoinFactory();
         for (Coin coin: getModel().getCoins()){
             if ((getModel().getJacob().getPosition().getX() == coin.getPosition().getX())
             && (getModel().getJacob().getPosition().getY() == coin.getPosition().getY())){
