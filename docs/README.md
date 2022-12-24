@@ -323,11 +323,11 @@ to keep it that way, so the code would be more organized and the project easier 
 
 #### Test Code Coverage
 ![](images/testCoverage.png)
-Check full Test Coverage Report [here](reports/pitest/202212240256/index.html)
+Check full Test Coverage Report [here](reports/tests/test/index.html)
 
 #### Mutation Test
 ![](images/mutationTest.png)
-Check full Pitest Report [here](reports/tests/test/index.html)
+Check full Pitest Report [here](reports/pitest/202212240256/index.html)
 
 ### SELF-EVALUATION
 
