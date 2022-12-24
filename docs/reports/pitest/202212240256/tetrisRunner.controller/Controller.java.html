@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Controller.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package tetrisRunner.controller;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import tetrisRunner.Game;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import tetrisRunner.gui.GUI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class Controller&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final T model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Controller(T model) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.model = model;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public T getModel() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_16'>1</a>
+<span>
+
+1. getModel : replaced return value with null for tetrisRunner/controller/Controller::getModel &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public abstract void step(Game game, GUI.ACTION action, long time) throws IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@62a07c01_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@62a07c01_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@62a07c01_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModel<br/><b>Killed by : </b>tetrisRunner.states.GameStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.GameStateTest]/[method:getControllerTest()]</span></span> replaced return value with null for tetrisRunner/controller/Controller::getModel &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:gameOverWinShapeOverLimitTest()] (3 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedGameTest()] (3 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:instaDropAvailableTest()] (3 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:checkLeaderboardUpdateTest()] (4 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:setSelectedShapeTest()] (7 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:hasReachedTop()] (7 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepSelectedSettings()] (5 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:setSelectedJacobTest()] (7 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepUpTest()] (5 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepReturnToGame()] (5 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:setSelectedPvPTest()] (6 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:instaDropAvailableTest()] (3 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:goFasterTest()] (8 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:getScoreStringTest()] (3 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:stepDownTest()] (7 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:canMoveRightTest()] (24 ms)</li><li>tetrisRunner.states.GameStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.GameStateTest]/[method:getControllerTest()] (1 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:getScoreNumberTest()] (1 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:incrementScoreTest()] (5 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepSelectedReturnTest()] (4 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedMenuTest()] (3 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedExitTest()] (3 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepSelectedMenu()] (6 ms)</li><li>tetrisRunner.controller.menu.LeaderboardControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.LeaderboardControllerTest]/[method:stepSelectReturnTest()] (5 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:setSelectedClimbingTest()] (6 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:fallShapeNotEmptyTest()] (8 ms)</li><li>tetrisRunner.controller.menu.HighScoreControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.HighScoreControllerTest]/[method:stepDownTest()] (10 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepDownTest()] (4 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:gameOverStatusShapeOverLimitTest()] (3 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepUpTest()] (5 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:gameOverWinOverTimeTest()] (2 ms)</li><li>tetrisRunner.states.PauseStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.PauseStateTest]/[method:getViewerTest()] (2 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:transformShapeToBlockTest()] (10 ms)</li><li>tetrisRunner.controller.menu.PauseControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.PauseControllerTest]/[method:stepSelectedExit()] (5 ms)</li><li>tetrisRunner.controller.menu.StartMenuControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.StartMenuControllerTest]/[method:stepUpTest()] (5 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepSelectedClassicTest()] (4 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:instaDropAvailableTest()] (2 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:getScoreStringTest()] (3 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectMuteTest()] (4 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:getScoreStringTest()] (2 ms)</li><li>tetrisRunner.model.menu.PauseTest.[engine:junit-jupiter]/[class:tetrisRunner.model.menu.PauseTest]/[method:isSelectedSettingsTest()] (5 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepUpTest()] (4 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepDownTest()] (3 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:getScoreNumberTest()] (4 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:newShapePosTest()] (12 ms)</li><li>tetrisRunner.controller.menu.GameOverControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.GameOverControllerTest]/[method:stepSelectExitTest()] (6 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:incrementScoreTest()] (3 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:getScoreNumberTest()] (3 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:incrementScoreTest()] (3 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:isPvPTest()] (2 ms)</li><li>tetrisRunner.controller.menu.GameOverControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.GameOverControllerTest]/[method:stepSelectMainMenuTest()] (11 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:hasNotReachedTop()] (5 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:setSelectedGameModesTest()] (5 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepSelected1v1Test()] (4 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:isPvPTest()] (2 ms)</li><li>tetrisRunner.controller.game.LayoutControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.LayoutControllerTest]/[method:clearLineTest()] (5 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:gameOverStatusShapeOverLimitTest()] (3 ms)</li><li>tetrisRunner.controller.menu.HighScoreControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.HighScoreControllerTest]/[method:stepUpTest()] (10 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:moveJacobLeftNotEmpty()] (27 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:moveJacobRightNotEmpty()] (35 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:setSelectedReturnTest()] (9 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:gameOverStatusJacobDiedTest()] (4 ms)</li><li>tetrisRunner.viewer.menu.SettingsViewerTest.[engine:junit-jupiter]/[class:tetrisRunner.viewer.menu.SettingsViewerTest]/[method:drawElementsMutedTest()] (6 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:jumpJacobEmpty()] (7 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:gameOverStatusJacobDiedTest()] (3 ms)</li><li>tetrisRunner.controller.menu.HighScoreControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.HighScoreControllerTest]/[method:stepChangeNameTest()] (22 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:isNotFallingJacob()] (7 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:stepUpTest()] (8 ms)</li><li>tetrisRunner.controller.menu.LeaderboardControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.LeaderboardControllerTest]/[method:stepUpTest()] (5 ms)</li><li>tetrisRunner.controller.menu.StartMenuControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.StartMenuControllerTest]/[method:stepDownTest()] (4 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:fallJacobEmpty()] (11 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectedReturnPauseTest()] (5 ms)</li><li>tetrisRunner.controller.game.LayoutControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.LayoutControllerTest]/[method:BlockCoinsTest()] (6 ms)</li><li>tetrisRunner.controller.menu.GameOverControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.GameOverControllerTest]/[method:stepUpTest()] (8 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:canShapeRotateTest()] (6 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:tryRotateTest()] (10 ms)</li><li>tetrisRunner.controller.menu.SelectModeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SelectModeControllerTest]/[method:stepSelectedCoOpTest()] (4 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClimbingBehaviorTest]/[method:gameOverWinTest()] (3 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:checkLeaderboardUpdateTest()] (2 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:moveShapeRightTest()] (6 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:moveShapeLeftTest()] (13 ms)</li><li>tetrisRunner.controller.menu.HighScoreControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.HighScoreControllerTest]/[method:stepUpdateClimbingTest()] (12 ms)</li><li>tetrisRunner.controller.menu.GameOverControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.GameOverControllerTest]/[method:stepDownTest()] (9 ms)</li><li>tetrisRunner.controller.game.LayoutControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.LayoutControllerTest]/[method:JacobCoinsTest()] (15 ms)</li><li>tetrisRunner.controller.menu.StartMenuControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.StartMenuControllerTest]/[method:stepSelectSettingsTest()] (3 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:fallJacobNotEmpty()] (8 ms)</li><li>tetrisRunner.controller.menu.GameOverControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.GameOverControllerTest]/[method:stepPlayAgainTest()] (13 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:gameOverStatusJacobDiedTest()] (1 ms)</li><li>tetrisRunner.controller.menu.InstructionControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.InstructionControllerTest]/[method:setSelectedClassicTest()] (7 ms)</li><li>tetrisRunner.controller.menu.StartMenuControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.StartMenuControllerTest]/[method:stepSelectGameModeTest()] (4 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:shapeRotateAntiClockWiseTest()] (7 ms)</li><li>tetrisRunner.states.GameStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.GameStateTest]/[method:getViewerTest()] (2 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:isFallingJacob()] (22 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectedReturnMenuTest()] (4 ms)</li><li>tetrisRunner.viewer.menu.PauseViewerTest.[engine:junit-jupiter]/[class:tetrisRunner.viewer.menu.PauseViewerTest]/[method:drawElementsTest()] (4 ms)</li><li>tetrisRunner.model.game.gamebehavior.PvPBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.PvPBehaviorTest]/[method:isPvPTest()] (2 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:fallShapeEmptyTest()] (6 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:moveJacobRightEmpty()] (15 ms)</li><li>tetrisRunner.controller.menu.LeaderboardControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.LeaderboardControllerTest]/[method:stepDownTest()] (4 ms)</li><li>tetrisRunner.controller.game.LayoutControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.LayoutControllerTest]/[method:transformTest()] (16 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:moveJacobLeftEmpty()] (9 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:isNotAliveJacob()] (10 ms)</li><li>tetrisRunner.controller.menu.StartMenuControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.StartMenuControllerTest]/[method:stepSelectInstructionsTest()] (4 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectVolumeDownTest()] (3 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:isFallingTest()] (13 ms)</li><li>tetrisRunner.controller.game.LayoutControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.LayoutControllerTest]/[method:updateScoreTest()] (18 ms)</li><li>tetrisRunner.viewer.menu.SettingsViewerTest.[engine:junit-jupiter]/[class:tetrisRunner.viewer.menu.SettingsViewerTest]/[method:drawElementsUnmutedTest()] (8 ms)</li><li>tetrisRunner.states.PauseStateTest.[engine:junit-jupiter]/[class:tetrisRunner.states.PauseStateTest]/[method:getControllerTest()] (1 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:checkLeaderboardUpdateTest()] (7 ms)</li><li>tetrisRunner.controller.menu.HighScoreControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.HighScoreControllerTest]/[method:stepEraseLetterTest()] (7 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepSelectVolumeUpTest()] (3 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:shapeRotateClockWiseTest()] (5 ms)</li><li>tetrisRunner.controller.menu.HighScoreControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.HighScoreControllerTest]/[method:stepUpdateClassicTest()] (10 ms)</li><li>tetrisRunner.controller.menu.LeaderboardControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.LeaderboardControllerTest]/[method:stepChangeLeaderboardTest()] (4 ms)</li><li>tetrisRunner.controller.menu.SettingsControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.SettingsControllerTest]/[method:stepDownTest()] (4 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:isAliveJacob()] (36 ms)</li><li>tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest.[engine:junit-jupiter]/[class:tetrisRunner.model.game.gamebehavior.ClassicBehaviorTest]/[method:gameOverWinTest()] (3 ms)</li><li>tetrisRunner.controller.game.JacobControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.JacobControllerTest]/[method:jumpJacobNotEmpty()] (10 ms)</li><li>tetrisRunner.controller.game.ShapeControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.game.ShapeControllerTest]/[method:canMoveLeftTest()] (12 ms)</li><li>tetrisRunner.controller.menu.StartMenuControllerTest.[engine:junit-jupiter]/[class:tetrisRunner.controller.menu.StartMenuControllerTest]/[method:stepSelectExitTest()] (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.7.0
+
+</body>
+</html>

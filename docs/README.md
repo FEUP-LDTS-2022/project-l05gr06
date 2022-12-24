@@ -321,8 +321,13 @@ to keep it that way, so the code would be more organized and the project easier 
 
 ### TESTING
 
-![](../imagens/coverage.png)
+#### Test Code Coverage
+![](images/testCoverage.png)
+Check full Test Coverage Report [here](reports/pitest/202212240256/index.html)
 
+#### Mutation Test
+![](images/mutationTest.png)
+Check full Pitest Report [here](reports/tests/test/index.html)
 
 ### SELF-EVALUATION
 
